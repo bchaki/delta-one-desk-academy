@@ -1,0 +1,39 @@
+examples:
+  long:
+    fn: core.strategies.dividend.future_pnl
+    args:
+      units: 1000.0
+      entry: 20.0
+      settlement: 17.5
+    expected: -2500.0
+    tolerance: 1.0e-09
+    note: long 1,000 at 20 settling 17.5
+  cancel:
+    fn: core.pricing.dividend_derivs.cancellation_pnl
+    args:
+      units: 100.0
+      strike: 18.0
+      forecast: 20.0
+      cancel_fraction: 0.3
+    expected: -400.0
+    tolerance: 1.0e-06
+    note: 14 - 18 per unit
+  swap:
+    fn: core.pricing.dividend_derivs.dividend_swap_pnl
+    args:
+      units: 1000.0
+      strike: 20.0
+      realised: 22.0
+    expected: 2000.0
+    tolerance: 1.0e-09
+    note: realised above strike
+  note:
+    fn: core.strategies.dividend.hedge_note_exposure
+    args:
+      notional_units: 1000.0
+      yearly_points: 20.0
+      years: 2.0
+      cut: 0.25
+    expected: 10000.0
+    tolerance: 1.0e-09
+    note: 1000 x 20 x 2 x 0.25

@@ -1,0 +1,145 @@
+questions:
+- id: mg01
+  type: mcq
+  difficulty: 1
+  prompt: 'Initial margin is:'
+  options:
+  - A buffer against a future move while a defaulter's positions are closed out
+  - The daily settlement of gains and losses
+  - A fee
+  - A haircut on repo
+  answer: 0
+  explanation: Variation margin is the daily settlement.
+- id: mg02
+  type: mcq
+  difficulty: 1
+  prompt: 'Variation margin is:'
+  options:
+  - Daily settlement of mark-to-market gains and losses
+  - A buffer for close-out
+  - A fee
+  - A tax
+  answer: 0
+  explanation: It moves with prices.
+- id: mg03
+  type: numeric
+  difficulty: 2
+  prompt: 'VM: 20 contracts, multiplier 50, price 5,000 to 4,990. Flow received (negative = paid).'
+  answer: -10000.0
+  tolerance: 0.01
+  explanation: '20 x 50 x -10 = -10,000: paid.'
+  unit: currency units
+- id: mg04
+  type: numeric
+  difficulty: 2
+  prompt: 'Scan risk: notional 4m, scan range 7.5%.'
+  answer: 300000.0
+  tolerance: 1
+  explanation: 4,000,000 x 7.5% = 300,000.
+  unit: currency units
+- id: mg05
+  type: mcq
+  difficulty: 2
+  prompt: 'A calendar spread is charged:'
+  options:
+  - A small percentage of matched notional instead of a full scan
+  - Nothing
+  - Double
+  - The same as outright
+  answer: 0
+  explanation: The long and short offset across expiries.
+- id: mg06
+  type: numeric
+  difficulty: 2
+  prompt: 'Inter-commodity credit: 80% of the smaller scan (175,000 vs 187,500).'
+  answer: 140000.0
+  tolerance: 1
+  explanation: 0.8 x 175,000 = 140,000.
+  unit: currency units
+- id: mg07
+  type: numeric
+  difficulty: 2
+  prompt: 'Schedule net IM: gross notional 200m, net 50m, 15% grid, w=0.4.'
+  answer: 16500000.0
+  tolerance: 1
+  explanation: Gross IM 30m; NGR 0.25; net = 30m x (0.4 + 0.6 x 0.25) = 16.5m.
+  unit: currency units
+- id: mg08
+  type: numeric
+  difficulty: 2
+  prompt: 'Reg T initial: long 2m, short 1m.'
+  answer: 1500000.0
+  tolerance: 1
+  explanation: 0.5 x 2m + 0.5 x 1m = 1.5m.
+  unit: currency units
+- id: mg09
+  type: numeric
+  difficulty: 2
+  prompt: 'Reg T maintenance: long 2m, short 1m.'
+  answer: 800000.0
+  tolerance: 1
+  explanation: 0.25 x 2m + 0.3 x 1m = 800,000.
+  unit: currency units
+- id: mg10
+  type: mcq
+  difficulty: 2
+  prompt: 'Portfolio margin differs from Reg T mainly in that it:'
+  options:
+  - Recognises offsets between positions
+  - Ignores shorts
+  - Is cheaper always
+  - Uses no grid
+  answer: 0
+  explanation: Hedges reduce the worst loss.
+- id: mg11
+  type: mcq
+  difficulty: 2
+  prompt: 'A prime broker adds a concentration charge when:'
+  options:
+  - A position is large against client equity
+  - Fees are high
+  - Prices fall
+  - Rates rise
+  answer: 0
+  explanation: Concentrated books are riskier than they look.
+- id: mg12
+  type: numeric
+  difficulty: 3
+  prompt: 'CSA: exposure 3m, threshold 1m, no IA. Required collateral?'
+  answer: 2000000.0
+  tolerance: 1
+  explanation: max(3m - 1m, 0) = 2m.
+  unit: currency units
+- id: mg13
+  type: mcq
+  difficulty: 2
+  prompt: 'Collateral calls are rounded:'
+  options:
+  - Up for calls, down for returns
+  - Always down
+  - Always up
+  - Never
+  answer: 0
+  explanation: Standard convention.
+- id: mg14
+  type: mcq
+  difficulty: 2
+  prompt: 'For a disputed call you should:'
+  options:
+  - Transfer the undisputed amount and resolve the rest
+  - Pay nothing
+  - Pay everything
+  - Wait
+  answer: 0
+  explanation: Standard practice.
+- id: mg15
+  type: mcq
+  difficulty: 2
+  prompt: 'The SIMM-lite weights in this academy are:'
+  options:
+  - Invented and illustrative, not the official calibration
+  - Official
+  - Regulatory
+  - Exchange rules
+  answer: 0
+  explanation: The page labels them.

@@ -1,0 +1,157 @@
+questions:
+- id: sd01
+  type: mcq
+  difficulty: 1
+  prompt: 'A dividend future settles on:'
+  options:
+  - Dividends actually paid in its year
+  - Forecasts
+  - The index level
+  - The strike
+  answer: 0
+  explanation: Realised dividend points.
+- id: sd02
+  type: numeric
+  difficulty: 2
+  prompt: Long 2,000 units at 18, settles at 15.
+  answer: -6000.0
+  tolerance: 1.0e-06
+  explanation: 2,000 x -3 = -6,000.
+  unit: currency units
+- id: sd03
+  type: numeric
+  difficulty: 2
+  prompt: 'Dividend swap: 500 units, strike 10, realised 12.'
+  answer: 1000.0
+  tolerance: 1.0e-06
+  explanation: 500 x 2 = 1,000.
+  unit: currency units
+- id: sd04
+  type: mcq
+  difficulty: 2
+  prompt: 'A dealer long dividends through notes is hurt by:'
+  options:
+  - A dividend cut
+  - A rise in dividends
+  - Rate cuts
+  - Higher spot
+  answer: 0
+  explanation: Less dividend received.
+- id: sd05
+  type: mcq
+  difficulty: 2
+  prompt: 'A desk that sold dividend futures gains from:'
+  options:
+  - A cancellation
+  - A rise in dividends
+  - No change
+  - Higher volatility only
+  answer: 0
+  explanation: Short position gains when settlement falls.
+- id: sd06
+  type: numeric
+  difficulty: 3
+  prompt: 'Notes: 500 units, 10 points a year, 3 years, cut 20%. Shortfall?'
+  answer: 3000.0
+  tolerance: 1.0e-06
+  explanation: 500 x 10 x 3 x 0.2 = 3,000.
+  unit: currency units
+- id: sd07
+  type: mcq
+  difficulty: 2
+  prompt: 'Path risk means:'
+  options:
+  - Mark-to-market before settlement can be worse than the final result
+  - Settlement is certain
+  - No margin
+  - No risk
+  answer: 0
+  explanation: Margin and limits see the path.
+- id: sd08
+  type: mcq
+  difficulty: 2
+  prompt: 'Index dividend futures differ from single-stock swaps because of:'
+  options:
+  - Free-float weights and index rules
+  - The calendar
+  - Nothing
+  - Time zones only
+  answer: 0
+  explanation: Definition basis.
+- id: sd09
+  type: mcq
+  difficulty: 2
+  prompt: 'Dividend delta is reported:'
+  options:
+  - By year and market
+  - Only in total
+  - By client
+  - Never
+  answer: 0
+  explanation: Look at the strip.
+- id: sd10
+  type: mcq
+  difficulty: 2
+  prompt: 'A cancellation stress sets settlement to:'
+  options:
+  - A reduced share of forecast, down to zero
+  - Forecast
+  - Double
+  - Spot
+  answer: 0
+  explanation: Cancelled dividends are not paid.
+- id: sd11
+  type: mcq
+  difficulty: 2
+  prompt: Which affects the dividend a desk receives, besides declaration?
+  options:
+  - Withholding tax treatment
+  - Stock colour
+  - Ticker
+  - Venue
+  answer: 0
+  explanation: Net amounts differ.
+- id: sd12
+  type: mcq
+  difficulty: 2
+  prompt: 'The synthetic dividend futures show large swings because:'
+  options:
+  - They do not converge to a fixed fundamental; that is the lesson
+  - A bug
+  - Rates
+  - Spot
+  answer: 0
+  explanation: Stated on the page.
+- id: sd13
+  type: mcq
+  difficulty: 3
+  prompt: 'Selling dividends to hedge notes leaves residual risk if:'
+  options:
+  - The note references a different definition or forecast
+  - Never
+  - Rates are zero
+  - Spot is flat
+  answer: 0
+  explanation: Basis.
+- id: sd14
+  type: mcq
+  difficulty: 2
+  prompt: 'Compliance cases linked to dividends involve:'
+  options:
+  - Tax-arbitrage structures taught as cases, not strategies
+  - Pairs trading
+  - Index adds
+  - Rolls
+  answer: 0
+  explanation: Cum-ex.
+- id: sd15
+  type: mcq
+  difficulty: 2
+  prompt: Which dividend view is the market's?
+  options:
+  - The level implied by futures
+  - The analyst forecast
+  - The risk system's schedule
+  - The client's
+  answer: 0
+  explanation: Compare all three.

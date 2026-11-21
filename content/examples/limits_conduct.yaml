@@ -1,0 +1,20 @@
+examples:
+  limits:
+    fn: core.risk.limits.check_limits
+    args:
+      metrics:
+        net_delta_usd: 3000000.0
+        var_99_1d_usd: 3500000.0
+        days_to_liquidate: 2.0
+    expected:
+    - name: net_delta_usd
+      status: soft
+      utilisation: 0.6
+    - name: var_99_1d_usd
+      status: hard
+      utilisation: 1.1666666666666667
+    - name: days_to_liquidate
+      status: ok
+      utilisation: 0.3333333333333333
+    tolerance: 1.0e-09
+    note: soft, hard, ok

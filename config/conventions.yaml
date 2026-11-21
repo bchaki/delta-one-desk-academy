@@ -1,0 +1,132 @@
+as_of: 2026-11-21
+source: "Public central-bank / exchange documentation and FCA T+1 page (https://www.fca.org.uk/markets/about-t1-settlement); summarised for teaching"
+verify: true
+
+# Overnight risk-free benchmarks. LIBOR is discontinued and appears only as history.
+benchmarks:
+  SOFR:  {ccy: USD, day_count: "ACT/360",  name: "Secured Overnight Financing Rate"}
+  ESTR:  {ccy: EUR, day_count: "ACT/360",  name: "Euro short-term rate"}
+  SONIA: {ccy: GBP, day_count: "ACT/365F", name: "Sterling Overnight Index Average"}
+  TONA:  {ccy: JPY, day_count: "ACT/365F", name: "Tokyo Overnight Average rate"}
+  SARON: {ccy: CHF, day_count: "ACT/360",  name: "Swiss Average Rate Overnight"}
+
+# Market conventions. Transaction taxes are one-way rates in bps on the notional (buy side
+# for stamp duty; both sides for FTT as noted). Illustrative: verify against the official source.
+markets:
+  US:
+    name: "United States"
+    ccy: USD
+    calendar: US
+    benchmark: SOFR
+    settlement_days: 1
+    settlement_note: "T+1 since May 2024"
+    hours: "09:30-16:00 ET"
+    open_auction: "09:30 ET opening cross"
+    close_auction: "16:00 ET closing cross"
+    tick_regime: "USD 0.01 for prices >= USD 1.00 (sub-penny for some names)"
+    transaction_tax_bps: 0
+    transaction_tax_note: "No stamp duty or FTT; small SEC regulatory fee on sales"
+  DE:
+    name: "Germany"
+    ccy: EUR
+    calendar: TARGET
+    benchmark: ESTR
+    settlement_days: 2
+    settlement_note: "T+2 until 11 October 2027, then T+1"
+    hours: "09:00-17:30 CET"
+    open_auction: "08:50 CET opening auction"
+    close_auction: "17:30 CET closing auction"
+    tick_regime: "MiFID II liquidity-band tick table"
+    transaction_tax_bps: 0
+    transaction_tax_note: "No FTT"
+  FR:
+    name: "France"
+    ccy: EUR
+    calendar: TARGET
+    benchmark: ESTR
+    settlement_days: 2
+    settlement_note: "T+2 until 11 October 2027, then T+1"
+    hours: "09:00-17:30 CET"
+    open_auction: "09:00 CET opening auction"
+    close_auction: "17:30 CET closing auction"
+    tick_regime: "MiFID II liquidity-band tick table"
+    transaction_tax_bps: 40
+    transaction_tax_note: "FTT of 0.4% on purchases of large-cap French shares (market cap above EUR 1bn)"
+  NL:
+    name: "Netherlands"
+    ccy: EUR
+    calendar: TARGET
+    benchmark: ESTR
+    settlement_days: 2
+    settlement_note: "T+2 until 11 October 2027, then T+1"
+    hours: "09:00-17:30 CET"
+    open_auction: "09:00 CET opening auction"
+    close_auction: "17:30 CET closing auction"
+    tick_regime: "MiFID II liquidity-band tick table"
+    transaction_tax_bps: 0
+    transaction_tax_note: "No FTT"
+  CH:
+    name: "Switzerland"
+    ccy: CHF
+    calendar: TARGET
+    benchmark: SARON
+    settlement_days: 2
+    settlement_note: "T+2 until 11 October 2027, then T+1"
+    hours: "09:00-17:30 CET"
+    open_auction: "09:00 CET opening auction"
+    close_auction: "17:20-17:30 CET closing auction"
+    tick_regime: "Exchange tick table by price band"
+    transaction_tax_bps: 15
+    transaction_tax_note: "Swiss turnover stamp tax, 0.15% on domestic securities (paid by each party where a Swiss dealer is involved)"
+  ES:
+    name: "Spain"
+    ccy: EUR
+    calendar: TARGET
+    benchmark: ESTR
+    settlement_days: 2
+    settlement_note: "T+2 until 11 October 2027, then T+1"
+    hours: "09:00-17:30 CET"
+    open_auction: "08:30 CET opening auction"
+    close_auction: "17:30 CET closing auction"
+    tick_regime: "MiFID II liquidity-band tick table"
+    transaction_tax_bps: 20
+    transaction_tax_note: "FTT of 0.2% on purchases of large-cap Spanish shares"
+  IT:
+    name: "Italy"
+    ccy: EUR
+    calendar: TARGET
+    benchmark: ESTR
+    settlement_days: 2
+    settlement_note: "T+2 until 11 October 2027, then T+1"
+    hours: "09:00-17:30 CET"
+    open_auction: "09:00 CET opening auction"
+    close_auction: "17:30 CET closing auction"
+    tick_regime: "MiFID II liquidity-band tick table"
+    transaction_tax_bps: 10
+    transaction_tax_note: "FTT of 0.1% on-exchange equity transfers (higher off-venue); derivatives taxed at a flat amount"
+  UK:
+    name: "United Kingdom"
+    ccy: GBP
+    calendar: UK
+    benchmark: SONIA
+    settlement_days: 2
+    settlement_note: "T+2 until 11 October 2027, then T+1"
+    hours: "08:00-16:30 UK"
+    open_auction: "07:50 UK opening auction"
+    close_auction: "16:30 UK closing auction"
+    tick_regime: "MiFID II-style liquidity-band tick table"
+    transaction_tax_bps: 50
+    transaction_tax_note: "Stamp duty / SDRT of 0.5% on purchases of UK shares; swaps and CFDs can attract relief or alternatives"
+  JP:
+    name: "Japan"
+    ccy: JPY
+    calendar: JAPAN
+    benchmark: TONA
+    settlement_days: 2
+    settlement_note: "T+2"
+    hours: "09:00-11:30, 12:30-15:30 JST"
+    open_auction: "09:00 JST opening call"
+    close_auction: "15:30 JST closing call"
+    tick_regime: "Exchange tick table by price band"
+    transaction_tax_bps: 0
+    transaction_tax_note: "No stamp duty or FTT"

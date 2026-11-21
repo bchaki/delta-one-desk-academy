@@ -1,0 +1,151 @@
+questions:
+- id: ea01
+  type: mcq
+  difficulty: 1
+  prompt: 'ETF trades above NAV by more than costs. The arbitrage is to:'
+  options:
+  - Sell the ETF, buy the basket and create
+  - Buy the ETF and redeem
+  - Do nothing
+  - Buy the basket only
+  answer: 0
+  explanation: Create.
+- id: ea02
+  type: mcq
+  difficulty: 1
+  prompt: Who creates and redeems ETF shares?
+  options:
+  - Authorised participants
+  - Retail clients
+  - The exchange
+  - Rating agencies
+  answer: 0
+  explanation: APs deal with the fund.
+- id: ea03
+  type: numeric
+  difficulty: 2
+  prompt: 'Premium: ETF 50.25, NAV 50.00 (bps).'
+  answer: 50.0
+  tolerance: 1.0e-06
+  explanation: 0.5% = 50 bps.
+  unit: bps
+- id: ea04
+  type: numeric
+  difficulty: 2
+  prompt: 'Threshold: fee 4,000, unit value 4m, basket 2 bps, ETF 1 bp (bps).'
+  answer: 13.0
+  tolerance: 1.0e-09
+  explanation: 10 + 2 + 1 = 13.
+  unit: bps
+- id: ea05
+  type: numeric
+  difficulty: 2
+  prompt: Same, with market costs doubled.
+  answer: 16.0
+  tolerance: 1.0e-09
+  explanation: 10 + 4 + 2 = 16.
+  unit: bps
+- id: ea06
+  type: numeric
+  difficulty: 2
+  prompt: 'Edge: premium 40 bps, threshold 13 bps.'
+  answer: 27.0
+  tolerance: 1.0e-09
+  explanation: '27.'
+  unit: bps
+- id: ea07
+  type: numeric
+  difficulty: 2
+  prompt: PnL per unit worth 5m with edge 27 bps.
+  answer: 13500.0
+  tolerance: 1
+  explanation: 5,000,000 x 0.0027 = 13,500.
+  unit: currency units
+- id: ea08
+  type: mcq
+  difficulty: 2
+  prompt: 'In stress the threshold widens because:'
+  options:
+  - Basket and ETF costs rise while the fee stays
+  - The fee rises
+  - NAV falls
+  - The unit shrinks
+  answer: 0
+  explanation: Market costs scale.
+- id: ea09
+  type: mcq
+  difficulty: 2
+  prompt: 'A large discount that does not close may be:'
+  options:
+  - A real liquidity constraint or a stale NAV
+  - Always free money
+  - An error in the exchange
+  - A tax
+  answer: 0
+  explanation: Check basket prices first.
+- id: ea10
+  type: mcq
+  difficulty: 2
+  prompt: 'The creation fee matters more for:'
+  options:
+  - Smaller units
+  - Bigger units
+  - Neither
+  - Index funds only
+  answer: 0
+  explanation: It is a fixed amount.
+- id: ea11
+  type: mcq
+  difficulty: 2
+  prompt: 'Settlement mismatch between ETF and basket creates:'
+  options:
+  - Financing and fail risk
+  - No risk
+  - Dividends
+  - Spot gain
+  answer: 0
+  explanation: Timing.
+- id: ea12
+  type: mcq
+  difficulty: 2
+  prompt: 'Redeem is done when the ETF is:'
+  options:
+  - At a discount
+  - At a premium
+  - At NAV
+  - Halted
+  answer: 0
+  explanation: Buy ETF, redeem, sell basket.
+- id: ea13
+  type: mcq
+  difficulty: 3
+  prompt: 'The sandbox NAV uses:'
+  options:
+  - Index total return times the fund's scale
+  - Closing price
+  - Dividends
+  - Fees
+  answer: 0
+  explanation: Synthetic NAV.
+- id: ea14
+  type: mcq
+  difficulty: 2
+  prompt: 'iNAV is:'
+  options:
+  - The intraday estimate of NAV
+  - The closing NAV
+  - The fee
+  - The premium
+  answer: 0
+  explanation: Uses intraday prices.
+- id: ea15
+  type: mcq
+  difficulty: 2
+  prompt: 'Concentration in illiquid names makes:'
+  options:
+  - The basket leg the bottleneck
+  - The ETF leg easy
+  - The fee zero
+  - NAV static
+  answer: 0
+  explanation: Hard to buy the basket.

@@ -1,0 +1,45 @@
+examples:
+  name:
+    fn: core.financing.internalisation.internalise_name
+    args:
+      n:
+        $: core.financing.internalisation.NameInput
+        kwargs:
+          ticker: ABC
+          price: 50.0
+          client_short_shares: 200000.0
+          client_long_shares: 150000.0
+          desk_inventory_shares: 20000.0
+          street_fee_bps: 300.0
+      rehyp_fraction: 0.5
+      internal_cost_bps: 50.0
+      days: 30
+      basis: 360
+    expected:
+      internal_supply: 95000.0
+      internal_cover: 95000.0
+      street_borrow: 105000.0
+      savings: 9895.833333333334
+      savings_bps: 118.75
+    tolerance: 1.0e-06
+    note: saving = cover x px x (300-50)bps x 30/360
+  name_bps:
+    fn: core.financing.internalisation.internalise_name
+    args:
+      n:
+        $: core.financing.internalisation.NameInput
+        kwargs:
+          ticker: ABC
+          price: 50.0
+          client_short_shares: 200000.0
+          client_long_shares: 150000.0
+          desk_inventory_shares: 20000.0
+          street_fee_bps: 300.0
+      rehyp_fraction: 0.5
+      internal_cost_bps: 50.0
+      days: 30
+      basis: 360
+    expected:
+      savings_bps: 118.75
+    tolerance: 1.0e-06
+    note: annualised fraction

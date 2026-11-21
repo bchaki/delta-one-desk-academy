@@ -1,0 +1,56 @@
+examples:
+  net_div:
+    fn: core.dividends.net_dividend
+    args:
+      gross: 2.0
+      wht_pct: 15.0
+    expected: 1.7
+    tolerance: 1.0e-09
+    note: 2.00 x (1 - 15%)
+  leakage_full:
+    fn: core.dividends.dividend_leakage
+    args:
+      gross_per_share: 2.0
+      shares: 100000.0
+      wht_pct: 15.0
+      pass_through: 1.0
+    expected: -30000.0
+    tolerance: 1.0e-06
+    note: 100,000 x (1.70 - 2.00)
+  leakage_70:
+    fn: core.dividends.dividend_leakage
+    args:
+      gross_per_share: 2.0
+      shares: 100000.0
+      wht_pct: 15.0
+      pass_through: 0.7
+    expected: 30000.0
+    tolerance: 1.0e-06
+    note: 100,000 x (1.70 - 1.40)
+  index_points:
+    fn: core.dividends.index_dividend_points
+    args:
+      dividends:
+      - - 0.5
+        - 2000000.0
+      divisor: 100000.0
+    expected: 10.0
+    tolerance: 1.0e-09
+    note: 0.50 x 2,000,000 / 100,000
+  implied_pvd:
+    fn: core.dividends.implied_pv_dividends_from_forward
+    args:
+      spot: 100.0
+      forward: 100.6
+      df_to_expiry: 0.99
+    expected: 0.4060000000000059
+    tolerance: 1.0e-09
+    note: 100 - 100.60 x 0.99
+  yield:
+    fn: core.dividends.annual_yield
+    args:
+      price: 100.0
+      annual_dividend: 3.0
+    expected: 0.03
+    tolerance: 1.0e-12
+    note: 3 / 100

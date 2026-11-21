@@ -1,0 +1,154 @@
+questions:
+- id: ia01
+  type: mcq
+  difficulty: 1
+  prompt: 'A future trades above its model fair value by more than costs. The arbitrage is:'
+  options:
+  - Sell the future and buy the basket
+  - Buy the future and sell the basket
+  - Buy both
+  - Do nothing
+  answer: 0
+  explanation: 'Rich future: cash-and-carry.'
+- id: ia02
+  type: mcq
+  difficulty: 1
+  prompt: 'The reverse cash-and-carry is done when the future is:'
+  options:
+  - 'Cheap: buy the future and short the basket'
+  - 'Rich: sell the future'
+  - At fair value
+  - Expiring
+  answer: 0
+  explanation: 'Cheap future: reverse.'
+- id: ia03
+  type: numeric
+  difficulty: 2
+  prompt: Rich entry 3.0 points, exit 0.5, cost 0.4 points. Net points?
+  answer: 2.1
+  tolerance: 1.0e-06
+  explanation: 3.0 - 0.5 - 0.4 = 2.1.
+  unit: index points
+- id: ia04
+  type: numeric
+  difficulty: 2
+  prompt: Short 20 contracts at 5,040, bought back at 5,025, multiplier 50. PnL?
+  answer: 15000.0
+  tolerance: 1.0e-06
+  explanation: 20 x 50 x 15 = 15,000.
+  unit: currency units
+- id: ia05
+  type: numeric
+  difficulty: 2
+  prompt: 'Fair value: spot 4,000, r = 4%, T = 0.5, no dividends.'
+  answer: 4080.80536
+  tolerance: 0.01
+  explanation: 4,000 x e^{0.02} = 4,080.81.
+  unit: index points
+- id: ia06
+  type: mcq
+  difficulty: 2
+  prompt: Which input error is most likely to create a false arbitrage?
+  options:
+  - A funding spread that is too low
+  - A correct rate
+  - A correct dividend
+  - Right multiplier
+  answer: 0
+  explanation: Fair value moves with funding.
+- id: ia07
+  type: mcq
+  difficulty: 2
+  prompt: 'A narrow entry band relative to costs causes:'
+  options:
+  - Many trades with small edges that lose after costs
+  - No trades
+  - Larger wins
+  - Lower risk
+  answer: 0
+  explanation: Costs exceed the edge.
+- id: ia08
+  type: mcq
+  difficulty: 2
+  prompt: 'If a dividend is cut, a short future position:'
+  options:
+  - Loses, because fair value rises
+  - Gains
+  - Is unchanged
+  - Is closed
+  answer: 0
+  explanation: Less dividend to subtract.
+- id: ia09
+  type: mcq
+  difficulty: 2
+  prompt: 'A dividend forecast error mainly affects:'
+  options:
+  - Fair value of the future
+  - The multiplier
+  - The tick size
+  - The exchange
+  answer: 0
+  explanation: Dividends are subtracted in fair value.
+- id: ia10
+  type: numeric
+  difficulty: 2
+  prompt: Costs 2 bps, slippage 0.5 bps per side. Total cost in bps of spot for a round trip?
+  answer: 3.0
+  tolerance: 1.0e-09
+  explanation: 2 + 0.5 x 2 = 3.
+  unit: bps
+- id: ia11
+  type: mcq
+  difficulty: 2
+  prompt: 'Hit rate of 90% with a poor total return suggests:'
+  options:
+  - Small wins and rare large losses
+  - Large wins
+  - No risk
+  - A good strategy
+  answer: 0
+  explanation: A short-volatility profile.
+- id: ia12
+  type: mcq
+  difficulty: 2
+  prompt: 'The reverse trade needs:'
+  options:
+  - Borrow of the stocks
+  - Nothing extra
+  - A rebate
+  - A dividend forecast only
+  answer: 0
+  explanation: Shorting the basket requires borrow.
+- id: ia13
+  type: mcq
+  difficulty: 2
+  prompt: Why is convergence at expiry guaranteed?
+  options:
+  - The future settles at the index
+  - Rates equal zero
+  - Dividends vanish
+  - The exchange guarantees profit
+  answer: 0
+  explanation: Settlement at spot.
+- id: ia14
+  type: mcq
+  difficulty: 3
+  prompt: 'The sandbox uses closing prices. A real desk''s main extra problem is:'
+  options:
+  - Intraday execution, partial fills and basket tracking
+  - None
+  - Closing auctions
+  - Rates
+  answer: 0
+  explanation: Execution and tracking.
+- id: ia15
+  type: mcq
+  difficulty: 2
+  prompt: 'A basket stock is halted. The best response is:'
+  options:
+  - Flag it and reassess the hedge
+  - Ignore it
+  - Double the trade
+  - Cancel the future
+  answer: 0
+  explanation: Basket integrity matters.

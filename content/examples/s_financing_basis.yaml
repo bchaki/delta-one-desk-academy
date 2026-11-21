@@ -1,0 +1,56 @@
+examples:
+  carry:
+    fn: core.strategies.basis.swap_financing_pnl
+    args:
+      notional: 50000000.0
+      spread_bps: 60.0
+      ftp_bps: 35.0
+      bs_bps: 10.0
+      days: 360
+    expected: 75000.0
+    tolerance: 1.0e-06
+    note: 15 bps net
+  fut:
+    fn: core.strategies.basis.futures_hedge_net_bps
+    args:
+      spread_bps: 60.0
+      implied_spread_bps: 20.0
+      margin_pct: 0.05
+      ftp_bps: 35.0
+    expected: 38.25
+    tolerance: 1.0e-09
+    note: 60 - 20 - 1.75
+  choice:
+    fn: core.strategies.basis.hedge_choice
+    args:
+      spread_bps: 60.0
+      ftp_bps: 35.0
+      bs_bps: 10.0
+      implied_spread_bps: 20.0
+      margin_pct: 0.05
+    expected:
+      stock: 15.0
+      futures: 38.25
+      best_is_futures: 1.0
+    tolerance: 1.0e-09
+    note: futures cheaper
+  shock:
+    fn: core.strategies.basis.funding_shock_pnl
+    args:
+      notional: 10000000.0
+      ftp_shock_bps: 25.0
+      days: 180
+    expected: -12500.0
+    tolerance: 1.0e-06
+    note: 25 bps for half a year
+  breakeven:
+    fn: core.strategies.basis.swap_financing_pnl
+    args:
+      notional: 50000000.0
+      spread_bps: 60.0
+      ftp_bps: 50.0
+      bs_bps: 10.0
+      days: 360
+    expected: 0.0
+    tolerance: 1.0e-06
+    note: FTP 50 wipes out the carry

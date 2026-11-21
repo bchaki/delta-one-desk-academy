@@ -1,0 +1,156 @@
+questions:
+- id: me01
+  type: mcq
+  difficulty: 1
+  prompt: 'A stale price is:'
+  options:
+  - An unchanged price on a stock that traded
+  - A rising price
+  - A rounded price
+  - A foreign price
+  answer: 0
+  explanation: An exact repeat is a first flag.
+- id: me02
+  type: mcq
+  difficulty: 1
+  prompt: Which price should an ETF mark use?
+  options:
+  - The primary listing's close
+  - Any venue
+  - The NAV of last week
+  - The ask
+  answer: 0
+  explanation: Use the official source.
+- id: me03
+  type: numeric
+  difficulty: 2
+  prompt: 'Impact: 5,000 shares marked 20.40 instead of 20.00.'
+  answer: 2000.0
+  tolerance: 0.01
+  explanation: 5,000 x 0.40 = 2,000 overstated.
+  unit: currency units
+- id: me04
+  type: numeric
+  difficulty: 2
+  prompt: 'Source difference in bps: primary 50.00, secondary 50.25.'
+  answer: 50.0
+  tolerance: 0.01
+  explanation: 0.5% = 50 bps.
+  unit: bps
+- id: me05
+  type: mcq
+  difficulty: 2
+  prompt: 'A stale mark usually:'
+  options:
+  - Reverses when the price corrects
+  - Compounds forever
+  - Has no effect
+  - Changes the position
+  answer: 0
+  explanation: The error is a one-day effect.
+- id: me06
+  type: mcq
+  difficulty: 2
+  prompt: 'Overrides should be:'
+  options:
+  - Rare, approved and documented
+  - Routine
+  - Verbal
+  - Hidden
+  answer: 0
+  explanation: Evidence is required.
+- id: me07
+  type: mcq
+  difficulty: 2
+  prompt: 'Independent price verification is done by:'
+  options:
+  - Product control
+  - Sales
+  - The client
+  - The exchange
+  answer: 0
+  explanation: They compare marks to external sources.
+- id: me08
+  type: mcq
+  difficulty: 2
+  prompt: 'Fixings are used for:'
+  options:
+  - Benchmark rates and FX at a set time
+  - Stock prices
+  - Margins
+  - Commissions
+  answer: 0
+  explanation: Administrators publish them.
+- id: me09
+  type: mcq
+  difficulty: 2
+  prompt: 'Pence versus pounds is an example of:'
+  options:
+  - A scaling error
+  - A stale price
+  - A fixing error
+  - A bad hedge
+  answer: 0
+  explanation: Currency and unit scaling.
+- id: me10
+  type: mcq
+  difficulty: 2
+  prompt: 'The first step in EOD is to:'
+  options:
+  - Load and compare prices with expected sources
+  - Sign off
+  - Run risk
+  - Send reports
+  answer: 0
+  explanation: Check inputs first.
+- id: me11
+  type: mcq
+  difficulty: 2
+  prompt: 'Flags are best ranked by:'
+  options:
+  - Position size times suspected error
+  - Alphabet
+  - Age
+  - Price
+  answer: 0
+  explanation: Chase the largest impact first.
+- id: me12
+  type: mcq
+  difficulty: 2
+  prompt: 'A flat line in a position chart is often:'
+  options:
+  - A stale feed
+  - A good hedge
+  - A holiday
+  - A split
+  answer: 0
+  explanation: Ask before assuming.
+- id: me13
+  type: mcq
+  difficulty: 2
+  prompt: 'Month-end marks are:'
+  options:
+  - Checked more heavily
+  - Skipped
+  - Estimated
+  - Unchanged
+  answer: 0
+  explanation: Product control re-verifies.
+- id: me14
+  type: mcq
+  difficulty: 2
+  prompt: 'Late corrections after the EOD cut-off need:'
+  options:
+  - A manual adjustment process
+  - Nothing
+  - A new feed
+  - A new desk
+  answer: 0
+  explanation: Know the cut-off.
+- id: me15
+  type: numeric
+  difficulty: 2
+  prompt: 'A 6% move flagged at a 5% threshold: yes=1, no=0.'
+  answer: 1.0
+  tolerance: 0.01
+  explanation: 0.06 > 0.05.

@@ -1,0 +1,151 @@
+questions:
+- id: so01
+  type: numeric
+  difficulty: 1
+  prompt: 'Required collateral: 20,000 sh at 30, margin 1.05.'
+  answer: 630000.0
+  tolerance: 1
+  explanation: 20,000 x 30 x 1.05 = 630,000.
+  unit: currency units
+- id: so02
+  type: numeric
+  difficulty: 2
+  prompt: Collateral 612,000; price rises to 32 (20,000 sh, 1.02). Top-up?
+  answer: 40800.0
+  tolerance: 1
+  explanation: Requirement 652,800; top-up 40,800.
+  unit: currency units
+- id: so03
+  type: mcq
+  difficulty: 2
+  prompt: 'The minimum transfer amount:'
+  options:
+  - Avoids moving small excess amounts every day
+  - Sets the fee
+  - Fixes the price
+  - Is the haircut
+  answer: 0
+  explanation: Excess is returned only when it exceeds the MTA.
+- id: so04
+  type: mcq
+  difficulty: 1
+  prompt: Who may recall an open loan?
+  options:
+  - The lender
+  - Only the regulator
+  - Only the agent
+  - Nobody
+  answer: 0
+  explanation: Open loans can be recalled on demand.
+- id: so05
+  type: mcq
+  difficulty: 2
+  prompt: Which recall response is usually worst for cost?
+  options:
+  - Buy-in
+  - Internalise
+  - Re-borrow at modest fee increase
+  - Wait
+  answer: 0
+  explanation: A forced buy-in at premium plus impact.
+- id: so06
+  type: numeric
+  difficulty: 2
+  prompt: 'Re-borrow cost: 200,000 sh at 25, fee 1% to 3%, 30 days basis 360.'
+  answer: 8333.333333
+  tolerance: 0.01
+  explanation: 5,000,000 x 2% x 30/360 = 8,333.33.
+  unit: currency units
+- id: so07
+  type: numeric
+  difficulty: 2
+  prompt: 'Buy-in cost: 200,000 sh at 25, premium 2%, impact 1%.'
+  answer: 150000.0
+  tolerance: 1
+  explanation: 5,000,000 x 3% = 150,000.
+  unit: currency units
+- id: so08
+  type: mcq
+  difficulty: 2
+  prompt: 'A dividend on a loaned share is:'
+  options:
+  - Manufactured by the borrower to the lender
+  - Kept by the borrower
+  - Ignored
+  - Taxed twice by definition
+  answer: 0
+  explanation: The lender is entitled to the economic dividend.
+- id: so09
+  type: mcq
+  difficulty: 2
+  prompt: 'A stock split on a loaned name:'
+  options:
+  - Changes the loan quantity by the ratio
+  - Cancels the loan
+  - Changes the fee
+  - Has no effect
+  answer: 0
+  explanation: Quantity follows the entitlement.
+- id: so10
+  type: mcq
+  difficulty: 1
+  prompt: 'A fail on return can lead to:'
+  options:
+  - A buy-in and penalties
+  - A bonus
+  - A fee refund
+  - Nothing
+  answer: 0
+  explanation: The lender can buy in at the borrower's cost.
+- id: so11
+  type: mcq
+  difficulty: 2
+  prompt: 'Disputed collateral marks usually arise from:'
+  options:
+  - Different price sources or cut-offs
+  - Fees
+  - Day counts
+  - Taxes
+  answer: 0
+  explanation: Agree source and time in advance.
+- id: so12
+  type: mcq
+  difficulty: 2
+  prompt: 'Concentration in one lender mainly increases:'
+  options:
+  - Recall risk
+  - Dividend risk
+  - Basis risk
+  - FX risk
+  answer: 0
+  explanation: One lender's decision can pull a large share of supply.
+- id: so13
+  type: mcq
+  difficulty: 2
+  prompt: 'A reconciliation break after a partial return is typically:'
+  options:
+  - A quantity mismatch
+  - A rate mismatch
+  - A date error
+  - A currency error
+  answer: 0
+  explanation: Quantities diverge after partial returns.
+- id: so14
+  type: mcq
+  difficulty: 2
+  prompt: Which control should run BEFORE a short is sold?
+  options:
+  - Locate check
+  - Month-end close
+  - Recon
+  - Margin call
+  answer: 0
+  explanation: Locates are a pre-trade control.
+- id: so15
+  type: numeric
+  difficulty: 3
+  prompt: 'Internalise cost: 200,000 sh at 25, internal 0.5%, 30 days basis 360.'
+  answer: 2083.333333
+  tolerance: 0.01
+  explanation: 5,000,000 x 0.5% x 30/360 = 2,083.33.
+  unit: currency units

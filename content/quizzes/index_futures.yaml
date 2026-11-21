@@ -1,0 +1,119 @@
+questions:
+  - id: if01
+    type: mcq
+    difficulty: 1
+    prompt: "In the fair value formula for an index future, what is subtracted from the financed spot level?"
+    options: ["The dividends paid before expiry, grown to expiry", "The futures margin", "The bid-offer spread", "The borrow fee on the index"]
+    answer: 0
+    explanation: "Holding the future instead of the basket means you do not receive the basket's dividends, so they reduce the fair price: F = S e^(rT) - sum D_i e^(r(T - t_i))."
+  - id: if02
+    type: numeric
+    difficulty: 1
+    prompt: "S = 4,000, r = 4% continuously compounded, T = 0.5 years, no dividends. What is the fair value of the future (index points)?"
+    answer: 4080.81
+    tolerance: 0.02
+    unit: "points"
+    explanation: "4,000 x e^(0.04 x 0.5) = 4,000 x e^0.02 = 4,000 x 1.020201 = 4,080.81."
+  - id: if03
+    type: mcq
+    difficulty: 1
+    prompt: "What must the basis (future minus spot) equal at expiry of a cash-settled index future?"
+    options: ["Zero", "The financing cost for one day", "The last dividend", "The exchange margin"]
+    answer: 0
+    explanation: "The future is settled to the index level, so at expiry F equals S. That is [[convergence]]."
+  - id: if04
+    type: numeric
+    difficulty: 2
+    prompt: "S = 4,000, F = 4,050, dividends valued at expiry = 10 points, 91 days, ACT/360. What is the simple implied repo as a decimal (0.05 = 5%)?"
+    answer: 0.05934
+    tolerance: 0.0001
+    explanation: "((4,050 + 10) / 4,000 - 1) x 360 / 91 = 0.015 x 3.9560 = 0.05934, or 5.93%."
+  - id: if05
+    type: mcq
+    difficulty: 1
+    prompt: "A client is long one index future and the index does not move for a month. What happens to the future's price relative to the index?"
+    options: ["The basis shrinks towards zero, so the long loses the carry it is paying", "The basis grows because dividends accrue", "Nothing changes", "The future rises with interest rates"]
+    answer: 0
+    explanation: "The basis is positive when carry exceeds dividends and decays to zero at expiry. For a long, that decay is the financing cost of holding the exposure through the future."
+  - id: if06
+    type: numeric
+    difficulty: 1
+    prompt: "A desk is long 20 contracts with a multiplier of 10 EUR per point. The future moves from 4,800 to 4,825. What is the PnL in EUR?"
+    answer: 5000
+    tolerance: 0.5
+    unit: "EUR"
+    explanation: "Quantity x multiplier x change = 20 x 10 x 25 = 5,000 EUR gain to the long."
+  - id: if07
+    type: mcq
+    difficulty: 2
+    prompt: "The implied repo from a futures price is above the desk's funding rate for longs plus costs. What is the future?"
+    options: ["Rich: sell the future and buy the basket (cash and carry)", "Cheap: buy the future and short the basket", "Fairly priced, do nothing", "Impossible: implied repo cannot exceed funding"]
+    answer: 0
+    explanation: "A high implied repo means the future pays more than financing the basket costs. Selling the future and buying the stock captures the difference (a [[cash and carry]])."
+  - id: if08
+    type: spot_error
+    difficulty: 2
+    prompt: "One of these statements about index futures is wrong. Which one?"
+    options: ["F = S e^(rT) minus the grown value of dividends going ex before expiry", "Dividends going ex after expiry also reduce today's fair value", "The basis converges to zero at expiry", "Index futures are cash settled"]
+    answer: 1
+    explanation: "Only dividends that go ex before expiry matter. The future holder never receives the basket's later dividends, and the basket owner's later dividends do not enter the cost of carry up to the expiry date."
+  - id: if09
+    type: numeric
+    difficulty: 2
+    prompt: "Near contract 4,800, far contract 4,830, a quarter (0.25 years) apart. What is the gross roll cost for a long, in bps a year of exposure?"
+    answer: 250
+    tolerance: 0.5
+    unit: "bps a year"
+    explanation: "(4,830 - 4,800) / 4,800 / 0.25 x 10,000 = 250 bps a year."
+  - id: if10
+    type: mcq
+    difficulty: 2
+    prompt: "How does a total return future (TRF) differ from a price index future?"
+    options: ["It pays the index's total return, so dividends drop out of the financing and it is quoted as a spread over a benchmark", "It is settled physically in shares", "It has no margin", "It pays only the dividend"]
+    answer: 0
+    explanation: "A [[total return future]] passes the dividends through to the long, so fair value has no dividend term and the price is the financing spread."
+  - id: if11
+    type: numeric
+    difficulty: 2
+    prompt: "TRF notional 10m, benchmark 3.5%, spread 30 bps, 90 days, ACT/360. What financing amount does the long owe?"
+    answer: 95000
+    tolerance: 1
+    unit: "currency units"
+    explanation: "10,000,000 x (3.50% + 0.30%) x 90 / 360 = 10,000,000 x 0.038 x 0.25 = 95,000."
+  - id: if12
+    type: mcq
+    difficulty: 1
+    prompt: "What is the main difference between initial margin and variation margin on a future?"
+    options: ["Initial margin is a buffer posted when the position is opened; variation margin is the daily cash settlement of gains and losses", "Initial margin is paid daily, variation margin once", "They are the same", "Variation margin is only for options"]
+    answer: 0
+    explanation: "Initial margin protects the clearing house against a bad move. [[variation margin]] moves the day's PnL in cash every day."
+  - id: if13
+    type: mcq
+    difficulty: 2
+    prompt: "Why can a future trade away from fair value without a risk-free arbitrage?"
+    options: ["Trading costs, financing spreads and borrow costs create a no-arbitrage band around fair value", "Futures prices are random", "Dividends are unknown to everyone", "Exchanges forbid arbitrage"]
+    answer: 0
+    explanation: "A cash and carry pays funding, commission and spread on the basket. Those costs, plus the short rebate on the reverse trade, make a band inside which no arbitrage pays."
+  - id: if14
+    type: numeric
+    difficulty: 3
+    prompt: "S = 4,000, TRF spread 25 bps, benchmark 4.0%, tau = 0.5 years, dividends valued at expiry = 30 points. What equivalent price-future basis (F - S) does the TRF imply, in points?"
+    answer: 55
+    tolerance: 0.01
+    unit: "points"
+    explanation: "Basis = S x (benchmark + spread) x tau - FV(divs) = 4,000 x 0.0425 x 0.5 - 30 = 85 - 30 = 55 points."
+  - id: if15
+    type: mcq
+    difficulty: 2
+    prompt: "A client swap is hedged with the nearest futures contract and the desk misses the roll. What happens at expiry?"
+    options: ["The future settles to cash and the swap is left unhedged", "The swap is cancelled", "The client pays the roll cost twice", "Nothing: swaps auto-roll"]
+    answer: 0
+    explanation: "A cash-settled future simply expires. The client's swap keeps its exposure but the hedge is gone, so the desk is outright long or short the index."
+  - id: if16
+    type: numeric
+    difficulty: 3
+    prompt: "S = 2,000, r = 3% continuously compounded, T = 0.5, one dividend of 8 points going ex after 0.2 years. What is fair value (points)?"
+    answer: 2022.15
+    tolerance: 0.02
+    unit: "points"
+    explanation: "2,000 x e^0.015 = 2,030.23, minus 8 x e^(0.03 x 0.3) = 8.07, gives 2,022.15."

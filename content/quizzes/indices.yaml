@@ -1,0 +1,139 @@
+questions:
+- id: ix01
+  type: mcq
+  difficulty: 1
+  prompt: What does the divisor do?
+  options:
+  - Keeps the index level continuous when the basket changes
+  - Sets the dividend
+  - Defines the free float
+  - Converts currencies
+  answer: 0
+  explanation: The [[divisor]] absorbs jumps in total market value from constituent changes.
+- id: ix02
+  type: numeric
+  difficulty: 1
+  prompt: Prices 10, 20; shares 100, 50; free float 100% each; no capping; divisor 10. Level?
+  answer: 200.0
+  tolerance: 0.001
+  explanation: (1,000 + 1,000)/10 = 200.
+- id: ix03
+  type: numeric
+  difficulty: 2
+  prompt: Value moves from 400,000 to 500,000 at a divisor of 50. New divisor?
+  answer: 62.5
+  tolerance: 0.001
+  explanation: 50 x 500,000/400,000 = 62.5.
+- id: ix04
+  type: mcq
+  difficulty: 2
+  prompt: If the index level jumps on a reconstitution day only because of a membership change, what is probably wrong?
+  options:
+  - The divisor was not adjusted
+  - Dividends were paid
+  - The VIX moved
+  - Free float is too high
+  answer: 0
+  explanation: The divisor is designed to keep the level continuous.
+- id: ix05
+  type: mcq
+  difficulty: 1
+  prompt: 'A stock has half its shares held by a founder. Its free float is:'
+  options:
+  - 50%
+  - 100%
+  - 0%
+  - 25%
+  answer: 0
+  explanation: Only shares available to the public count.
+- id: ix06
+  type: numeric
+  difficulty: 2
+  prompt: Weights 60/25/15 capped at 40%. New weight of the second name?
+  answer: 0.375
+  tolerance: 0.0001
+  explanation: 'Excess 20% goes pro rata to 25 and 15: 25 + 12.5 = 37.5%.'
+- id: ix07
+  type: mcq
+  difficulty: 1
+  prompt: 'A price index differs from a total return index in that it:'
+  options:
+  - Ignores dividends
+  - Ignores prices
+  - Uses equal weights
+  - Is only for ETFs
+  answer: 0
+  explanation: Total return reinvests dividends.
+- id: ix08
+  type: numeric
+  difficulty: 2
+  prompt: Index funds hold 100bn tracking an index. A stock enters at 0.5% weight, price 25. Shares to buy?
+  answer: 20000000.0
+  tolerance: 1
+  explanation: 100bn x 0.5% = 500m notional / 25 = 20m shares.
+  unit: shares
+- id: ix09
+  type: numeric
+  difficulty: 2
+  prompt: 'The same 20m shares against ADV of 5m shares: days of ADV?'
+  answer: 4.0
+  tolerance: 0.001
+  explanation: 20m / 5m = 4 days.
+- id: ix10
+  type: mcq
+  difficulty: 2
+  prompt: Why is closing auction volume huge on rebalance days?
+  options:
+  - Index funds must trade at the close to match the new index
+  - Exchanges are closed
+  - It is a holiday
+  - Futures expire
+  answer: 0
+  explanation: Tracking funds trade at the closing price to minimise tracking error.
+- id: ix11
+  type: numeric
+  difficulty: 2
+  prompt: TR index = 2,000, price 1,000 to 1,008, dividends 3 points. New TR?
+  answer: 2022.0
+  tolerance: 0.01
+  explanation: 2,000 x 1,011/1,000 = 2,022.
+- id: ix12
+  type: mcq
+  difficulty: 2
+  prompt: 'A capping factor is:'
+  options:
+  - A multiplier on share count that produces the capped weight
+  - A tax rate
+  - A trading limit
+  - The divisor
+  answer: 0
+  explanation: It scales each name's shares to produce the capped weight.
+- id: ix13
+  type: numeric
+  difficulty: 3
+  prompt: Equal-weighted index of 4 stocks. One stock doubles, others flat. Weight of the winner before rebalancing (decimal)?
+  answer: 0.4
+  tolerance: 0.0001
+  explanation: Values 2,1,1,1 -> 2/5 = 40%.
+- id: ix14
+  type: mcq
+  difficulty: 2
+  prompt: 'Index swaps and futures on one index but different methodologies can diverge because of:'
+  options:
+  - Free float, capping or dividend treatment
+  - The font
+  - Time zones only
+  - Nothing
+  answer: 0
+  explanation: Methodology details change the basket.
+- id: ix15
+  type: mcq
+  difficulty: 2
+  prompt: 'After an index event, the TDA should first check:'
+  options:
+  - Divisor, constituents, free float and capping against the published notice
+  - Weather
+  - Client PnL
+  - The FX fixing
+  answer: 0
+  explanation: Those are the usual causes of level breaks.

@@ -1,0 +1,151 @@
+questions:
+- id: sb01
+  type: mcq
+  difficulty: 1
+  prompt: 'General collateral means:'
+  options:
+  - Plentiful stock with low fees
+  - Hard-to-borrow stock
+  - Cash collateral
+  - A bond
+  answer: 0
+  explanation: GC.
+- id: sb02
+  type: numeric
+  difficulty: 2
+  prompt: 'Gross revenue: 200m, 25% utilisation, 80 bps, 90 days (USD).'
+  answer: 100000.0
+  tolerance: 1
+  explanation: 200m x 0.25 x 0.008 x 0.25 = 100,000.
+  unit: currency units
+- id: sb03
+  type: numeric
+  difficulty: 2
+  prompt: Agent share at 85/15 of that revenue.
+  answer: 15000.0
+  tolerance: 1
+  explanation: 15% of 100,000 = 15,000.
+  unit: currency units
+- id: sb04
+  type: numeric
+  difficulty: 2
+  prompt: 'Fee at 60% utilisation: GC 25 bps, steepness 2.'
+  answer: 70.0
+  tolerance: 1.0e-06
+  explanation: 25 x (1 + 2 x 0.36/0.4) = 70.
+  unit: bps
+- id: sb05
+  type: mcq
+  difficulty: 2
+  prompt: 'The fee curve is:'
+  options:
+  - Convex in utilisation
+  - Linear
+  - Flat
+  - Decreasing
+  answer: 0
+  explanation: Spikes near 100%.
+- id: sb06
+  type: mcq
+  difficulty: 2
+  prompt: 'A recall can be met by:'
+  options:
+  - Re-borrow, buy-in or internalisation
+  - Waiting
+  - Ignoring
+  - Raising the fee
+  answer: 0
+  explanation: Three responses.
+- id: sb07
+  type: numeric
+  difficulty: 3
+  prompt: 'Cheapest recall response: 100,000 shares at 50, fees 1% to 5%, 30 days, buy-in 3%, internal 0.5% (cost of internalise).'
+  answer: 2083.333333
+  tolerance: 1
+  explanation: 5m x 0.005 x 30/360 = 2,083.
+  unit: currency units
+- id: sb08
+  type: numeric
+  difficulty: 2
+  prompt: 'Upgrade: 50m, 10 bps, 60 days.'
+  answer: 8333.333333
+  tolerance: 1
+  explanation: 50m x 0.001 x 60/360 = 8,333.
+  unit: currency units
+- id: sb09
+  type: mcq
+  difficulty: 2
+  prompt: 'With cash collateral the borrower receives:'
+  options:
+  - A rebate
+  - A fee bill only
+  - Dividends
+  - Nothing
+  answer: 0
+  explanation: Rebate = reinvestment rate - fee.
+- id: sb10
+  type: mcq
+  difficulty: 2
+  prompt: 'Reinvestment risk is:'
+  options:
+  - Loss on reinvested cash collateral
+  - A fee
+  - Recall
+  - A tax
+  answer: 0
+  explanation: Can exceed the fees.
+- id: sb11
+  type: mcq
+  difficulty: 2
+  prompt: 'Revenue concentrated in a few names means:'
+  options:
+  - Dependency on them
+  - Diversification
+  - No risk
+  - Higher GC
+  answer: 0
+  explanation: Concentration.
+- id: sb12
+  type: mcq
+  difficulty: 2
+  prompt: 'A squeeze raises fees but also:'
+  options:
+  - Recalls, buy-ins and reputational risk
+  - Nothing
+  - Dividends
+  - Utilisation falls
+  answer: 0
+  explanation: Not free.
+- id: sb13
+  type: mcq
+  difficulty: 2
+  prompt: 'Internalisation works only if:'
+  options:
+  - The inventory exists
+  - Fees are zero
+  - The client agrees
+  - It is Monday
+  answer: 0
+  explanation: Cover from own inventory.
+- id: sb14
+  type: mcq
+  difficulty: 2
+  prompt: 'Compare two borrows by converting to:'
+  options:
+  - Fee in bps a year
+  - Price
+  - Dividend
+  - Ticker
+  answer: 0
+  explanation: Common measure.
+- id: sb15
+  type: mcq
+  difficulty: 3
+  prompt: 'Borrow availability and fees are commercially sensitive. Share them:'
+  options:
+  - Only through proper channels
+  - With anyone
+  - Publicly
+  - With clients unprompted
+  answer: 0
+  explanation: Information control.

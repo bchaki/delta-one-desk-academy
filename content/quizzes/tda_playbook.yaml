@@ -1,0 +1,166 @@
+questions:
+- id: tp01
+  type: mcq
+  difficulty: 1
+  prompt: 'The first priority in a busy morning is:'
+  options:
+  - What costs money or breaks a client promise today
+  - Process improvement
+  - Documentation clean-up
+  - Training
+  answer: 0
+  explanation: Money and client promises come first.
+- id: tp02
+  type: mcq
+  difficulty: 1
+  prompt: 'A good checklist item is phrased as:'
+  options:
+  - An action with a completion test
+  - A vague reminder
+  - A policy
+  - A question
+  answer: 0
+  explanation: Actions with tests keep quality constant.
+- id: tp03
+  type: mcq
+  difficulty: 2
+  prompt: 'A stale reset price is found before releasing cash. You should:'
+  options:
+  - Flag it and hold the release until corrected
+  - Release and fix later
+  - Ignore it
+  - Delete the trade
+  answer: 0
+  explanation: Stop money leaving on a bad number.
+- id: tp04
+  type: mcq
+  difficulty: 2
+  prompt: 'A good break note includes:'
+  options:
+  - Trade, amount, suspected cause, evidence and proposed fix
+  - Only the amount
+  - Only an apology
+  - The trader's name
+  answer: 0
+  explanation: It lets others act without re-investigating.
+- id: tp05
+  type: mcq
+  difficulty: 1
+  prompt: 'The best things to automate first are:'
+  options:
+  - Repeated rule-based checks
+  - Judgement calls
+  - Client conversations
+  - Pricing decisions
+  answer: 0
+  explanation: Automate checks, keep a human on decisions.
+- id: tp06
+  type: mcq
+  difficulty: 2
+  prompt: 'You make a booking error and spot it an hour later. You should:'
+  options:
+  - Report it immediately with the fix
+  - Wait to see if anyone notices
+  - Quietly rebook
+  - Blame the system
+  answer: 0
+  explanation: Early reporting keeps the cost small.
+- id: tp07
+  type: mcq
+  difficulty: 1
+  prompt: 'The first 30 days are mainly for:'
+  options:
+  - Learning the book, systems and cut-offs
+  - Automating everything
+  - Presenting to the CEO
+  - Changing the process
+  answer: 0
+  explanation: Learn before you change.
+- id: tp08
+  type: mcq
+  difficulty: 2
+  prompt: 'Handover notes should include:'
+  options:
+  - Open items, owners, deadlines and anything unusual
+  - Only the PnL
+  - Only the positions
+  - Nothing if all is fine
+  answer: 0
+  explanation: They give the next person the same picture.
+- id: tp09
+  type: mcq
+  difficulty: 2
+  prompt: When is escalation appropriate?
+  options:
+  - When money or a client is affected and you don't know how long it will take
+  - Never
+  - Only at month end
+  - Only for large trades
+  answer: 0
+  explanation: Escalate early on money and client issues.
+- id: tp10
+  type: mcq
+  difficulty: 1
+  prompt: Which is first line of control for booking correctness?
+  options:
+  - The TDA
+  - Compliance
+  - The client
+  - Audit
+  answer: 0
+  explanation: The TDA is the first control.
+- id: tp11
+  type: mcq
+  difficulty: 2
+  prompt: 'The unexplained PnL is 4,200 and one stale price is known. You should:'
+  options:
+  - Check whether the stale price explains it and note the correction
+  - Round it away
+  - Book a plug
+  - Ignore it
+  answer: 0
+  explanation: Explain the residual; never plug it.
+- id: tp12
+  type: mcq
+  difficulty: 2
+  prompt: 'At the US open the TDA typically:'
+  options:
+  - Repeats the loop for US names and hands off the Europe and Asia books
+  - Closes the desk
+  - Starts the month end
+  - Updates the glossary
+  answer: 0
+  explanation: The day follows the markets.
+- id: tp13
+  type: mcq
+  difficulty: 1
+  prompt: 'A break log is useful because:'
+  options:
+  - Patterns repeat and the log reveals them
+  - It is required by law
+  - It replaces the PnL
+  - It is shared with clients
+  answer: 0
+  explanation: Patterns help you find causes quickly.
+- id: tp14
+  type: mcq
+  difficulty: 2
+  prompt: 'Days 61 to 90 are mainly for:'
+  options:
+  - Improving and extending the process, including one automation
+  - Only shadowing
+  - Taking holiday
+  - Ignoring breaks
+  answer: 0
+  explanation: By then you own a process and can improve it.
+- id: tp15
+  type: mcq
+  difficulty: 2
+  prompt: Why call the person who owns a process rather than email?
+  options:
+  - It often saves an hour
+  - Email is banned
+  - Calls are logged
+  - It is cheaper
+  answer: 0
+  explanation: A quick call resolves ambiguity.

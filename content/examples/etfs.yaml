@@ -1,0 +1,48 @@
+examples:
+  nav:
+    fn: core.pricing.etf.nav_per_share
+    args:
+      holdings:
+        A: 100.0
+        B: 200.0
+      prices:
+        A: 50.0
+        B: 25.0
+      cash: 1000.0
+      shares_outstanding: 100.0
+    expected: 110.0
+    tolerance: 1.0e-09
+    note: (5,000 + 5,000 + 1,000)/100
+  premium:
+    fn: core.pricing.etf.premium_discount
+    args:
+      etf_price: 110.55
+      nav: 110.0
+    expected: 0.005
+    tolerance: 1.0e-09
+    note: 110.55/110 - 1
+  threshold:
+    fn: core.pricing.etf.arb_threshold_bps
+    args:
+      creation_fee: 500.0
+      cu_value: 5500000.0
+      basket_cost_bps: 4.0
+      etf_half_spread_bps: 2.0
+    expected: 6.909090909090909
+    tolerance: 1.0e-09
+    note: 0.909 + 4 + 2
+  arb:
+    fn: core.pricing.etf.etf_arbitrage
+    args:
+      etf_price: 110.8
+      inav: 110.0
+      cu_size: 50000.0
+      creation_fee: 500.0
+      basket_cost_bps: 4.0
+      etf_half_spread_bps: 2.0
+    expected:
+      action: create
+      premium_bps: 72.7272727272732
+      pnl_per_creation_unit: 36200.00000000026
+    tolerance: 1.0e-06
+    note: 'rich ETF: create'

@@ -1,0 +1,48 @@
+examples:
+  demand:
+    fn: core.indices.inclusion_demand
+    args:
+      tracked_aum: 50000000000.0
+      new_weight: 0.015
+      price: 50.0
+      adv: 1000000.0
+      impact_k: 0.7
+      daily_vol: 0.02
+    expected:
+      shares: 15000000.0
+      notional: 750000000.0
+      days_of_adv: 15.0
+      impact_bps: 542.2176684690382
+    tolerance: 1.0e-06
+    note: AUM x weight / price
+  pre:
+    fn: core.strategies.index_events.preposition_pnl
+    args:
+      notional: 5000000.0
+      pre_move_bps: 40.0
+      impact_bps: 10.0
+      cost_bps: 2.0
+    expected: 14000.0
+    tolerance: 1.0e-06
+    note: 28 bps of 5m
+  moc:
+    fn: core.strategies.index_events.moc_facilitation_pnl
+    args:
+      shares: 1000000.0
+      price: 50.0
+      fee_bps: 6.0
+      hedge_slippage_bps: 2.0
+    expected: 20000.0
+    tolerance: 1.0e-06
+    note: 4 bps of 50m
+  crowd:
+    fn: core.strategies.index_events.crowded_unwind_bps
+    args:
+      shares: 100000.0
+      adv: 1000000.0
+      daily_vol: 0.02
+      k: 1.0
+      crowd_multiplier: 3.0
+    expected: 189.73665961010275
+    tolerance: 1.0e-06
+    note: three times a sqrt impact

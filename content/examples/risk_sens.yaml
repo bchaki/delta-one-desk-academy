@@ -1,0 +1,63 @@
+examples:
+  delta:
+    fn: core.risk.basic.delta_exposure
+    args:
+      shares: 10000.0
+      price: 50.0
+      fx: 1.1
+    expected: 550000.0
+    tolerance: 1.0e-06
+    note: 10,000 x 50 x 1.10
+  beta:
+    fn: core.risk.basic.beta_adjusted
+    args:
+      delta: 550000.0
+      beta: 1.2
+    expected: 660000.0
+    tolerance: 1.0e-06
+    note: x 1.2
+  fx:
+    fn: core.risk.basic.fx_translation_pnl
+    args:
+      local_value: 1000000.0
+      fx_move_pct: -2.0
+    expected: -20000.0
+    tolerance: 1.0e-06
+    note: 1m x -2%
+  ftp:
+    fn: core.risk.basic.funding_sensitivity
+    args:
+      long_inventory: 100000000.0
+      bp: 1.0
+    expected: -10000.0
+    tolerance: 1.0e-06
+    note: -100m x 1 bp
+  div:
+    fn: core.risk.basic.dividend_exposure_pnl
+    args:
+      delta: 10000000.0
+      annual_yield: 0.03
+      pct_change: -10.0
+    expected: -30000.0
+    tolerance: 1.0e-06
+    note: 10m x 3% x -10%
+  dtl:
+    fn: core.risk.basic.days_to_liquidate
+    args:
+      shares: 500000.0
+      adv: 1000000.0
+      participation: 0.2
+    expected: 2.5
+    tolerance: 1.0e-09
+    note: 500k / (0.2 x 1m)
+  hhi:
+    fn: core.risk.basic.hhi
+    args:
+      weights:
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+    expected: 0.25
+    tolerance: 1.0e-09
+    note: 4 x (1/4)^2

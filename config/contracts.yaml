@@ -1,0 +1,83 @@
+as_of: 2026-11-21
+source: "Exchange contract-specification pages, summarised for teaching. Synthetic D1 contracts are fictional."
+verify: true
+
+# Illustrative specs. multiplier is currency units per index point; tick is in index points.
+contracts:
+  ES:
+    name: "E-mini S&P 500"
+    exchange: "CME"
+    ccy: USD
+    multiplier: 50
+    tick: 0.25
+    cycle_months: [3, 6, 9, 12]
+    last_trading_day: "Third Friday of the contract month (trading ends the prior day's close in practice)"
+    settlement: "Cash settled to the Special Opening Quotation"
+    hours: "Nearly 24h, Sunday evening to Friday afternoon ET, with a daily break"
+    index_key: null
+  SX5E:
+    name: "EURO STOXX 50 futures"
+    exchange: "Eurex"
+    ccy: EUR
+    multiplier: 10
+    tick: 1.0
+    cycle_months: [3, 6, 9, 12]
+    last_trading_day: "Third Friday of the contract month"
+    settlement: "Cash settled to the final settlement price (index average during an auction window)"
+    hours: "01:10-22:00 CET"
+    index_key: null
+  DAX:
+    name: "DAX futures"
+    exchange: "Eurex"
+    ccy: EUR
+    multiplier: 25
+    tick: 0.5
+    cycle_months: [3, 6, 9, 12]
+    last_trading_day: "Third Friday of the contract month"
+    settlement: "Cash settled to the final settlement price"
+    hours: "01:10-22:00 CET"
+    index_key: null
+  FTSE:
+    name: "FTSE 100 futures"
+    exchange: "ICE Futures Europe"
+    ccy: GBP
+    multiplier: 10
+    tick: 0.5
+    cycle_months: [3, 6, 9, 12]
+    last_trading_day: "Third Friday of the contract month"
+    settlement: "Cash settled to the Exchange Delivery Settlement Price"
+    hours: "01:00-21:00 UK"
+    index_key: null
+  NKY:
+    name: "Nikkei 225 futures (large)"
+    exchange: "OSE"
+    ccy: JPY
+    multiplier: 1000
+    tick: 10
+    cycle_months: [3, 6, 9, 12]
+    last_trading_day: "Business day before the second Friday of the contract month"
+    settlement: "Cash settled to the Special Quotation (SQ) on the second Friday"
+    hours: "Day 08:45-15:45 JST plus night session"
+    index_key: null
+  D1US30:
+    name: "D1 US 30 futures (synthetic)"
+    exchange: "Synthetic exchange"
+    ccy: USD
+    multiplier: 100
+    tick: 0.5
+    cycle_months: [3, 6, 9, 12]
+    last_trading_day: "Third Friday of the contract month"
+    settlement: "Cash settled to the closing index level"
+    hours: "Aligned to US cash hours plus extended session"
+    index_key: "D1 US 30"
+  D1EU20:
+    name: "D1 Europe 20 futures (synthetic)"
+    exchange: "Synthetic exchange"
+    ccy: EUR
+    multiplier: 10
+    tick: 1.0
+    cycle_months: [3, 6, 9, 12]
+    last_trading_day: "Third Friday of the contract month"
+    settlement: "Cash settled to the closing index level"
+    hours: "Aligned to European cash hours"
+    index_key: "D1 Europe 20"

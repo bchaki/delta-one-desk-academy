@@ -1,0 +1,148 @@
+questions:
+- id: pg01
+  type: mcq
+  difficulty: 1
+  prompt: 'Net contribution is:'
+  options:
+  - Revenue minus funding minus balance sheet
+  - Revenue only
+  - Capital
+  - PnL before costs
+  answer: 0
+  explanation: Costs matter.
+- id: pg02
+  type: mcq
+  difficulty: 1
+  prompt: 'Economic profit also subtracts:'
+  options:
+  - Cost of capital
+  - Revenue
+  - Funding
+  - Fees
+  answer: 0
+  explanation: Capital x cost of equity.
+- id: pg03
+  type: numeric
+  difficulty: 2
+  prompt: 'Funding: 150m, FTP 30 bps.'
+  answer: 450000.0
+  tolerance: 1
+  explanation: 150m x 0.003 = 450,000.
+  unit: currency units
+- id: pg04
+  type: numeric
+  difficulty: 2
+  prompt: 'Balance sheet: 150m x 1.2 x 10 bps.'
+  answer: 180000.0
+  tolerance: 1
+  explanation: 180m x 0.001 = 180,000.
+  unit: currency units
+- id: pg05
+  type: numeric
+  difficulty: 2
+  prompt: Capital at 5% of 180m.
+  answer: 9000000.0
+  tolerance: 1
+  explanation: 9m.
+  unit: currency units
+- id: pg06
+  type: numeric
+  difficulty: 2
+  prompt: Net contribution with revenue 900,000.
+  answer: 270000.0
+  tolerance: 1
+  explanation: 900,000 - 450,000 - 180,000 = 270,000.
+  unit: currency units
+- id: pg07
+  type: numeric
+  difficulty: 3
+  prompt: Economic profit at 10% cost of equity.
+  answer: -630000.0
+  tolerance: 1
+  explanation: 270,000 - 900,000 = -630,000.
+  unit: currency units
+- id: pg08
+  type: numeric
+  difficulty: 2
+  prompt: Return on capital (%).
+  answer: 3.0
+  tolerance: 0.01
+  explanation: 270,000 / 9m = 3%.
+  unit: '%'
+- id: pg09
+  type: mcq
+  difficulty: 2
+  prompt: 'Sub-book totals:'
+  options:
+  - Net to the same total as sources
+  - Exceed the total
+  - Are independent
+  - Ignore hedges
+  answer: 0
+  explanation: Same ledger.
+- id: pg10
+  type: mcq
+  difficulty: 2
+  prompt: 'The Swap Hedges book looks negative because:'
+  options:
+  - It carries funding and borrow costs charged to clients in the swap book
+  - It is wrong
+  - It loses on trades
+  - It has no PnL
+  answer: 0
+  explanation: Look at both.
+- id: pg11
+  type: mcq
+  difficulty: 2
+  prompt: 'Client revenue is:'
+  options:
+  - Financing, bid/offer, fees and lending
+  - Price moves
+  - Basis
+  - Luck
+  answer: 0
+  explanation: Repeatable.
+- id: pg12
+  type: mcq
+  difficulty: 2
+  prompt: 'Risk revenue is:'
+  options:
+  - Price and basis moves on inventory
+  - Financing
+  - Fees
+  - Lending
+  answer: 0
+  explanation: Less repeatable.
+- id: pg13
+  type: mcq
+  difficulty: 2
+  prompt: 'A variance in ''basis and arbitrage'' mostly reflects:'
+  options:
+  - Markets
+  - A client
+  - Funding
+  - Fees
+  answer: 0
+  explanation: Label accurately.
+- id: pg14
+  type: mcq
+  difficulty: 2
+  prompt: 'Open breaks mean:'
+  options:
+  - Reported PnL differs from the true PnL; say so
+  - Nothing
+  - Higher PnL
+  - Ignore
+  answer: 0
+  explanation: Never present what you cannot reconcile.
+- id: pg15
+  type: mcq
+  difficulty: 3
+  prompt: 'Gross revenue is healthy but economic profit is negative. Options:'
+  options:
+  - Reprice, net or shrink
+  - Increase risk
+  - Ignore capital
+  - Delete the report
+  answer: 0
+  explanation: Reprice, net or shrink.

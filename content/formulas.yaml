@@ -1,0 +1,337 @@
+formulas:
+- group: Rates and day counts
+  name: Simple interest
+  latex: I = P\,r\,\frac{d}{B}
+  vars: P principal; r rate; d days; B basis (360 or 365)
+  module: rates_funding
+  note: ''
+- group: Rates and day counts
+  name: Compounded overnight in arrears
+  latex: \prod_i\left(1+r_i\frac{n_i}{B}\right)-1
+  vars: r_i fixing; n_i calendar days it applies; B basis
+  module: rates_funding
+  note: ''
+- group: Rates and day counts
+  name: Continuous from simple
+  latex: r_c=\ln(1+r_s)
+  vars: r_s annual simple rate
+  module: rates_funding
+  note: ''
+- group: Rates and day counts
+  name: Discount factor
+  latex: DF = e^{-rT}
+  vars: r continuous rate; T years
+  module: rates_funding
+  note: ''
+- group: Rates and day counts
+  name: Day-count conversion
+  latex: r_{365}=r_{360}\,\frac{365}{360}
+  vars: rate quoted on ACT/360 converted to ACT/365
+  module: rates_funding
+  note: ''
+- group: Dividends
+  name: Dividend yield
+  latex: y = \frac{D_{annual}}{P}
+  vars: annual dividend over price
+  module: dividends
+  note: ''
+- group: Dividends
+  name: PV of dividends
+  latex: PV=\sum_i D_i\,DF(t_i)
+  vars: dividends before expiry
+  module: dividends
+  note: ''
+- group: Dividends
+  name: Net dividend
+  latex: D_{net}=D_{gross}\,(1-w)
+  vars: w withholding rate
+  module: dividends
+  note: ''
+- group: Dividends
+  name: Swap dividend amount
+  latex: \text{shares}\times D\times p
+  vars: p pass-through share
+  module: equity_swaps
+  note: ''
+- group: Futures
+  name: Fair value
+  latex: F=S\,e^{rT}-\sum_i D_i\,e^{r(T-t_i)}
+  vars: S spot; r continuous financing; T years; D_i dividends at t_i
+  module: index_futures
+  note: ''
+- group: Futures
+  name: Basis
+  latex: b = F - S
+  vars: points
+  module: index_futures
+  note: ''
+- group: Futures
+  name: Implied repo (simple)
+  latex: r_{imp}=\frac{F+FV(D)-S}{S}\cdot\frac{B}{d}
+  vars: d days to expiry
+  module: index_futures
+  note: ''
+- group: Futures
+  name: No-arbitrage band
+  latex: '[\,F(r_{short})-c,\; F(r_{long})+c\,]'
+  vars: c costs in points
+  module: s_index_arb
+  note: ''
+- group: Futures
+  name: Roll cost
+  latex: F_{far}-F_{near}
+  vars: points paid by a long
+  module: s_roll
+  note: ''
+- group: Futures
+  name: Roll cost, annualised
+  latex: \frac{F_{far}-F_{near}}{F_{near}\,\Delta T}\times 10^4
+  vars: bps a year
+  module: s_roll
+  note: ''
+- group: Futures
+  name: Futures PnL
+  latex: q\,M\,(P_1-P_0)
+  vars: q contracts; M multiplier
+  module: index_futures
+  note: ''
+- group: Swaps and TRS
+  name: Equity leg
+  latex: N\left(\frac{S_1}{S_0}-1\right)
+  vars: N notional
+  module: equity_swaps
+  note: ''
+- group: Swaps and TRS
+  name: Funding leg
+  latex: N\,(r+s)\frac{d}{B}
+  vars: s spread over the benchmark
+  module: equity_swaps
+  note: ''
+- group: Swaps and TRS
+  name: Client spread build-up
+  latex: s=FTP+BS+K+XVA+H+m
+  vars: funding, balance sheet, capital, XVA, hedge cost, margin (bps)
+  module: pricing_lab
+  note: ''
+- group: Swaps and TRS
+  name: Financing carry
+  latex: N\,(s-FTP-b)\frac{d}{360}
+  vars: bps spreads
+  module: s_financing_basis
+  note: ''
+- group: ETFs and ADRs
+  name: NAV per share
+  latex: NAV=\frac{\sum q_iP_i+cash}{\text{shares}}
+  vars: q_i fund holdings
+  module: etfs
+  note: ''
+- group: ETFs and ADRs
+  name: Premium
+  latex: \frac{P_{ETF}}{NAV}-1
+  vars: ''
+  module: etfs
+  note: ''
+- group: ETFs and ADRs
+  name: ETF arb threshold
+  latex: \frac{fee}{CU\ value}+c_{basket}+c_{ETF}
+  vars: bps
+  module: s_etf_arb
+  note: ''
+- group: ETFs and ADRs
+  name: ADR fair value
+  latex: FV=P_{local}\times ratio\times FX
+  vars: ''
+  module: adrs
+  note: ''
+- group: ETFs and ADRs
+  name: ADR band
+  latex: FV\pm\left(fee+FV\,c\right)
+  vars: c cost in decimal
+  module: s_adr_arb
+  note: ''
+- group: Stock lending and repo
+  name: Loan fee
+  latex: V\,f\,\frac{d}{B}
+  vars: V loan value; f fee
+  module: loan_economics
+  note: ''
+- group: Stock lending and repo
+  name: Cash rebate
+  latex: rebate=r_{reinvest}-f
+  vars: ''
+  module: loan_economics
+  note: ''
+- group: Stock lending and repo
+  name: Required collateral
+  latex: V\,(1+m)
+  vars: m margin
+  module: sbl_structure
+  note: ''
+- group: Stock lending and repo
+  name: 'Recall: re-borrow cost'
+  latex: V\,(f_{new}-f_{old})\frac{d}{B}
+  vars: ''
+  module: sbl_ops
+  note: ''
+- group: Stock lending and repo
+  name: Lending revenue
+  latex: V\,u\,f\,\frac{d}{360}
+  vars: u utilisation
+  module: s_sbl
+  note: ''
+- group: Stock lending and repo
+  name: Repo interest
+  latex: C\,r\,\frac{d}{B}
+  vars: C cash lent
+  module: repo
+  note: ''
+- group: Risk
+  name: Delta exposure
+  latex: \Delta=q\,P\,FX
+  vars: ''
+  module: risk_sens
+  note: ''
+- group: Risk
+  name: Beta-adjusted delta
+  latex: \beta\,\Delta
+  vars: ''
+  module: risk_sens
+  note: ''
+- group: Risk
+  name: Parametric VaR
+  latex: z_\alpha\,\sigma\,\sqrt{h}\,V
+  vars: z quantile; sigma daily volatility; h days; V exposure
+  module: var_stress
+  note: ''
+- group: Risk
+  name: Two-asset VaR
+  latex: z\sqrt{V_1^2\sigma_1^2+V_2^2\sigma_2^2+2\rho V_1V_2\sigma_1\sigma_2}
+  vars: ''
+  module: var_stress
+  note: ''
+- group: Risk
+  name: Expected shortfall (normal)
+  latex: \sigma\,\frac{\varphi(z_\alpha)}{1-\alpha}
+  vars: ''
+  module: var_stress
+  note: ''
+- group: Risk
+  name: Days to liquidate
+  latex: \frac{q}{\phi\,ADV}
+  vars: phi participation
+  module: var_stress
+  note: ''
+- group: Risk
+  name: HHI
+  latex: \sum_i w_i^2
+  vars: w_i weights
+  module: limits_conduct
+  note: ''
+- group: PnL
+  name: Unexplained
+  latex: PnL_{total}-\sum_k PnL_k
+  vars: ''
+  module: pnl_explain
+  note: ''
+- group: PnL
+  name: Missed dividend impact
+  latex: \text{shares}\times D
+  vars: ''
+  module: pnl_explain
+  note: ''
+- group: PnL
+  name: Spread error impact
+  latex: N\,(s_{booked}-s_{agreed})\frac{d}{360}
+  vars: ''
+  module: pnl_explain
+  note: ''
+- group: Margin and capital
+  name: Initial margin, schedule
+  latex: IM_{gross}(w+(1-w)\,NGR)
+  vars: NGR net-to-gross ratio
+  module: margin_suite
+  note: ''
+- group: Margin and capital
+  name: Reg T initial
+  latex: 0.5\,L+0.5\,S
+  vars: L long value; S short value
+  module: margin_suite
+  note: ''
+- group: Margin and capital
+  name: CSA call
+  latex: \max(E-Th,0)-held,\text{ subject to MTA and rounding}
+  vars: ''
+  module: margin_suite
+  note: ''
+- group: Margin and capital
+  name: EAD (SA-CCR-lite)
+  latex: \alpha\,(RC+SF\cdot N)
+  vars: alpha 1.4
+  module: funding_capital
+  note: ''
+- group: Margin and capital
+  name: Capital
+  latex: \max(\lambda L,\;c\,RWA)
+  vars: ''
+  module: funding_capital
+  note: ''
+- group: Margin and capital
+  name: Economic profit
+  latex: NC-K\,CoE
+  vars: ''
+  module: funding_capital
+  note: ''
+- group: XVA
+  name: CVA
+  latex: LGD\sum_i EE_i\,DF_i\,\Delta PD_i
+  vars: ''
+  module: xva
+  note: ''
+- group: XVA
+  name: FVA
+  latex: s_f\sum_i EE_i\,DF_i\,\Delta t_i
+  vars: ''
+  module: xva
+  note: ''
+- group: XVA
+  name: XVA in bps
+  latex: \frac{XVA}{N\,T}\times10^4
+  vars: ''
+  module: xva
+  note: ''
+- group: Strategies
+  name: Arbitrage PnL
+  latex: N\,M\,[\mathrm{sign}(d_0)(d_0-d_T)-c]
+  vars: ''
+  module: s_index_arb
+  note: ''
+- group: Strategies
+  name: Half-life
+  latex: -\frac{\ln 2}{\ln\phi}
+  vars: phi AR(1) coefficient
+  module: s_pairs
+  note: ''
+- group: Strategies
+  name: z-score
+  latex: \frac{s_t-\bar s}{\sigma_s}
+  vars: ''
+  module: s_pairs
+  note: ''
+- group: Strategies
+  name: Inclusion demand
+  latex: \frac{AUM\cdot w}{P}
+  vars: shares
+  module: s_rebalance
+  note: ''
+- group: Strategies
+  name: Square-root impact
+  latex: k\,\sigma\sqrt{q/ADV}
+  vars: ''
+  module: cash_program
+  note: ''
+- group: Strategies
+  name: Net contribution
+  latex: Rev-Funding-BS
+  vars: ''
+  module: s_pnl_gen
+  note: ''

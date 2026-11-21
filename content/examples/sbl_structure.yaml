@@ -1,0 +1,36 @@
+examples:
+  collateral:
+    fn: core.financing.sbl.collateral_required
+    args:
+      loan_value: 10000000.0
+      margin: 1.02
+    expected: 10200000.0
+    tolerance: 1.0e-06
+    note: 10m x 1.02
+  collateral_xb:
+    fn: core.financing.sbl.collateral_required
+    args:
+      loan_value: 10000000.0
+      margin: 1.05
+    expected: 10500000.0
+    tolerance: 1.0e-06
+    note: 10m x 1.05
+  split:
+    fn: core.financing.sbl.revenue_split
+    args:
+      fee_revenue: 100000.0
+      lender_share: 0.8
+    expected:
+    - 80000.0
+    - 20000.0
+    tolerance: 1.0e-06
+    note: 80/20
+  manufactured:
+    fn: core.financing.sbl.manufactured_dividend
+    args:
+      shares: 50000.0
+      gross_dividend: 1.2
+      pct: 1.0
+    expected: 60000.0
+    tolerance: 1.0e-06
+    note: 50,000 x 1.20

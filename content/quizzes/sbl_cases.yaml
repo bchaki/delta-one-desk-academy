@@ -1,0 +1,157 @@
+questions:
+- id: sc01
+  type: mcq
+  difficulty: 1
+  prompt: 'A short squeeze needs:'
+  options:
+  - High short interest, limited supply and a catalyst
+  - Low volume
+  - Falling prices
+  - High dividends
+  answer: 0
+  explanation: Those ingredients force shorts to cover into a rally.
+- id: sc02
+  type: mcq
+  difficulty: 2
+  prompt: Why do recalls accelerate a squeeze?
+  options:
+  - Lenders pull shares, forcing shorts to buy or re-borrow
+  - They lower fees
+  - They add supply
+  - They stop trading
+  answer: 0
+  explanation: Recalls cut supply while demand rises.
+- id: sc03
+  type: numeric
+  difficulty: 2
+  prompt: 'Squeeze utilisation: demand 500k, supply 1m, recall 20%, multiplier 1.2 (capped 0.99).'
+  answer: 0.75
+  tolerance: 1.0e-06
+  explanation: 600k/800k = 0.75.
+  unit: decimal
+- id: sc04
+  type: numeric
+  difficulty: 3
+  prompt: 'Squeeze utilisation: demand 700k, supply 1m, recall 10%, multiplier 1.5 (capped).'
+  answer: 0.99
+  tolerance: 1.0e-06
+  explanation: '1,050k / 900k > 1: capped at 0.99.'
+  unit: decimal
+- id: sc05
+  type: mcq
+  difficulty: 2
+  prompt: Which quote leaves the desk carrying borrow-fee risk?
+  options:
+  - All-in fixed spread
+  - Pass-through
+  - Either
+  - Neither
+  answer: 0
+  explanation: All-in puts the risk on the desk.
+- id: sc06
+  type: mcq
+  difficulty: 1
+  prompt: 'A locate failure is mainly a:'
+  options:
+  - Control failure with regulatory impact
+  - Pricing issue
+  - Tax issue
+  - Technology outage
+  answer: 0
+  explanation: The pre-trade control did not operate.
+- id: sc07
+  type: mcq
+  difficulty: 2
+  prompt: 'Cum-ex style schemes are taught here as:'
+  options:
+  - Compliance cases with red flags
+  - Strategies
+  - Tax tips
+  - Index events
+  answer: 0
+  explanation: They are unlawful and prosecuted.
+- id: sc08
+  type: mcq
+  difficulty: 2
+  prompt: 'A red flag in dividend trades is:'
+  options:
+  - Trading concentrated around ex-dates with no purpose beyond the tax refund
+  - A small trade
+  - A fee
+  - A split
+  answer: 0
+  explanation: Commercial purpose should exist apart from the refund.
+- id: sc09
+  type: mcq
+  difficulty: 2
+  prompt: 'When you see such red flags you should:'
+  options:
+  - Escalate to compliance and preserve records
+  - Process quickly
+  - Ignore
+  - Tell the client first
+  answer: 0
+  explanation: Do not process until reviewed.
+- id: sc10
+  type: mcq
+  difficulty: 2
+  prompt: 'A recall wave is dangerous mainly because:'
+  options:
+  - Many names reprice and re-borrow at once from the same lenders
+  - Dividends fall
+  - Rates fall
+  - Indices rebalance
+  answer: 0
+  explanation: Concentration in lenders repeats the problem.
+- id: sc11
+  type: mcq
+  difficulty: 2
+  prompt: 'Utilisation at the cap means:'
+  options:
+  - Borrowers may be locked out
+  - Fees are zero
+  - Supply is unlimited
+  - No shorts exist
+  answer: 0
+  explanation: There is no more supply to lend.
+- id: sc12
+  type: mcq
+  difficulty: 2
+  prompt: What should be monitored daily to see a squeeze early?
+  options:
+  - Utilisation, fee and short interest
+  - Only price
+  - Only volume
+  - Only PnL
+  answer: 0
+  explanation: They move before the price does.
+- id: sc13
+  type: numeric
+  difficulty: 2
+  prompt: 'Squeeze carry: 12m at fee 59.1% for 30 days basis 360.'
+  answer: 591000.0
+  tolerance: 10
+  explanation: 12,000,000 x 0.591 x 30/360 = 591,000.
+  unit: currency units
+- id: sc14
+  type: mcq
+  difficulty: 2
+  prompt: 'Manufactured dividend disputes are best avoided by:'
+  options:
+  - Clear documentation and ex-date checks
+  - Waiting
+  - Ignoring
+  - Netting
+  answer: 0
+  explanation: The agreement should state treatment.
+- id: sc15
+  type: mcq
+  difficulty: 2
+  prompt: 'Information barriers during a squeeze mean:'
+  options:
+  - Share client positions only with those who need to know
+  - Tell sales everything
+  - Publish positions
+  - Ignore rules
+  answer: 0
+  explanation: Market abuse and confidentiality rules still apply.

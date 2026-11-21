@@ -1,0 +1,53 @@
+examples:
+  var1:
+    fn: core.risk.basic.parametric_var_1d
+    args:
+      exposure: 10000000.0
+      daily_vol: 0.015
+      conf: 0.99
+    expected: 348952.1811061261
+    tolerance: 0.5
+    note: 2.3263 x 10m x 1.5%
+  var2:
+    fn: core.risk.basic.two_asset_var
+    args:
+      e1: 10000000.0
+      e2: -9000000.0
+      vol1: 0.015
+      vol2: 0.014
+      rho: 0.9
+      conf: 0.99
+    expected: 153538.95968669548
+    tolerance: 0.5
+    note: hedged pair
+  var10:
+    fn: core.risk.basic.scale_var
+    args:
+      var_1d: 348952.1811061261
+      days: 10.0
+    expected: 1103483.686778933
+    tolerance: 0.5
+    note: x sqrt(10)
+  es:
+    fn: core.risk.basic.es_normal
+    args:
+      exposure: 10000000.0
+      daily_vol: 0.015
+      conf: 0.975
+    expected: 350670.418830212
+    tolerance: 0.5
+    note: E s phi(z)/(1-c)
+  light3:
+    fn: core.risk.var.traffic_light
+    args:
+      exceptions: 3
+    expected: green
+    tolerance: 0
+    note: 0-4 green
+  light7:
+    fn: core.risk.var.traffic_light
+    args:
+      exceptions: 7
+    expected: yellow
+    tolerance: 0
+    note: 5-9 yellow

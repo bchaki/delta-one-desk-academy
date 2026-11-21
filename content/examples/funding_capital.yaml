@@ -1,0 +1,82 @@
+examples:
+  ead:
+    fn: core.financing.balance_sheet.sa_ccr_ead
+    args:
+      mtm: 1000000.0
+      collateral: 0.0
+      notional: 50000000.0
+      supervisory_factor: 0.32
+      alpha: 1.4
+    expected: 23800000.0
+    tolerance: 0.01
+    note: 1.4 x (1m + 16m)
+  leverage:
+    fn: core.financing.balance_sheet.leverage_exposure_swap_with_hedge
+    args:
+      ead: 23800000.0
+      hedge_market_value: 50000000.0
+    expected: 73800000.0
+    tolerance: 0.01
+    note: EAD + hedge
+  capital:
+    fn: core.financing.balance_sheet.capital_required
+    args:
+      leverage_exposure: 73800000.0
+      rwa_total: 17260000.0
+      leverage_ratio: 0.04
+      cet1_ratio: 0.12
+    expected: 2952000.0
+    tolerance: 0.01
+    note: max(4% x exposure, 12% x RWA)
+  rwa_capital:
+    fn: core.financing.balance_sheet.capital_required
+    args:
+      leverage_exposure: 0.0
+      rwa_total: 17260000.0
+      leverage_ratio: 0.04
+      cet1_ratio: 0.12
+    expected: 2071200.0
+    tolerance: 0.01
+    note: 12% x RWA
+  bs_charge:
+    fn: core.financing.balance_sheet.balance_sheet_charge_bps
+    args:
+      leverage_exposure: 73800000.0
+      notional: 50000000.0
+      cost_bps_per_exposure: 8.0
+    expected: 11.808
+    tolerance: 1.0e-06
+    note: 73.8/50 x 8
+  cap_charge:
+    fn: core.financing.balance_sheet.capital_charge_bps
+    args:
+      capital: 2952000.0
+      notional: 50000000.0
+      cost_of_equity: 0.1
+    expected: 59.040000000000006
+    tolerance: 1.0e-06
+    note: capital x 10% / notional
+  profit:
+    fn: core.financing.balance_sheet.client_profitability
+    args:
+      revenue: 500000.0
+      funding_cost: 175000.0
+      balance_sheet_cost: 59040.0
+      capital: 2952000.0
+      cost_of_equity: 0.1
+    expected:
+      net_contribution: 265960.0
+      return_on_capital: 0.09009485094850948
+      economic_profit: -29240.0
+    tolerance: 0.01
+    note: net, RoC, EP
+  rwa:
+    fn: core.financing.balance_sheet.swap_rwa
+    args:
+      ead: 23800000.0
+      counterparty_rw: 0.2
+      hedge_market_value: 50000000.0
+      hedge_rw: 0.25
+    expected: 17260000.0
+    tolerance: 0.01
+    note: 4.76m derivative + 12.5m hedge

@@ -1,0 +1,28 @@
+as_of: 2026-11-21
+source: "INVENTED round numbers in the style of an ISDA SIMM equity delta calibration. NOT the official ISDA SIMM calibration."
+verify: true
+
+# Equity delta risk weights by bucket (in percent of a 1% move sensitivity, i.e. WS = RW x s).
+# Buckets 1-11 are by region / size / sector style; bucket 12 is the residual bucket.
+equity_delta:
+  risk_weight:
+    1: 25
+    2: 32
+    3: 29
+    4: 27
+    5: 18
+    6: 21
+    7: 25
+    8: 22
+    9: 27
+    10: 29
+    11: 16
+    12: 70
+  rho_intra: 0.15      # correlation between different issuers within a bucket
+  gamma: 0.18          # correlation between buckets (residual bucket uses 0)
+  residual_bucket: 12
+
+schedule:
+  # Schedule-based initial margin grid: fraction of gross notional.
+  equity_swap_pct: 0.15
+  gross_weight: 0.40          # net schedule IM = gross IM x (gross_weight + (1 - gross_weight) x NGR)

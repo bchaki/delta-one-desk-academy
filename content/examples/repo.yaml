@@ -1,0 +1,53 @@
+examples:
+  cash:
+    fn: core.financing.repo.repo_cash
+    args:
+      market_value: 10000000.0
+      haircut: 0.08
+    expected: 9200000.0
+    tolerance: 1.0e-06
+    note: 10m x 0.92
+  interest:
+    fn: core.financing.repo.repo_interest
+    args:
+      cash: 9200000.0
+      rate: 0.045
+      days: 7
+      basis: 360
+    expected: 8050.0
+    tolerance: 0.005
+    note: 9.2m x 4.5% x 7/360
+  special:
+    fn: core.financing.repo.special_rate
+    args:
+      benchmark: 0.04
+      borrow_fee_bps: 300.0
+    expected: 0.0105
+    tolerance: 1.0e-09
+    note: 4% + 5bps - 300bps
+  margin_call:
+    fn: core.financing.repo.repo_margin_call
+    args:
+      market_value: 9500000.0
+      cash_lent: 9200000.0
+      haircut: 0.08
+    expected: 460000.0
+    tolerance: 0.005
+    note: 9.2m - 9.5m x 0.92
+  funding:
+    fn: core.financing.repo.funding_cost_comparison
+    args:
+      notional: 100000000.0
+      benchmark: 0.04
+      days: 30
+      basis: 360
+      ftp_bps: 50.0
+      haircut: 0.08
+      repo_spread_bps: 15.0
+      swap_spread_bps: 35.0
+    expected:
+      unsecured: 375000.0
+      repo: 348166.6666666666
+      swap: 362500.0
+    tolerance: 0.01
+    note: three funding routes

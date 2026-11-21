@@ -1,0 +1,154 @@
+questions:
+- id: ce01
+  type: mcq
+  difficulty: 1
+  prompt: 'Cost of exposure is measured:'
+  options:
+  - In excess of the benchmark rate
+  - As total return
+  - As price change
+  - As tax
+  answer: 0
+  explanation: Relative to holding cash.
+- id: ce02
+  type: numeric
+  difficulty: 2
+  prompt: 'Running cost: 20m, spread 30 + fee 5 + leakage 10 bps, 180 days basis 360.'
+  answer: 45000.0
+  tolerance: 0.01
+  explanation: 20m x 45 bps x 0.5 = 45,000.
+  unit: currency units
+- id: ce03
+  type: numeric
+  difficulty: 2
+  prompt: 'Trading cost: 20m, one-way 2 bps, 1 round trip, one-off 1 bp.'
+  answer: 10000.0
+  tolerance: 0.01
+  explanation: 20m x (2 x 2 + 1) bps = 10,000.
+  unit: currency units
+- id: ce04
+  type: mcq
+  difficulty: 2
+  prompt: 'Rolling a futures position:'
+  options:
+  - Adds another round trip of trading cost
+  - Is free
+  - Removes financing
+  - Cancels margin
+  answer: 0
+  explanation: Each roll closes one contract and opens another.
+- id: ce05
+  type: mcq
+  difficulty: 2
+  prompt: Which wrapper has no roll?
+  options:
+  - Swap, ETF and cash
+  - Only futures
+  - Only swaps
+  - None
+  answer: 0
+  explanation: Futures expire; the others do not.
+- id: ce06
+  type: numeric
+  difficulty: 3
+  prompt: 'Breakeven: A fixed 8 / 10 pa; B fixed 3 / 40 pa (days, basis 360).'
+  answer: 60.0
+  tolerance: 0.1
+  explanation: 5/30 x 360 = 60 days.
+  unit: days
+- id: ce07
+  type: mcq
+  difficulty: 2
+  prompt: 'A breakeven exists only if:'
+  options:
+  - The higher fixed-cost wrapper has the lower running cost
+  - Both are equal
+  - Costs are zero
+  - Both have fees
+  answer: 0
+  explanation: Otherwise one dominates.
+- id: ce08
+  type: mcq
+  difficulty: 2
+  prompt: 'Dividend leakage in a swap comes from:'
+  options:
+  - Pass-through below 100% and withholding
+  - Spread
+  - Roll
+  - Margin
+  answer: 0
+  explanation: Negotiated treatment of dividends.
+- id: ce09
+  type: numeric
+  difficulty: 2
+  prompt: 'Leakage: yield 2%, pass-through 85% (bps a year).'
+  answer: 30.0
+  tolerance: 0.01
+  explanation: 2% x 15% = 30 bps.
+  unit: bps
+- id: ce10
+  type: mcq
+  difficulty: 2
+  prompt: 'An unlevered ETF buyer''s financing spread over benchmark is:'
+  options:
+  - Their own funding cost, which may be near zero
+  - The ETF's TER
+  - The swap spread
+  - Always 50 bps
+  answer: 0
+  explanation: It depends on the investor.
+- id: ce11
+  type: mcq
+  difficulty: 2
+  prompt: Which cost does the simple model leave out?
+  options:
+  - Market impact and tax
+  - Fees
+  - Spreads
+  - Rolls
+  answer: 0
+  explanation: They are listed limitations.
+- id: ce12
+  type: mcq
+  difficulty: 2
+  prompt: 'For a one-month exposure, the dominant cost is usually:'
+  options:
+  - Trading
+  - Running spread
+  - Fees
+  - Dividends
+  answer: 0
+  explanation: Fixed costs are not amortised.
+- id: ce13
+  type: mcq
+  difficulty: 2
+  prompt: 'For a multi-year exposure, the dominant cost is usually:'
+  options:
+  - Running costs
+  - Entry spread
+  - Stamp duty
+  - Impact
+  answer: 0
+  explanation: Running costs accumulate.
+- id: ce14
+  type: mcq
+  difficulty: 2
+  prompt: 'A client with a single-stock view should consider:'
+  options:
+  - A swap or cash stock
+  - An index ETF
+  - A TRF
+  - Dividend futures
+  answer: 0
+  explanation: The index wrappers do not match the exposure.
+- id: ce15
+  type: mcq
+  difficulty: 2
+  prompt: 'Annualising a cost lets you:'
+  options:
+  - Compare holds of different lengths
+  - Avoid tax
+  - Skip fees
+  - Remove margin
+  answer: 0
+  explanation: It puts costs on a common basis.

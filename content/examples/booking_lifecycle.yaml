@@ -1,0 +1,36 @@
+examples:
+  round_up:
+    fn: core.types.money
+    args:
+      x: 2.675
+    expected: 2.68
+    tolerance: 1.0e-09
+    note: 'half-even: 7 is odd, rounds up'
+  round_down:
+    fn: core.types.money
+    args:
+      x: 0.125
+    expected: 0.12
+    tolerance: 1.0e-09
+    note: 'half-even: 2 is even, stays'
+  reset_count:
+    fn: core.booking.lifecycle.reset_dates
+    args:
+      start: 2026-01-15
+      end: 2026-06-30
+      months: 3
+    expected:
+    - '2026-04-15'
+    tolerance: 1.0e-09
+    note: next reset 15 Jul is after the end
+  spread_shortfall:
+    fn: core.pricing.trf.trf_funding_amount
+    args:
+      notional: 25000000.0
+      benchmark: 0.0
+      spread_bps: 10.0
+      days: 30
+      basis: 360
+    expected: 2083.3333333333335
+    tolerance: 0.005
+    note: 25m x 10 bps x 30/360

@@ -1,0 +1,157 @@
+questions:
+- id: fl01
+  type: mcq
+  difficulty: 1
+  prompt: 'Internalisation means:'
+  options:
+  - Netting client flow without hedging it
+  - Hedging everything
+  - Trading with exchanges
+  - Ignoring flow
+  answer: 0
+  explanation: Offsetting trades.
+- id: fl02
+  type: numeric
+  difficulty: 2
+  prompt: 'Agency: 20m at 4 bps.'
+  answer: 8000.0
+  tolerance: 1.0e-06
+  explanation: 20m x 0.0004 = 8,000.
+  unit: currency units
+- id: fl03
+  type: numeric
+  difficulty: 2
+  prompt: 'Risk trade: 20m, spread 9 bps, hedge cost 4 bps, expected PnL.'
+  answer: 10000.0
+  tolerance: 1.0e-06
+  explanation: 20m x 5 bps = 10,000.
+  unit: currency units
+- id: fl04
+  type: numeric
+  difficulty: 2
+  prompt: 'One-sigma risk: 20m, 2% daily, 4 days.'
+  answer: 800000.0
+  tolerance: 1
+  explanation: 20m x 0.02 x 2 = 800,000.
+  unit: currency units
+- id: fl05
+  type: mcq
+  difficulty: 2
+  prompt: 'Expected PnL of one risk trade compared with its risk is:'
+  options:
+  - Small
+  - Large
+  - Equal
+  - Infinite
+  answer: 0
+  explanation: A single trade is a bet.
+- id: fl06
+  type: mcq
+  difficulty: 2
+  prompt: 'One-way flow leads to:'
+  options:
+  - Lower internalisation and higher hedging cost
+  - More internalisation
+  - Less risk
+  - Higher spread
+  answer: 0
+  explanation: Nothing to net.
+- id: fl07
+  type: mcq
+  difficulty: 2
+  prompt: 'An axe is:'
+  options:
+  - A position the desk wants to trade, shown to clients
+  - A client order
+  - A fee
+  - A limit
+  answer: 0
+  explanation: Advertised inventory.
+- id: fl08
+  type: mcq
+  difficulty: 2
+  prompt: 'Inventory limits:'
+  options:
+  - Turn flow risk into hedging cost
+  - Remove risk
+  - Raise PnL always
+  - Are optional
+  answer: 0
+  explanation: By design.
+- id: fl09
+  type: mcq
+  difficulty: 2
+  prompt: 'Adverse selection means:'
+  options:
+  - Informed clients trade before a move against the desk
+  - Random flow
+  - Higher spreads
+  - Lower costs
+  answer: 0
+  explanation: Monitor post-trade moves.
+- id: fl10
+  type: mcq
+  difficulty: 2
+  prompt: 'A limit that never binds is:'
+  options:
+  - Probably set too loose
+  - Perfect
+  - Required
+  - A hedge
+  answer: 0
+  explanation: Should bind occasionally.
+- id: fl11
+  type: mcq
+  difficulty: 2
+  prompt: 'Internalisation is computed as:'
+  options:
+  - 1 minus hedged over gross notional
+  - Net over gross
+  - Hedged over net
+  - Gross minus net
+  answer: 0
+  explanation: Share not hedged.
+- id: fl12
+  type: mcq
+  difficulty: 2
+  prompt: 'A false axe:'
+  options:
+  - Damages trust and may raise compliance concerns
+  - Is clever
+  - Is required
+  - Raises PnL
+  answer: 0
+  explanation: Honest axes.
+- id: fl13
+  type: mcq
+  difficulty: 3
+  prompt: 'Quote to:'
+  options:
+  - The flow you want, not the flow you get
+  - Everyone equally
+  - Only large clients
+  - No one
+  answer: 0
+  explanation: Shape the book.
+- id: fl14
+  type: mcq
+  difficulty: 2
+  prompt: 'Daily flow report reads in order:'
+  options:
+  - Gross, net, inventory, hedged, PnL split
+  - PnL only
+  - Inventory only
+  - Clients
+  answer: 0
+  explanation: Structure.
+- id: fl15
+  type: mcq
+  difficulty: 2
+  prompt: 'Revenue by client tier is usually:'
+  options:
+  - Concentrated in tier 1
+  - Even
+  - Zero
+  - Random
+  answer: 0
+  explanation: A few clients dominate.

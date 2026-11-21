@@ -1,0 +1,155 @@
+questions:
+- id: bl01
+  type: mcq
+  difficulty: 1
+  prompt: Which date is when financing starts accruing?
+  options:
+  - Effective date
+  - Trade date
+  - Reset date
+  - Expiry
+  answer: 0
+  explanation: Often the trade date plus the settlement cycle.
+- id: bl02
+  type: mcq
+  difficulty: 1
+  prompt: 'Booking validation errors:'
+  options:
+  - Block booking; warnings need a second look
+  - Are advisory
+  - Are logged only
+  - Apply only to futures
+  answer: 0
+  explanation: Errors stop the booking.
+- id: bl03
+  type: mcq
+  difficulty: 2
+  prompt: 'A US underlying with a non-US client must have:'
+  options:
+  - The 871(m) flag set
+  - A fixed spread
+  - Quarterly resets
+  - A short position
+  answer: 0
+  explanation: Otherwise withholding may be wrong.
+- id: bl04
+  type: numeric
+  difficulty: 1
+  prompt: Half-even rounding of 0.125 to cents.
+  answer: 0.12
+  tolerance: 1.0e-09
+  explanation: 2 is even so it stays 0.12.
+- id: bl05
+  type: numeric
+  difficulty: 1
+  prompt: Half-even rounding of 2.675 to cents.
+  answer: 2.68
+  tolerance: 1.0e-09
+  explanation: '7 is odd: round up.'
+- id: bl06
+  type: mcq
+  difficulty: 2
+  prompt: Why round each cash-flow component then add?
+  options:
+  - The net reconciles to the cent
+  - It is faster
+  - It avoids tax
+  - It is required by law
+  answer: 0
+  explanation: Components add to the net.
+- id: bl07
+  type: mcq
+  difficulty: 2
+  prompt: 'Position is derived from:'
+  options:
+  - Initial ticket plus events
+  - A stored number
+  - The hedge
+  - The PnL
+  answer: 0
+  explanation: Replaying events gives an audit trail.
+- id: bl08
+  type: mcq
+  difficulty: 2
+  prompt: 'An amendment on a live trade with off-market terms usually involves:'
+  options:
+  - An upfront payment
+  - Nothing
+  - A new ISDA
+  - A new hedge
+  answer: 0
+  explanation: It compensates for the change.
+- id: bl09
+  type: numeric
+  difficulty: 2
+  prompt: 10 bps spread error on 10m for 90 days basis 360.
+  answer: 2500.0
+  tolerance: 0.01
+  explanation: 10m x 10 bps x 0.25 = 2,500.
+  unit: currency units
+- id: bl10
+  type: mcq
+  difficulty: 2
+  prompt: 'An orphan hedge is:'
+  options:
+  - A hedge with no client trade
+  - A swap with no hedge
+  - A trade with no ISDA
+  - A closed trade
+  answer: 0
+  explanation: A standard break to look for.
+- id: bl11
+  type: mcq
+  difficulty: 2
+  prompt: 'The swap sign convention is from the:'
+  options:
+  - Client's direction
+  - Desk's direction
+  - Trader's view
+  - Exchange
+  answer: 0
+  explanation: Cash flows are labelled by whose side.
+- id: bl12
+  type: mcq
+  difficulty: 2
+  prompt: 'The best way to correct a booking error is:'
+  options:
+  - An amendment event with a trail
+  - Overwrite the record
+  - Delete the trade
+  - Ignore it
+  answer: 0
+  explanation: History must explain the change.
+- id: bl13
+  type: mcq
+  difficulty: 2
+  prompt: Which are classic booking breaks?
+  options:
+  - Wrong spread, entity, flag, date, hedge link
+  - Colour of the screen
+  - Meeting times
+  - Ticker case
+  answer: 0
+  explanation: They are the common categories.
+- id: bl14
+  type: mcq
+  difficulty: 1
+  prompt: 'A reset adjusted to the next business day can lead to:'
+  options:
+  - Different accrual lengths
+  - No effect
+  - Lower fees
+  - A new benchmark
+  answer: 0
+  explanation: Day count then matters.
+- id: bl15
+  type: mcq
+  difficulty: 2
+  prompt: 'Four eyes means:'
+  options:
+  - A second person checks the booking
+  - Two systems
+  - Two prices
+  - Two hedges
+  answer: 0
+  explanation: A basic control.

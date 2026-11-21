@@ -1,0 +1,145 @@
+questions:
+- id: le01
+  type: numeric
+  difficulty: 1
+  prompt: 'Fee: loan 4,000,000, fee 2%, 45 days, basis 360.'
+  answer: 10000.0
+  tolerance: 0.01
+  explanation: 4,000,000 x 0.02 x 45/360 = 10,000.
+  unit: currency units
+- id: le02
+  type: numeric
+  difficulty: 2
+  prompt: 'Rebate rate: reinvestment 4.5%, fee 1.0%.'
+  answer: 0.035
+  tolerance: 1.0e-06
+  explanation: 4.5% - 1.0% = 3.5%.
+  unit: decimal
+- id: le03
+  type: numeric
+  difficulty: 2
+  prompt: 'Rebate rate: reinvestment 4.0%, fee 6.0%. What is it (decimal)?'
+  answer: -0.02
+  tolerance: 1.0e-06
+  explanation: 'A negative rebate: the borrower pays.'
+  unit: decimal
+- id: le04
+  type: numeric
+  difficulty: 2
+  prompt: 'Cash rebate: cash 10,200,000, rebate 3%, 30 days, 360.'
+  answer: 25500.0
+  tolerance: 0.01
+  explanation: 10,200,000 x 0.03 x 30/360 = 25,500.
+  unit: currency units
+- id: le05
+  type: mcq
+  difficulty: 2
+  prompt: 'A negative rebate means:'
+  options:
+  - The borrower pays to hold the short
+  - The lender pays extra
+  - The loan is free
+  - The collateral is returned
+  answer: 0
+  explanation: Fee exceeds the reinvestment rate.
+- id: le06
+  type: numeric
+  difficulty: 2
+  prompt: 'Short cost drag: 50,000 sh at 80, fee 2.5%, 60 days basis 360, dividend 0.50 (total).'
+  answer: 41666.666667
+  tolerance: 0.01
+  explanation: Fee 16,666.67 + dividends 25,000 = 41,666.67.
+  unit: currency units
+- id: le07
+  type: numeric
+  difficulty: 3
+  prompt: 'Fee curve: GC 30 bps, steepness 2, utilisation 0.5 (bps).'
+  answer: 60.0
+  tolerance: 0.01
+  explanation: 30 x (1 + 2 x 0.25/0.5) = 60 bps.
+  unit: bps
+- id: le08
+  type: numeric
+  difficulty: 3
+  prompt: 'Fee curve: GC 30 bps, steepness 2, utilisation 0.9 (bps).'
+  answer: 516.0
+  tolerance: 0.01
+  explanation: 30 x (1 + 2 x 0.81/0.1) = 528 bps.
+  unit: bps
+- id: le09
+  type: mcq
+  difficulty: 2
+  prompt: 'The fee curve shape is:'
+  options:
+  - 'Convex: slow at low utilisation, spiking near the limit'
+  - Linear
+  - Flat
+  - Concave
+  answer: 0
+  explanation: Pricing power appears as supply runs out.
+- id: le10
+  type: mcq
+  difficulty: 1
+  prompt: 'Non-cash collateral loans are priced with:'
+  options:
+  - A fee paid by the borrower
+  - A rebate
+  - No price
+  - An FX swap
+  answer: 0
+  explanation: The borrower pays a fee on the loan value.
+- id: le11
+  type: mcq
+  difficulty: 2
+  prompt: 'All-in quoting versus pass-through: which is safer for the desk when borrow can move?'
+  options:
+  - Pass-through
+  - All-in
+  - Both equal
+  - Neither
+  answer: 0
+  explanation: Pass-through moves the risk to the client.
+- id: le12
+  type: mcq
+  difficulty: 2
+  prompt: 'Reinvestment risk means:'
+  options:
+  - The lender may lose money on where cash collateral is invested
+  - The fee falls
+  - The price rises
+  - The recall is early
+  answer: 0
+  explanation: Reinvestment vehicles carry credit and liquidity risk.
+- id: le13
+  type: mcq
+  difficulty: 2
+  prompt: 'A short in a high-yield stock is most expensive around:'
+  options:
+  - The ex-dividend date
+  - Reset day
+  - Month start
+  - The close
+  answer: 0
+  explanation: Manufactured dividends add to the carry.
+- id: le14
+  type: mcq
+  difficulty: 1
+  prompt: 'A GBP loan''s usual day-count basis is:'
+  options:
+  - '365'
+  - '360'
+  - '366'
+  - '252'
+  answer: 0
+  explanation: GBP uses ACT/365.
+- id: le15
+  type: mcq
+  difficulty: 2
+  prompt: 'The desk''s SBL spread is:'
+  options:
+  - Fee charged to the borrower minus fee paid upstream
+  - The benchmark
+  - The haircut
+  - The margin
+  answer: 0
+  explanation: The intermediary earns the difference.

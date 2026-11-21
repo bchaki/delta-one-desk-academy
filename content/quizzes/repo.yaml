@@ -1,0 +1,151 @@
+questions:
+- id: rp01
+  type: mcq
+  difficulty: 1
+  prompt: 'A repo is:'
+  options:
+  - A cash loan secured by securities
+  - An equity swap
+  - A futures roll
+  - An option
+  answer: 0
+  explanation: One side sells securities and buys them back later.
+- id: rp02
+  type: numeric
+  difficulty: 1
+  prompt: 'Cash lent: market value 20m, haircut 10%.'
+  answer: 18000000.0
+  tolerance: 1
+  explanation: 20m x 0.9.
+  unit: currency units
+- id: rp03
+  type: numeric
+  difficulty: 2
+  prompt: 'Interest: 18m at 5% for 14 days basis 360.'
+  answer: 35000.0
+  tolerance: 0.01
+  explanation: 18,000,000 x 5% x 14/360 = 35,000.
+  unit: currency units
+- id: rp04
+  type: mcq
+  difficulty: 2
+  prompt: 'The haircut protects:'
+  options:
+  - The cash lender
+  - The borrower
+  - The agent
+  - The exchange
+  answer: 0
+  explanation: It covers a fall in collateral while it is sold.
+- id: rp05
+  type: mcq
+  difficulty: 2
+  prompt: 'Special collateral trades at a repo rate:'
+  options:
+  - Below GC
+  - Above GC
+  - Equal to GC
+  - Fixed at zero
+  answer: 0
+  explanation: Scarce collateral earns a lower cash rate.
+- id: rp06
+  type: numeric
+  difficulty: 2
+  prompt: 'Special rate: benchmark 3%, GC spread 5 bps, fee 200 bps.'
+  answer: 0.0105
+  tolerance: 1.0e-06
+  explanation: 3.05% - 2.00% = 1.05%.
+  unit: decimal
+- id: rp07
+  type: numeric
+  difficulty: 2
+  prompt: 'Margin call: cash lent 9m, MV falls to 9.2m, haircut 10%.'
+  answer: 720000.0
+  tolerance: 1
+  explanation: 9.0m - 8.28m = 720,000.
+  unit: currency units
+- id: rp08
+  type: mcq
+  difficulty: 1
+  prompt: 'A negative call means:'
+  options:
+  - Excess collateral to be returned
+  - A default
+  - No collateral
+  - A new haircut
+  answer: 0
+  explanation: Cash lent is below what the collateral supports.
+- id: rp09
+  type: mcq
+  difficulty: 2
+  prompt: 'Term repo versus overnight:'
+  options:
+  - Lower rollover risk, higher cost
+  - Higher rollover risk
+  - Same
+  - No margin
+  answer: 0
+  explanation: Term protects funding at a premium.
+- id: rp10
+  type: mcq
+  difficulty: 2
+  prompt: 'Tri-party repo uses:'
+  options:
+  - An agent bank to value and substitute collateral
+  - No collateral
+  - Only cash
+  - Only futures
+  answer: 0
+  explanation: It lowers the operational burden.
+- id: rp11
+  type: mcq
+  difficulty: 2
+  prompt: 'Funding long hedges in repo costs less than unsecured because:'
+  options:
+  - The cash is secured, though the haircut is funded unsecured
+  - There is no haircut
+  - Fees are zero
+  - The benchmark is lower
+  answer: 0
+  explanation: Only the post-haircut cash gets the cheaper rate.
+- id: rp12
+  type: numeric
+  difficulty: 3
+  prompt: 'Term rate: overnight 4%, 2 years, 10 bps/year premium.'
+  answer: 0.042
+  tolerance: 1.0e-06
+  explanation: 4% + 0.2% = 4.2%.
+  unit: decimal
+- id: rp13
+  type: mcq
+  difficulty: 2
+  prompt: 'GBP repo day count is usually:'
+  options:
+  - ACT/365
+  - ACT/360
+  - 30/360
+  - ACT/ACT
+  answer: 0
+  explanation: GBP uses 365.
+- id: rp14
+  type: mcq
+  difficulty: 2
+  prompt: 'Rollover risk is:'
+  options:
+  - Not being able to renew funding in stress
+  - Price risk
+  - FX risk
+  - Tax risk
+  answer: 0
+  explanation: Funding disappears when it is needed most.
+- id: rp15
+  type: mcq
+  difficulty: 2
+  prompt: Where do repo and securities lending link?
+  options:
+  - 'Scarcity shows up in both: low repo rate, high borrow fee'
+  - They are unrelated
+  - Only in taxes
+  - Only in FX
+  answer: 0
+  explanation: Both price how special a security is.

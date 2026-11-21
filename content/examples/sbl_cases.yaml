@@ -1,0 +1,30 @@
+examples:
+  sqz_util:
+    fn: core.financing.sbl.squeeze_utilisation
+    args:
+      supply: 1000000.0
+      demand: 600000.0
+      recall_pct: 0.2
+      demand_multiplier: 1.5
+    expected: 0.99
+    tolerance: 1.0e-09
+    note: capped at 0.99
+  sqz_fee:
+    fn: core.financing.sbl.fee_from_utilisation
+    args:
+      utilisation: 0.99
+      gc_fee_bps: 30.0
+      steepness: 2.0
+    expected: 5910.599999999994
+    tolerance: 1.0e-06
+    note: fee at the cap
+  sqz_carry:
+    fn: core.financing.sbl.loan_fee
+    args:
+      loan_value: 12000000.0
+      fee: 0.5910599999999994
+      days: 30
+      basis: 360
+    expected: 591059.9999999993
+    tolerance: 0.01
+    note: 12m at the squeeze fee for 30 days

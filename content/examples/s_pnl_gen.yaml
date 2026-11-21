@@ -1,0 +1,20 @@
+examples:
+  net:
+    fn: core.strategies.pnl_gen.net_contribution
+    args:
+      revenue: 600000.0
+      avg_notional: 100000000.0
+      ftp_bps: 35.0
+      bs_leverage_multiple: 1.5
+      bs_cost_bps: 8.0
+      capital_ratio: 0.04
+      cost_of_equity: 0.1
+    expected:
+      funding: 350000.0
+      balance_sheet: 120000.0
+      capital: 6000000.0
+      net_contribution: 130000.0
+      economic_profit: -470000.0
+      return_on_capital: 0.021666666666666667
+    tolerance: 1.0e-06
+    note: revenue 600k

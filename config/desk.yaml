@@ -1,0 +1,67 @@
+as_of: 2026-11-21
+source: "Teaching assumptions invented for this app. They are not any bank's actual numbers."
+verify: true
+
+# Desk funding spread over the overnight benchmark (funds transfer pricing), in bps.
+ftp_spread_bps: {USD: 35, EUR: 30, GBP: 40, JPY: 25, CHF: 28}
+
+trading_costs:
+  stock_commission_bps: 1.0
+  stock_half_spread_bps: 2.0
+  futures_half_spread_bps: 0.5
+  futures_commission_bps: 0.1
+  impact_k: 0.7              # square-root impact coefficient
+  risk_aversion: 0.5
+  liquidation_horizon_days: 2
+
+balance_sheet:
+  cost_bps_per_year_on_exposure: 8   # charge per year on leverage exposure
+  leverage_ratio_target: 0.04        # capital held per unit of leverage exposure
+  cet1_ratio: 0.12                   # capital held per unit of RWA
+  cost_of_equity: 0.10
+  hedge_inventory_rw: 1.00           # simplified risk weight on hedge stock inventory
+  counterparty_rw:
+    hedge_fund: 1.00
+    asset_manager: 0.50
+    pension: 0.20
+    insurer: 0.20
+    internal: 0.00
+  sa_ccr_alpha: 1.4
+  sa_ccr_equity_supervisory_factor: 0.32   # single-name; index uses 0.20
+  sa_ccr_index_supervisory_factor: 0.20
+
+xva:
+  cds_spread_bps: {hedge_fund: 250, asset_manager: 80, pension: 50, insurer: 60, internal: 0}
+  lgd: 0.60
+  funding_spread_bps: 60     # for FVA on uncollateralised exposure
+  kva_hurdle: 0.10
+  mva_funding_bps: 40
+
+sbl:
+  margin_domestic: 1.02
+  margin_cross_border: 1.05
+  lender_share: 0.80
+  agent_share: 0.20
+  fee_tier_bps: {GC: 30, warm: 150, special: 600, hard_to_borrow: 3000}
+  reinvestment_spread_bps: -10        # cash reinvestment rate = benchmark + this
+  buyin_premium_pct: 0.02             # premium paid over market in a forced buy-in
+
+repo:
+  haircut_by_quality:
+    index_large_cap: 0.05
+    large_cap: 0.08
+    mid_cap: 0.15
+    small_cap: 0.25
+    hard_to_borrow: 0.40
+  gc_spread_bps: 5                    # over the overnight benchmark
+  special_spread_bps_per_fee_bps: -1.0  # special names repo below GC by roughly the fee
+  term_premium_bps_per_year: 10
+
+# Illustrative desk limits. soft = escalate, hard = stop and reduce.
+limits:
+  net_delta_usd: {soft: 2000000, hard: 5000000}
+  gross_notional_usd: {soft: 800000000, hard: 1200000000}
+  var_99_1d_usd: {soft: 1500000, hard: 3000000}
+  single_name_pct_adv: {soft: 0.20, hard: 0.35}
+  days_to_liquidate: {soft: 3.0, hard: 6.0}
+  top5_concentration: {soft: 0.45, hard: 0.60}

@@ -1,0 +1,150 @@
+questions:
+- id: et01
+  type: mcq
+  difficulty: 1
+  prompt: Who creates and redeems ETF shares directly with the fund?
+  options:
+  - Authorised participants
+  - Retail investors
+  - The exchange
+  - Index providers
+  answer: 0
+  explanation: APs transact in creation units in the primary market.
+- id: et02
+  type: mcq
+  difficulty: 1
+  prompt: 'An ETF trades at a premium when:'
+  options:
+  - Its price exceeds NAV
+  - Its price is below NAV
+  - It pays a dividend
+  - The index rises
+  answer: 0
+  explanation: Premium = price / NAV - 1 > 0.
+- id: et03
+  type: numeric
+  difficulty: 1
+  prompt: 'NAV: holdings worth 5,000,000, cash 200,000, 100,000 shares. NAV per share?'
+  answer: 52.0
+  tolerance: 0.001
+  explanation: (5,000,000 + 200,000)/100,000 = 52.
+- id: et04
+  type: numeric
+  difficulty: 1
+  prompt: ETF price 52.26 vs NAV 52.00. Premium in bps?
+  answer: 50.0
+  tolerance: 0.1
+  explanation: 0.5% = 50 bps.
+  unit: bps
+- id: et05
+  type: numeric
+  difficulty: 2
+  prompt: 'Threshold: fee 1,000, CU value 10m, basket cost 3 bps, ETF half spread 1 bp (bps).'
+  answer: 5.0
+  tolerance: 0.01
+  explanation: 1 + 3 + 1 = 5 bps.
+  unit: bps
+- id: et06
+  type: mcq
+  difficulty: 2
+  prompt: 'If the ETF is rich beyond the threshold, the AP should:'
+  options:
+  - 'Create: sell ETF, buy basket, deliver for new shares'
+  - Redeem
+  - Do nothing
+  - Buy ETF
+  answer: 0
+  explanation: Create when the ETF trades above iNAV by more than costs.
+- id: et07
+  type: mcq
+  difficulty: 2
+  prompt: 'If the ETF is cheap beyond the threshold, the AP should:'
+  options:
+  - Buy ETF, redeem for the basket, sell the basket
+  - Create
+  - Short the basket only
+  - Sell ETF
+  answer: 0
+  explanation: Redeem when below.
+- id: et08
+  type: numeric
+  difficulty: 2
+  prompt: 'Edge per creation unit: premium 40 bps, threshold 6 bps, CU value 5m.'
+  answer: 17000.0
+  tolerance: 1
+  explanation: 34 bps x 5,000,000 = 17,000.
+  unit: currency units
+- id: et09
+  type: mcq
+  difficulty: 1
+  prompt: 'A synthetic ETF holds:'
+  options:
+  - Collateral plus a swap on the index
+  - The index stocks
+  - Only cash
+  - Only futures
+  answer: 0
+  explanation: The swap counterparty delivers the index return.
+- id: et10
+  type: mcq
+  difficulty: 2
+  prompt: Why do premiums widen in stress?
+  options:
+  - Arbitrage costs and balance sheet constraints rise, and the underlying may be illiquid
+  - Fees are cancelled
+  - NAV stops being calculated
+  - Index providers change the rules
+  answer: 0
+  explanation: Thresholds widen when execution and funding are scarce.
+- id: et11
+  type: mcq
+  difficulty: 2
+  prompt: 'iNAV differs from NAV because it:'
+  options:
+  - Uses live intraday prices
+  - Ignores cash
+  - Is only for bond funds
+  - Is set by the exchange
+  answer: 0
+  explanation: iNAV is an intraday estimate.
+- id: et12
+  type: mcq
+  difficulty: 1
+  prompt: What is a creation unit?
+  options:
+  - A block of ETF shares created or redeemed at once
+  - A tax unit
+  - The fee schedule
+  - A futures contract
+  answer: 0
+  explanation: APs create in blocks, typically tens of thousands of shares.
+- id: et13
+  type: mcq
+  difficulty: 2
+  prompt: 'Using yesterday''s creation basket is:'
+  options:
+  - A common break that can fail a creation
+  - Fine
+  - Required
+  - Irrelevant
+  answer: 0
+  explanation: The basket changes daily.
+- id: et14
+  type: numeric
+  difficulty: 3
+  prompt: 'CU 20,000 shares, iNAV 80, fee 800: fee in bps of CU value?'
+  answer: 5.0
+  tolerance: 0.01
+  explanation: 800 / 1,600,000 x 10,000 = 5 bps.
+  unit: bps
+- id: et15
+  type: mcq
+  difficulty: 2
+  prompt: Why might a trader hedge a basket with an ETF?
+  options:
+  - It is liquid and quick, leaving basis risk
+  - It has no risk
+  - It pays no fees
+  - It avoids borrow entirely
+  answer: 0
+  explanation: Basis risk between the ETF and the basket remains.

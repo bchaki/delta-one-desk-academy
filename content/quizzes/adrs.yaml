@@ -1,0 +1,149 @@
+questions:
+- id: ad01
+  type: mcq
+  difficulty: 1
+  prompt: 'An ADR''s ratio of 0.5 means:'
+  options:
+  - One ADR represents half a local share
+  - Two ADRs per share
+  - The ADR is half the price
+  - The fee is 0.5
+  answer: 0
+  explanation: The ratio is local shares per ADR.
+- id: ad02
+  type: numeric
+  difficulty: 1
+  prompt: 'ADR fair value: local 60 EUR, ratio 1, EURUSD 1.05 (USD).'
+  answer: 63.0
+  tolerance: 0.001
+  explanation: 60 x 1 x 1.05 = 63.00.
+  unit: USD
+- id: ad03
+  type: numeric
+  difficulty: 2
+  prompt: 'ADR fair value: local 5,000 JPY, ratio 2, USDJPY 125 (USD).'
+  answer: 80.0
+  tolerance: 0.001
+  explanation: 5,000 x 2 / 125 = 80.
+  unit: USD
+- id: ad04
+  type: mcq
+  difficulty: 2
+  prompt: 'If the ADR trades above the top of the band, the arbitrageur should:'
+  options:
+  - Sell ADR, buy local, deliver to issue ADRs
+  - Buy ADR and cancel
+  - Do nothing
+  - Buy local only
+  answer: 0
+  explanation: 'The ADR is rich: sell it and issue new ones against local shares.'
+- id: ad05
+  type: numeric
+  difficulty: 2
+  prompt: 'Band: fair value 50, fee 0.05, costs 8 bps. Upper bound?'
+  answer: 50.09
+  tolerance: 0.0001
+  explanation: 50 + 0.05 + 0.04 = 50.09.
+- id: ad06
+  type: numeric
+  difficulty: 2
+  prompt: ADR at 50.20 vs the same band. Edge per ADR?
+  answer: 0.11
+  tolerance: 0.001
+  explanation: 50.20 - 50.09 = 0.11.
+- id: ad07
+  type: mcq
+  difficulty: 1
+  prompt: What does the depositary bank do?
+  options:
+  - Issues and cancels ADRs against local shares
+  - Sets index weights
+  - Clears futures
+  - Lends stock
+  answer: 0
+  explanation: It converts between ADRs and local shares.
+- id: ad08
+  type: mcq
+  difficulty: 2
+  prompt: Why can ADR parity gaps appear outside overlapping hours?
+  options:
+  - The ADR trades off stale local prices and FX
+  - Fees change
+  - The ratio changes
+  - Dividends are paid
+  answer: 0
+  explanation: One market is closed, so parity is estimated.
+- id: ad09
+  type: mcq
+  difficulty: 2
+  prompt: Which risk does the simple band omit?
+  options:
+  - Settlement timing and FX moves between legs
+  - Commission
+  - The ratio
+  - Fees
+  answer: 0
+  explanation: Conversion takes days, leaving price and FX exposure.
+- id: ad10
+  type: mcq
+  difficulty: 2
+  prompt: 'ADR dividends reach holders:'
+  options:
+  - In dollars after FX, withholding and depositary fees
+  - Gross in local currency
+  - Never
+  - As new ADRs only
+  answer: 0
+  explanation: The depositary converts and deducts.
+- id: ad11
+  type: numeric
+  difficulty: 3
+  prompt: Edge on 200,000 ADRs at 0.058 per ADR (currency units).
+  answer: 11600.0
+  tolerance: 1
+  explanation: 200,000 x 0.058 = 11,600.
+  unit: USD
+- id: ad12
+  type: mcq
+  difficulty: 2
+  prompt: 'A US client''s long swap on a foreign stock can be hedged with:'
+  options:
+  - The ADR or the local share
+  - Only the ADR
+  - Only the local share
+  - Neither
+  answer: 0
+  explanation: Either line, depending on liquidity, borrow and FX.
+- id: ad13
+  type: mcq
+  difficulty: 1
+  prompt: 'A dual-listed company differs from an ADR program in that:'
+  options:
+  - Both lines are the company's own shares on two exchanges
+  - It has no ratio
+  - It has no fees
+  - It is not cross-listed
+  answer: 0
+  explanation: There is no depositary receipt, just two listings.
+- id: ad14
+  type: mcq
+  difficulty: 2
+  prompt: 'FX in the ADR formula should be quoted as:'
+  options:
+  - USD per unit of local currency
+  - Local per USD
+  - Always USDJPY
+  - Percent
+  answer: 0
+  explanation: fair value = local price x ratio x (USD per local).
+- id: ad15
+  type: mcq
+  difficulty: 2
+  prompt: 'Borrow differences across lines matter because:'
+  options:
+  - One line can be hard to borrow while the other is easy
+  - Prices are equal
+  - Fees cancel
+  - Settlement is instant
+  answer: 0
+  explanation: Choose the line with the cheaper, safer borrow.

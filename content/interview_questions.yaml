@@ -1,0 +1,546 @@
+questions:
+- id: iq01
+  category: Technical
+  module: equity_swaps
+  question: What is an equity total return swap and who pays what?
+  answer: The client receives the stock's price return and dividends and pays the benchmark plus a spread on the notional; the desk is on the other side and buys the stock as a hedge. The client gets exposure
+    without owning the stock; the desk earns the spread over its funding cost.
+  follow_ups:
+  - Who pays if the stock falls?
+  - What changes if the client is short?
+- id: iq02
+  category: Technical
+  module: s_financing_basis
+  question: How does a Delta One desk make money on a swap?
+  answer: 'Mainly the financing spread: what the client pays over the benchmark less the cost of funding the hedge (FTP), the balance sheet it uses and the capital it ties up, plus bid/offer, fees and borrow
+    where applicable. Directional risk is hedged away, so the business is a carry business that needs volume and low costs.'
+  follow_ups:
+  - What happens if FTP rises 25 bps?
+  - Why does netting help?
+- id: iq03
+  category: Technical
+  module: index_futures
+  question: How do you price an index future?
+  answer: 'Fair value is spot grown at the financing rate less the dividends paid before expiry, grown to expiry: F = S e^(rT) minus the sum of D_i e^(r(T-t_i)). A higher rate raises it, higher dividends
+    lower it. The market price is compared with this to see rich or cheap.'
+  follow_ups:
+  - What is the basis?
+  - What if the dividend forecast is cut?
+- id: iq04
+  category: Technical
+  module: index_futures
+  question: What is implied repo?
+  answer: 'The financing rate that makes the model fair value equal the market future: it is the return from buying the stock and selling the future. Compare it with your funding and borrow costs: if implied
+    repo is above your cost, cash-and-carry earns; below the rebate rate, the reverse trade earns.'
+  follow_ups:
+  - How would you compute it quickly?
+  - What is its use on a swap desk?
+- id: iq05
+  category: Technical
+  module: dividends
+  question: How are dividends treated in an equity swap?
+  answer: The client receives the dividend times the pass-through percentage on the economic shares from the ex-date, usually net of withholding where it applies. The desk receives the actual dividend on
+    its hedge. Differences in tax, timing or pass-through leave residual dividend risk.
+  follow_ups:
+  - What is 871(m)?
+  - What is a manufactured dividend?
+- id: iq06
+  category: Technical
+  module: corporate_actions
+  question: What happens to a swap when the underlying splits two-for-one?
+  answer: Shares double and the price halves so the notional is unchanged; the swap's economic shares and initial price are adjusted by the ratio. The hedge position is adjusted the same way. Booking must
+    apply the adjustment on the effective date.
+  follow_ups:
+  - What about a rights issue?
+  - How do you check it was done?
+- id: iq07
+  category: Technical
+  module: equity_swaps
+  question: What is the difference between an equity swap and a CFD?
+  answer: 'Economically similar: both give synthetic exposure with financing. Swaps are bilateral OTC contracts under an ISDA, typically for professional clients; CFDs are retail-style margin products with
+    different regulation and leverage limits. Details of margin, tax and disclosure differ by jurisdiction.'
+  follow_ups:
+  - Which has a CSA?
+  - Who is the counterparty?
+- id: iq08
+  category: Technical
+  module: loan_economics
+  question: Explain stock loan economics.
+  answer: 'The borrower gives collateral worth more than the loan (the margin) and pays a fee, or receives a rebate if the collateral is cash: rebate = reinvestment rate minus fee. Revenue is shared between
+    lender and agent. Fees rise convexly as utilisation approaches 100%.'
+  follow_ups:
+  - What is general collateral?
+  - What is reinvestment risk?
+- id: iq09
+  category: Technical
+  module: sbl_ops
+  question: What is a recall and how do you handle one?
+  answer: 'A lender asks for shares back. The borrower must return them by settlement or face a buy-in. Options: re-borrow elsewhere at a likely higher fee, buy the shares in the market, or cover from internal
+    inventory. Compare the costs and check inventory first.'
+  follow_ups:
+  - Which is usually cheapest?
+  - What if the stock is hard to borrow?
+- id: iq10
+  category: Technical
+  module: internalisation
+  question: What is internalisation and why does it matter?
+  answer: Netting client flow and inventory internally so the desk avoids external borrow, hedging costs and balance sheet. It lifts margins because the desk keeps the spread without paying to hedge.
+  follow_ups:
+  - How do you measure it?
+  - What limits it?
+- id: iq11
+  category: Technical
+  module: margin_suite
+  question: Compare Reg T, portfolio margin and SIMM.
+  answer: Reg T is a simple percentage rule on long and short value for US customer accounts. Portfolio margin charges the worst loss across a scenario grid and recognises offsets. SIMM is a sensitivity-based
+    model for uncleared derivatives. Each suits its counterparty; the numbers differ because they treat hedges differently.
+  follow_ups:
+  - Which is lowest for a hedged book?
+  - What is the NGR?
+- id: iq12
+  category: Technical
+  module: margin_suite
+  question: What is the difference between initial and variation margin?
+  answer: Initial margin is a buffer against a future move during close-out and is set by a model. Variation margin is the daily settlement of mark-to-market gains and losses. IM moves with risk; VM moves
+    with prices.
+  follow_ups:
+  - Who holds IM?
+  - What is MPOR?
+- id: iq13
+  category: Technical
+  module: margin_suite
+  question: What is a CSA and what are threshold, MTA and rounding?
+  answer: The Credit Support Annex sets collateral terms between counterparties. Threshold is unsecured exposure allowed before collateral moves; MTA the minimum amount that will be transferred; rounding
+    the multiple to which calls and returns are rounded. Calls round up and returns down.
+  follow_ups:
+  - What is an independent amount?
+  - How do you handle a disputed call?
+- id: iq14
+  category: Technical
+  module: pnl_explain
+  question: What is PnL explain and what does unexplained mean?
+  answer: 'It decomposes PnL into price, FX, dividends, funding, borrow and other components computed from a clean model, with the booked total on top. Unexplained is the residual and usually signals a
+    break: a missed dividend, wrong fixing, wrong spread or stale mark.'
+  follow_ups:
+  - How do you size each suspect?
+  - When do you escalate?
+- id: iq15
+  category: Technical
+  module: pnl_explain
+  question: Walk through finding a missed dividend break.
+  answer: Unexplained appears on the ex-date. Check which hedge positions had the stock on the record date, compute shares times the gross dividend and compare with the unexplained amount, then confirm
+    the cash is absent from the books. Raise a booking fix and flag the PnL as provisional.
+  follow_ups:
+  - How do you stop it recurring?
+  - What if the amount is only partly explained?
+- id: iq16
+  category: Technical
+  module: var_stress
+  question: What is VaR and what are its limitations?
+  answer: Value at risk is a loss threshold at a confidence level over a horizon, for example 99% one day. It ignores losses beyond the threshold, depends on the model and history, and can fail in stress
+    when correlations jump. Expected shortfall and stress tests complement it.
+  follow_ups:
+  - How does ES differ?
+  - How is VaR backtested?
+- id: iq17
+  category: Technical
+  module: sbl_cases
+  question: What is a short squeeze and how does it affect the desk?
+  answer: 'Forced buying by shorts pushes price up, which prompts more covering. For the desk, hedges on client shorts face rising borrow fees, recalls and buy-ins; concentration and margin calls follow.
+    It is taught as a risk case: monitor utilisation, short interest and recall risk.'
+  follow_ups:
+  - What are the early signs?
+  - Who do you tell?
+- id: iq18
+  category: Technical
+  module: funding_capital
+  question: 'What binds capital for a hedged swap: leverage ratio or RWA?'
+  answer: Capital is the larger of the leverage-ratio requirement on exposure and the CET1 requirement on RWA. For well-hedged trades with a low-risk-weight client, the leverage ratio often binds; for risky
+    clients, RWA does.
+  follow_ups:
+  - How do you convert capital into bps?
+  - How does netting help?
+- id: iq19
+  category: Technical
+  module: xva
+  question: What is CVA and how does it differ from FVA?
+  answer: CVA prices the expected loss from the counterparty defaulting, using expected exposure, loss given default and default probability. FVA prices the cost of funding uncollateralised exposure. Both
+    go into the spread.
+  follow_ups:
+  - What about KVA and MVA?
+  - What is wrong-way risk?
+- id: iq20
+  category: Technical
+  module: etfs
+  question: How does ETF creation and redemption keep the price near NAV?
+  answer: Authorised participants can deliver the basket for new ETF shares or redeem shares for the basket. If the ETF trades at a premium beyond costs they create and sell the ETF; at a discount they
+    buy and redeem. Costs widen in stress, so the band widens too.
+  follow_ups:
+  - What is iNAV?
+  - Why can a bond ETF trade at a wide discount?
+- id: iq21
+  category: Technical
+  module: adrs
+  question: How is an ADR priced against the local share?
+  answer: ADR fair value is the local price times the ratio times the FX rate. The band around it is the depositary conversion fee plus costs. Outside the band an arbitrage exists, subject to FX, timing
+    and short-sale constraints.
+  follow_ups:
+  - What if the local market is closed?
+  - What are the tax differences?
+- id: iq22
+  category: Technical
+  module: s_rebalance
+  question: Explain index inclusion demand and how a desk might trade it.
+  answer: 'Funds tracking the index must buy additions at the effective close: demand is AUM times weight over price, expressed in days of ADV. A desk may pre-position on public information, or facilitate
+    funds by guaranteeing the close and hedging. Using confidential client information to trade ahead is front-running.'
+  follow_ups:
+  - What is a crowded trade?
+  - Where is the compliance line?
+- id: iq23
+  category: Technical
+  module: booking_lifecycle
+  question: Why does a total return swap reset its notional?
+  answer: A reset marks the swap to market, pays or receives the gain or loss in cash and sets a new notional at the current price. It limits exposure and credit risk and keeps funding aligned to the current
+    value of the hedge.
+  follow_ups:
+  - What if a reset is missed?
+  - How does it change XVA?
+- id: iq24
+  category: Technical
+  module: risk_sens
+  question: Why does the desk care about FX translation PnL on foreign stock hedges?
+  answer: The stock hedge is in local currency while the desk reports in USD, so FX moves change the USD value of the hedge. The client's swap carries the same FX unless it is quanto, so the desk hedges
+    the translation or reports it as FX PnL.
+  follow_ups:
+  - How do you hedge it?
+  - What is a quanto swap?
+- id: iq25
+  category: Pricing brain-teaser
+  module: index_futures
+  question: Spot is 5,000, the rate is 4% continuous, the future expires in six months and a 20-point dividend goes ex in three months. What is fair value?
+  answer: F = 5,000 e^(0.04 x 0.5) minus 20 e^(0.04 x 0.25) = 5,080.81. Spot grown for six months is 5,101.01 and the dividend grown to expiry is 20.20.
+  follow_ups:
+  - What if the rate rises 50 bps?
+  - What if the dividend is cancelled?
+- id: iq26
+  category: Pricing brain-teaser
+  module: s_financing_basis
+  question: A 50 million swap pays 70 bps over benchmark. FTP is 40 bps and balance sheet 10 bps. What does the desk earn in a year?
+  answer: 50,000,000 x (70 - 40 - 10) bps = 100,000, for a full year on an ACT/360 basis.
+  follow_ups:
+  - What if FTP rises to 60?
+  - Which hedge could improve it?
+- id: iq27
+  category: Pricing brain-teaser
+  module: rates_funding
+  question: A rate is 5.00% on ACT/360. What is it on ACT/365?
+  answer: 5.00% x 365/360 = 5.0694%. Simple rates scale by the ratio of the bases.
+  follow_ups:
+  - Which benchmarks use ACT/365F?
+  - Does compounding change it?
+- id: iq28
+  category: Pricing brain-teaser
+  module: equity_swaps
+  question: A client is long 100,000 shares through a swap with 85% dividend pass-through. The gross dividend is 0.80 a share. What does the client receive?
+  answer: 100,000 x 0.80 x 0.85 = 68,000, before any withholding tax.
+  follow_ups:
+  - Who keeps the other 12,000?
+  - What if the client is short?
+- id: iq29
+  category: Pricing brain-teaser
+  module: s_roll
+  question: A long of 20 contracts, multiplier 50, rolls from 5,000 to 5,030. What is the roll cost?
+  answer: '20 x 50 x 30 = 30,000 paid by the long. Annualised for a three-month gap: 30/5,000/0.25 = 240 bps.'
+  follow_ups:
+  - How much is fair carry?
+  - What is richness?
+- id: iq30
+  category: Pricing brain-teaser
+  module: margin_suite
+  question: 'Ten index futures at 5,000 with multiplier 50 and a 7% scan range: what is the scan margin?'
+  answer: Notional 10 x 5,000 x 50 = 2,500,000; 7% = 175,000.
+  follow_ups:
+  - What if half is a calendar spread?
+  - What is a credit?
+- id: iq31
+  category: Pricing brain-teaser
+  module: var_stress
+  question: A 10 million position has daily volatility 1.5%. What is the 99% one-day parametric VaR?
+  answer: 'z = 2.326: 2.326 x 0.015 x 10,000,000 = about 348,945.'
+  follow_ups:
+  - Scale to ten days.
+  - What does it miss?
+- id: iq32
+  category: Pricing brain-teaser
+  module: var_stress
+  question: If 1-day VaR is 350,000, what is 10-day VaR under square-root-of-time scaling?
+  answer: 350,000 x sqrt(10) = 1,106,797. The scaling assumes independent, identically distributed returns.
+  follow_ups:
+  - When does it fail?
+  - Which regulators use it?
+- id: iq33
+  category: Pricing brain-teaser
+  module: loan_economics
+  question: 'A 20 million short with a 150 bps fee for 30 days (ACT/360): what is the borrow cost?'
+  answer: 20,000,000 x 0.015 x 30/360 = 25,000.
+  follow_ups:
+  - What if the fee doubles?
+  - Who pays it in a swap?
+- id: iq34
+  category: Pricing brain-teaser
+  module: s_etf_arb
+  question: Creation fee 5,000 on a unit worth 5 million, basket cost 3 bps, ETF half-spread 2 bps. What is the break-even premium?
+  answer: 5,000/5,000,000 = 10 bps, plus 3 plus 2 = 15 bps.
+  follow_ups:
+  - What if costs double?
+  - What is the edge at a 50 bps premium?
+- id: iq35
+  category: Pricing brain-teaser
+  module: s_adr_arb
+  question: Local price 40, ratio 0.5, USD per local currency 1.20. What is ADR fair value?
+  answer: 40 x 0.5 x 1.2 = 24.00 USD.
+  follow_ups:
+  - What band applies?
+  - What if FX moves 50 bps?
+- id: iq36
+  category: Pricing brain-teaser
+  module: var_stress
+  question: You hold 3 million shares, ADV is 2 million and you may trade 20% of ADV a day. How many days to liquidate?
+  answer: 3,000,000 / (0.2 x 2,000,000) = 7.5 days.
+  follow_ups:
+  - What limit applies?
+  - How does it enter VaR?
+- id: iq37
+  category: Pricing brain-teaser
+  module: s_index_arb
+  question: A client is long 10 million of a stock with beta 1.2. How many 5,000 x 50 futures hedge it on a beta-adjusted basis?
+  answer: Beta-adjusted delta 12,000,000; each contract is 250,000; 48 contracts.
+  follow_ups:
+  - What basis risk remains?
+  - What about dividends?
+- id: iq38
+  category: Pricing brain-teaser
+  module: margin_suite
+  question: A US account holds 2 million long. What are Reg T initial and maintenance requirements?
+  answer: Initial 50% = 1,000,000; maintenance 25% = 500,000.
+  follow_ups:
+  - What if there is a short?
+  - Why is portfolio margin lower?
+- id: iq39
+  category: Pricing brain-teaser
+  module: loan_economics
+  question: Cash collateral is reinvested at 5% and the loan fee is 1%. What is the rebate?
+  answer: Rebate = 5% - 1% = 4%.
+  follow_ups:
+  - What if the fee is 6%?
+  - Who bears reinvestment risk?
+- id: iq40
+  category: Pricing brain-teaser
+  module: margin_suite
+  question: Exposure 3 million, collateral held 2.2 million, threshold 0, MTA 250,000, rounding 100,000. What is the call?
+  answer: 'Required 3,000,000 minus held 2,200,000 = 800,000, above MTA and a multiple of 100,000: call 800,000.'
+  follow_ups:
+  - What if exposure is 2.3m?
+  - What if held is 2.9m?
+- id: iq41
+  category: Pricing brain-teaser
+  module: booking_lifecycle
+  question: A swap with a 10 million notional resets after the stock rises 10%. What happens?
+  answer: The client receives 1,000,000 in cash and the new notional is 11,000,000 at the new price.
+  follow_ups:
+  - What if the stock falls 10%?
+  - Who pays?
+- id: iq42
+  category: Pricing brain-teaser
+  module: pnl_explain
+  question: Unexplained is -98,990 on the ex-date of a 1.5067 dividend. How many shares are affected?
+  answer: '98,990 / 1.5067 = about 65,700 shares: a missed dividend on a hedge of that size.'
+  follow_ups:
+  - How would you confirm it?
+  - What would you tell the trader?
+- id: iq43
+  category: Pricing brain-teaser
+  module: s_dividend
+  question: Long 10,000 units of a dividend future at 20 which settles at 17.5. What is the PnL?
+  answer: 10,000 x (17.5 - 20) = -25,000.
+  follow_ups:
+  - What if dividends are cancelled?
+  - What is path risk?
+- id: iq44
+  category: Pricing brain-teaser
+  module: s_roll
+  question: The near contract is 4,000 and the far 4,024, a quarter apart. What is the annualised roll cost?
+  answer: 24 / 4,000 / 0.25 x 10,000 = 240 bps a year.
+  follow_ups:
+  - Compare with fair carry.
+  - What if the funding input is wrong?
+- id: iq45
+  category: Behavioural
+  module: pnl_explain
+  question: It is 06:45 and the explain shows a large unexplained amount. What do you do?
+  answer: Check it is real and not a data failure, size the likely causes from the clues (dividend, fixing, spread, stale price), find the trade or position, tell the desk head early with a first view,
+    and request a fix. Report what is known and what is not; never smooth it over.
+  follow_ups:
+  - What if you cannot find it?
+  - Who must be told?
+- id: iq46
+  category: Behavioural
+  module: booking_lifecycle
+  question: A trader asks you to book a trade with missing client details. How do you respond?
+  answer: Politely decline to book incomplete data, explain the controls (legal entity, ISDA reference, CSA) that need it, offer to book it as pending with a flag if policy allows and chase the details
+    fast. Controls exist to protect the desk.
+  follow_ups:
+  - What if the trader insists?
+  - What is the risk of booking anyway?
+- id: iq47
+  category: Behavioural
+  module: limits_conduct
+  question: Sales asks you to approve a spread below cost to win the client. What do you do?
+  answer: Show the cost build-up and the loss at that spread, explain the approval needed and escalate to the head of desk if they want to proceed on strategic grounds. I do not approve it myself.
+  follow_ups:
+  - What if the client is strategic?
+  - How do you record the decision?
+- id: iq48
+  category: Behavioural
+  module: limits_conduct
+  question: You made a booking error that cost money. What do you do?
+  answer: Tell the desk head immediately with the size and cause, fix it, check for similar errors and add a control or checklist so it cannot recur. Owning it quickly matters more than the error.
+  follow_ups:
+  - How do you prevent recurrence?
+  - Who pays for the error?
+- id: iq49
+  category: Behavioural
+  module: tda_playbook
+  question: You have three urgent tasks at 08:00. How do you prioritise?
+  answer: 'By deadline and consequence: regulatory and settlement items first, then client-facing or risk issues, then reports. I tell the people waiting what to expect and when, and ask my manager if priorities
+    conflict.'
+  follow_ups:
+  - Give an example.
+  - What if everything is urgent?
+- id: iq50
+  category: Behavioural
+  module: tda_playbook
+  question: Describe explaining something technical to a non-technical person.
+  answer: 'I use the cash-flow and the plain words first, then one number. For example, explaining a margin call: what we hold, what we need, the difference and the deadline, then the model behind it if
+    they ask.'
+  follow_ups:
+  - What did they ask next?
+  - How did you check they understood?
+- id: iq51
+  category: Behavioural
+  module: margin_suite
+  question: A client disputes a margin call. How do you handle it?
+  answer: Recompute the call, pay the undisputed amount on time, send the dispute in writing with my calculation and the point of difference, and agree a date to resolve it. Keep the relationship calm and
+    the record clean.
+  follow_ups:
+  - What if the amount is large?
+  - Who do you copy?
+- id: iq52
+  category: Behavioural
+  module: limits_conduct
+  question: You see a colleague sharing confidential client information outside permitted channels. What do you do?
+  answer: Stop the conversation if I can, and report it to my manager or compliance the same day. Client confidentiality and information barriers are not optional, and a delay can turn a lapse into a breach.
+  follow_ups:
+  - What if the colleague is senior?
+  - What is the risk?
+- id: iq53
+  category: Behavioural
+  module: tda_playbook
+  question: You disagree with your manager's process. How do you proceed?
+  answer: Ask to understand the reason, make the case with evidence in private, and follow the decision unless it breaks a control. If it does, escalate through the proper channel.
+  follow_ups:
+  - Give an example.
+  - What if the manager is wrong again?
+- id: iq54
+  category: Behavioural
+  module: tda_playbook
+  question: How do you stay organised on a long day?
+  answer: A time-ordered checklist anchored to the desk's fixed events, a running log of open items with owners, and a short end-of-day handover. I automate repeated checks so my attention goes to exceptions.
+  follow_ups:
+  - What do you drop first?
+  - How do you hand over?
+- id: iq55
+  category: Behavioural
+  module: tda_playbook
+  question: Why Delta One?
+  answer: 'It combines finance, risk, operations and technology on one desk, and the work is concrete: price, book, hedge, explain. I like problems with a right answer that you can check, and I want to
+    learn how the business earns and controls risk.'
+  follow_ups:
+  - What would you want to learn first?
+  - What worries you?
+- id: iq56
+  category: Behavioural
+  module: automation
+  question: Describe automating a manual task.
+  answer: I identified a repeated check, wrote down the rules, built a small script with a test against known cases, ran it alongside the manual process for a few days and then handed it over with a README.
+    I kept the manual fallback.
+  follow_ups:
+  - How did you test it?
+  - What went wrong?
+- id: iq57
+  category: Behavioural
+  module: limits_conduct
+  question: A limit breach is reported at 17:30. How do you act?
+  answer: Confirm the number, tell the head of desk and risk now with the size, cause and a plan, log it and carry out the plan. I do not wait for the end-of-day report or ask for the limit to be raised.
+  follow_ups:
+  - What if the head of desk is away?
+  - How do you document it?
+- id: iq58
+  category: Behavioural
+  module: tda_playbook
+  question: Two senior traders give you conflicting instructions. What do you do?
+  answer: Tell both what each has asked, ask them to agree or ask the desk head to decide, and meanwhile do the thing with the shortest deadline that is safe. I do not guess.
+  follow_ups:
+  - What if it is urgent?
+  - What if one is more senior?
+- id: iq59
+  category: Behavioural
+  module: sbl_ops
+  question: A hedge fails to settle. What do you do?
+  answer: Find why (instruction, stock, counterparty), contact the counterparty or custodian, check buy-in deadlines and penalties, tell the trader of the exposure and fix it with the shortest path. Record
+    the fail and the cost.
+  follow_ups:
+  - What is the CSDR penalty regime?
+  - How do you prevent repeats?
+- id: iq60
+  category: Behavioural
+  module: tda_playbook
+  question: How do you learn a new product quickly?
+  answer: Start from the cash flows, build a one-page example with numbers, find the biggest risks, then ask the person who owns it to check my understanding. I write down questions as I go.
+  follow_ups:
+  - What was the last product?
+  - How do you test it?
+- id: iq61
+  category: Behavioural
+  module: pnl_explain
+  question: Tell me about a time you spotted a risk others missed.
+  answer: State the situation, what I saw (for example a growing concentration or a stale price), who I told, what changed and what I learned. I keep the story specific and honest about my part.
+  follow_ups:
+  - What was the outcome?
+  - What would you do differently?
+- id: iq62
+  category: Behavioural
+  module: limits_conduct
+  question: What would you do if you were asked to hide a loss until after month-end?
+  answer: Decline, and escalate to the head of desk or compliance. Hiding a loss is misreporting and is never acceptable, whatever the pressure.
+  follow_ups:
+  - What if it were small?
+  - Who would you tell?
+- id: iq63
+  category: Behavioural
+  module: margin_suite
+  question: A client is angry on a call about a large margin call. How do you handle it?
+  answer: Stay calm, acknowledge the concern, state the facts (exposure, collateral, requirement), offer the calculation and the dispute route, and follow up in writing. I bring in sales if the relationship
+    needs it.
+  follow_ups:
+  - What if the client is wrong?
+  - What if they threaten to leave?
+- id: iq64
+  category: Behavioural
+  module: tda_playbook
+  question: What would you do in your first 90 days?
+  answer: Learn the flow of a trade end to end, shadow every daily process, build the daily checklist, automate one small report, understand the desk's costs and limits and ask for feedback every two weeks.
+    I would aim to be trusted with one process fully by day 90.
+  follow_ups:
+  - What would you drop?
+  - What would success look like?

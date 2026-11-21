@@ -1,0 +1,113 @@
+as_of: 2026-11-21
+source: "Regulator and industry-body pages, summarised for teaching. Dates change; check each source."
+verify: true
+
+rules:
+  - id: t_plus_1
+    name: "T+1 settlement"
+    region: "US, EU, UK, CH"
+    summary: "Securities trades settle one business day after trade date."
+    d1_impact: "Shorter window to source stock and fund hedges; tighter FX and borrow timing; more settlement-fail risk on cross-border books."
+    source: "https://www.fca.org.uk/markets/about-t1-settlement"
+    verify: false
+    key_dates:
+      - {date: 2024-05-28, event: "US equities moved to T+1"}
+      - {date: 2027-10-11, event: "EU, UK and Switzerland move to T+1"}
+  - id: sec_10c_1a
+    name: "SEC Rule 10c-1a (securities lending reporting)"
+    region: "US"
+    summary: "Lenders and intermediaries report securities loan terms to FINRA's SLATE; FINRA publishes loan data."
+    d1_impact: "Borrow and lend trades need reportable fields and fee data; fee transparency affects spreads."
+    source: "https://www.finra.org/filing-reporting/slate"
+    verify: true
+    key_dates:
+      - {date: 2028-09-28, event: "Implementation date shown by FINRA (delayed more than once; verify current status)"}
+  - id: sec_871m
+    name: "Section 871(m) dividend equivalents"
+    region: "US"
+    summary: "US withholding tax on dividend equivalents paid to non-US persons through derivatives referencing US equities."
+    d1_impact: "Applies to delta-one transactions: swaps on US names with non-US clients need an 871(m) flag, tax withholding and reporting."
+    source: "https://taxnews.ey.com/news/2026-2025-irs-extends-transitional-relief-for-dividend-equivalents-under-irc-section-871m-through-2028"
+    verify: true
+    key_dates:
+      - {date: 2028-12-31, event: "IRS Notice 2026-61 extends transition relief for non-delta-one transactions through 2028"}
+  - id: reg_sho
+    name: "Regulation SHO"
+    region: "US"
+    summary: "Locate requirement before short sales, close-out of persistent fails, threshold securities, short-sale price test."
+    d1_impact: "Client short swaps hedged with a real short need a locate and a borrow before the hedge is sold."
+    source: "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-about-regulation-sho"
+    verify: true
+    key_dates: []
+  - id: eu_ssr
+    name: "EU Short Selling Regulation"
+    region: "EU"
+    summary: "Net short position notification to regulators and public disclosure above thresholds; restrictions on uncovered short sales."
+    d1_impact: "Net short exposure from swaps and hedges counts toward disclosure; the desk reports aggregated positions."
+    source: "https://www.esma.europa.eu/"
+    verify: true
+    key_dates: []
+  - id: mifid
+    name: "MiFID II / MiFIR"
+    region: "EU, UK (onshored variants)"
+    summary: "Best execution, transaction reporting, pre/post-trade transparency, systematic internaliser regime."
+    d1_impact: "Client order handling, execution records and trade reporting for swaps and futures hedges."
+    source: "https://www.esma.europa.eu/"
+    verify: true
+    key_dates: []
+  - id: emir
+    name: "EMIR"
+    region: "EU, UK"
+    summary: "Clearing, risk mitigation (margin, reconciliation) and trade reporting for OTC derivatives."
+    d1_impact: "Equity swaps carry reporting and portfolio reconciliation duties; margin follows the uncleared rules."
+    source: "https://www.esma.europa.eu/"
+    verify: true
+    key_dates: []
+  - id: dodd_frank
+    name: "Dodd-Frank Title VII"
+    region: "US"
+    summary: "Swap dealer registration, reporting, clearing and margin for swaps; security-based swaps under SEC rules."
+    d1_impact: "Single-name and narrow-index swaps are security-based swaps with their own reporting and registration regime."
+    source: "https://www.sec.gov/"
+    verify: true
+    key_dates: []
+  - id: sftr
+    name: "SFTR"
+    region: "EU, UK"
+    summary: "Reporting of securities financing transactions (repo, securities lending) and disclosure on reuse."
+    d1_impact: "SBL and repo trades are reported to repositories with detailed fields."
+    source: "https://www.esma.europa.eu/"
+    verify: true
+    key_dates: []
+  - id: umr
+    name: "Uncleared Margin Rules (UMR)"
+    region: "Global"
+    summary: "Initial and variation margin for non-centrally cleared derivatives, phased in by size; SIMM is the common IM model."
+    d1_impact: "Equity swaps with in-scope clients attract two-way IM, so margin and CSA terms feed the spread."
+    source: "https://www.bis.org/bcbs/publ/d499.htm"
+    verify: true
+    key_dates: []
+  - id: volcker
+    name: "Volcker Rule"
+    region: "US"
+    summary: "Limits proprietary trading by banking entities; permits market making and hedging with documentation."
+    d1_impact: "Inventory and arbitrage activity has to be justified as client-facilitation or hedging, with limits and metrics."
+    source: "https://www.federalreserve.gov/"
+    verify: true
+    key_dates: []
+  - id: basel_frtb
+    name: "Basel III / FRTB"
+    region: "Global"
+    summary: "Capital for market risk (FRTB), counterparty credit risk (SA-CCR), leverage ratio and NSFR."
+    d1_impact: "Balance-sheet and capital charges are priced into swap and financing spreads."
+    source: "https://www.bis.org/bcbs/"
+    verify: true
+    key_dates: []
+  - id: csdr
+    name: "CSDR settlement discipline"
+    region: "EU"
+    summary: "Cash penalties for settlement fails and mandatory buy-ins framework."
+    d1_impact: "Failed deliveries on hedges or borrows cost penalties; recalls raise fail risk."
+    source: "https://www.esma.europa.eu/"
+    verify: true
+    key_dates: []

@@ -1,0 +1,56 @@
+examples:
+  rich:
+    fn: core.strategies.cash_carry.trade_pnl_points
+    args:
+      entry_dev: 2.0
+      exit_dev: 0.1
+      cost_pts: 0.2
+    expected: 1.7
+    tolerance: 1.0e-09
+    note: rich 2.0 to 0.1, cost 0.2
+  cheap:
+    fn: core.strategies.cash_carry.trade_pnl_points
+    args:
+      entry_dev: -2.0
+      exit_dev: -0.1
+      cost_pts: 0.2
+    expected: 1.7
+    tolerance: 1.0e-09
+    note: cheap side mirrors
+  fair:
+    fn: core.pricing.futures.model_forward
+    args:
+      spot: 5000.0
+      r: 0.05
+      divs:
+      - - 0.1
+        - 20.0
+      t: 0.25
+    expected: 5042.741693794281
+    tolerance: 1.0e-06
+    note: 5000 e^{0.0125} - 20 e^{0.05 x 0.15}
+  currency:
+    fn: core.pricing.futures.futures_pnl
+    args:
+      qty: -10.0
+      multiplier: 50.0
+      price0: 5030.0
+      price1: 5010.0
+    expected: 10000.0
+    tolerance: 1.0e-06
+    note: short 10 contracts, 20 points
+  stats:
+    fn: core.strategies.common.trade_stats
+    args:
+      pnl:
+        $: pandas.Series
+        args:
+        - - 3.0
+          - -1.0
+          - 2.0
+    expected:
+      total: 4.0
+      worst: -1.0
+      hit_rate: 0.6666666666666666
+    tolerance: 1.0e-09
+    note: hit rate 2/3

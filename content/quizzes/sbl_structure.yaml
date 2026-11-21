@@ -1,0 +1,154 @@
+questions:
+- id: ss01
+  type: mcq
+  difficulty: 1
+  prompt: Why do short sellers need to borrow stock?
+  options:
+  - To deliver shares they do not own
+  - To earn dividends
+  - To avoid tax
+  - To vote
+  answer: 0
+  explanation: The sale must settle with delivered shares.
+- id: ss02
+  type: mcq
+  difficulty: 1
+  prompt: Who are the typical beneficial owners that lend stock?
+  options:
+  - Pension funds, insurers and asset managers
+  - Hedge funds only
+  - Exchanges
+  - Index providers
+  answer: 0
+  explanation: Long-term holders lend to earn extra yield.
+- id: ss03
+  type: mcq
+  difficulty: 1
+  prompt: 'A lending agent is usually:'
+  options:
+  - A custodian bank running the lending program
+  - The borrower
+  - The regulator
+  - The exchange
+  answer: 0
+  explanation: Custodians run programs for owners and keep a revenue share.
+- id: ss04
+  type: numeric
+  difficulty: 1
+  prompt: Collateral for a domestic loan of 8,000,000 at 102%?
+  answer: 8160000.0
+  tolerance: 1
+  explanation: 8,000,000 x 1.02 = 8,160,000.
+  unit: currency units
+- id: ss05
+  type: numeric
+  difficulty: 1
+  prompt: Collateral for a cross-border loan of 8,000,000 at 105%?
+  answer: 8400000.0
+  tolerance: 1
+  explanation: 8,000,000 x 1.05 = 8,400,000.
+  unit: currency units
+- id: ss06
+  type: numeric
+  difficulty: 2
+  prompt: Fee revenue 50,000 split 80/20. What does the owner get?
+  answer: 40000.0
+  tolerance: 1
+  explanation: 50,000 x 0.8 = 40,000.
+  unit: currency units
+- id: ss07
+  type: mcq
+  difficulty: 2
+  prompt: 'Cash collateral is typically paired with:'
+  options:
+  - A rebate paid by the lender
+  - A fee paid by the lender
+  - No payment
+  - A margin call only
+  answer: 0
+  explanation: The lender reinvests the cash and rebates part of the return.
+- id: ss08
+  type: mcq
+  difficulty: 1
+  prompt: 'Utilisation is:'
+  options:
+  - On loan divided by lendable supply
+  - Fee divided by price
+  - Short interest over ADV
+  - Collateral over loan
+  answer: 0
+  explanation: It measures how much of the available supply is used.
+- id: ss09
+  type: numeric
+  difficulty: 2
+  prompt: 'Manufactured dividend: 80,000 shares, gross dividend 0.75, 100%.'
+  answer: 60000.0
+  tolerance: 0.01
+  explanation: 80,000 x 0.75 = 60,000.
+  unit: currency units
+- id: ss10
+  type: mcq
+  difficulty: 2
+  prompt: 'A locate is:'
+  options:
+  - A confirmation that stock can be borrowed before a short sale
+  - A fee quote
+  - A recall notice
+  - A tax form
+  answer: 0
+  explanation: Many markets require one before shorting.
+- id: ss11
+  type: mcq
+  difficulty: 2
+  prompt: Which tier has the highest illustrative fee?
+  options:
+  - Hard to borrow
+  - General collateral
+  - Warm
+  - Special
+  answer: 0
+  explanation: 'Illustrative tiers: 30, 150, 600 and 3,000 bps.'
+- id: ss12
+  type: mcq
+  difficulty: 2
+  prompt: 'A short swap quoted at 40 bps on a stock costing 600 bps to borrow:'
+  options:
+  - Loses the desk money
+  - Is highly profitable
+  - Is neutral
+  - Is illegal
+  answer: 0
+  explanation: The borrow exceeds the client spread.
+- id: ss13
+  type: mcq
+  difficulty: 2
+  prompt: 'An open loan differs from a term loan in that it:'
+  options:
+  - Can be recalled or returned on demand and reprices
+  - Has a fixed end date
+  - Has no collateral
+  - Has no fee
+  answer: 0
+  explanation: Open loans are flexible and reprice daily.
+- id: ss14
+  type: mcq
+  difficulty: 1
+  prompt: 'The master agreement used outside the US for securities lending is commonly the:'
+  options:
+  - GMSLA
+  - ISDA
+  - CSA
+  - MSLA
+  answer: 0
+  explanation: GMSLA is common outside the US; MSLA in the US.
+- id: ss15
+  type: mcq
+  difficulty: 2
+  prompt: Why does rehypothecation matter for SBL?
+  options:
+  - It lets intermediaries reuse client stock to cover shorts
+  - It sets fees
+  - It stops recalls
+  - It removes margin
+  answer: 0
+  explanation: It is the basis of internalisation.

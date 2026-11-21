@@ -1,0 +1,151 @@
+questions:
+- id: re01
+  type: mcq
+  difficulty: 1
+  prompt: 'Index funds on an addition:'
+  options:
+  - Buy at the effective close
+  - Sell
+  - Do nothing
+  - Hedge only
+  answer: 0
+  explanation: They must hold the new member.
+- id: re02
+  type: numeric
+  difficulty: 2
+  prompt: 'Demand: AUM 20bn, weight 2% (notional).'
+  answer: 400000000.0
+  tolerance: 1
+  explanation: 20bn x 2% = 400m.
+  unit: currency units
+- id: re03
+  type: numeric
+  difficulty: 2
+  prompt: Shares at price 40.
+  answer: 10000000.0
+  tolerance: 1
+  explanation: 400m / 40 = 10m shares.
+  unit: shares
+- id: re04
+  type: numeric
+  difficulty: 2
+  prompt: Days of ADV if ADV is 1m shares.
+  answer: 10.0
+  tolerance: 1.0e-06
+  explanation: 10m / 1m = 10.
+  unit: days
+- id: re05
+  type: numeric
+  difficulty: 2
+  prompt: 'Pre-position 10m: move 50 bps, impact 12, costs 3 (PnL).'
+  answer: 35000.0
+  tolerance: 1
+  explanation: 10m x 35 bps = 35,000.
+  unit: currency units
+- id: re06
+  type: numeric
+  difficulty: 2
+  prompt: 'MOC facilitation: 500,000 shares at 20, fee 5 bps, slippage 1.5 bps.'
+  answer: 3500.0
+  tolerance: 1
+  explanation: 10m x 3.5 bps = 3,500.
+  unit: currency units
+- id: re07
+  type: mcq
+  difficulty: 2
+  prompt: 'Crowded pre-positioning raises:'
+  options:
+  - Exit impact
+  - Entry fee
+  - NAV
+  - Dividends
+  answer: 0
+  explanation: More sellers at the same time.
+- id: re08
+  type: mcq
+  difficulty: 2
+  prompt: Which is legitimate?
+  options:
+  - Trading on public index methodology
+  - Trading ahead of a client's confidential index order
+  - Using the facilitation book to trade
+  - Sharing client orders
+  answer: 0
+  explanation: Confidential information is off limits.
+- id: re09
+  type: mcq
+  difficulty: 2
+  prompt: 'Facilitation earns:'
+  options:
+  - A fee less hedge slippage
+  - The index move
+  - A dividend
+  - Nothing
+  answer: 0
+  explanation: A service with hedge risk.
+- id: re10
+  type: mcq
+  difficulty: 2
+  prompt: 'A forecast addition that is not announced:'
+  options:
+  - Leaves a pre-position with costs and possibly a loss
+  - Is certain profit
+  - Is free
+  - Pays a dividend
+  answer: 0
+  explanation: Forecasting is a guess.
+- id: re11
+  type: mcq
+  difficulty: 2
+  prompt: 'In the synthetic world the average pre-event move is near zero. The right conclusion is:'
+  options:
+  - No effect is built in; the numbers show the method
+  - Index events do not matter
+  - The data are wrong
+  - Trade harder
+  answer: 0
+  explanation: Stated limitation.
+- id: re12
+  type: mcq
+  difficulty: 2
+  prompt: 'Deletions often need:'
+  options:
+  - Borrow if shorted
+  - No borrow
+  - A dividend
+  - A rate
+  answer: 0
+  explanation: Short a deleted stock.
+- id: re13
+  type: mcq
+  difficulty: 3
+  prompt: 'Inclusion impact is modelled as:'
+  options:
+  - k x sigma x sqrt(shares / ADV)
+  - Linear in shares
+  - Zero
+  - Fixed
+  answer: 0
+  explanation: Square-root model.
+- id: re14
+  type: mcq
+  difficulty: 2
+  prompt: 'Information barriers exist to prevent:'
+  options:
+  - Front-running and misuse of client information
+  - Trading altogether
+  - Index changes
+  - Taxes
+  answer: 0
+  explanation: Compliance.
+- id: re15
+  type: mcq
+  difficulty: 2
+  prompt: 'A stock with thin volume and a heavy weight is:'
+  options:
+  - A major event with large days-of-ADV demand
+  - A small event
+  - Irrelevant
+  - Free
+  answer: 0
+  explanation: Demand over ADV.

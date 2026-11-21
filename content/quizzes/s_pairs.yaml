@@ -1,0 +1,163 @@
+questions:
+- id: pa01
+  type: mcq
+  difficulty: 1
+  prompt: 'A pairs trade bets on:'
+  options:
+  - The spread between two stocks reverting
+  - The market rising
+  - Dividends
+  - Volatility
+  answer: 0
+  explanation: Relative value.
+- id: pa02
+  type: mcq
+  difficulty: 1
+  prompt: 'The hedge ratio comes from:'
+  options:
+  - Regressing log A on log B
+  - The ticker
+  - Dividends
+  - The index
+  answer: 0
+  explanation: OLS.
+- id: pa03
+  type: numeric
+  difficulty: 2
+  prompt: Half-life for phi = 0.8 (periods).
+  answer: 3.106284
+  tolerance: 0.001
+  explanation: ln 2 / -ln 0.8 = 3.11.
+  unit: periods
+- id: pa04
+  type: mcq
+  difficulty: 2
+  prompt: 'ADF statistic below about -3.34 suggests:'
+  options:
+  - Stationary spread, cointegration at 5% (rule of thumb)
+  - Non-stationary
+  - Zero beta
+  - High correlation
+  answer: 0
+  explanation: Rough threshold.
+- id: pa05
+  type: mcq
+  difficulty: 2
+  prompt: 'Correlation of returns versus cointegration:'
+  options:
+  - 'Different: cointegration is about levels'
+  - Same
+  - Cointegration is about returns
+  - No difference
+  answer: 0
+  explanation: Levels versus returns.
+- id: pa06
+  type: mcq
+  difficulty: 2
+  prompt: 'Screening many pairs causes:'
+  options:
+  - Multiple-testing false positives
+  - Better results
+  - No bias
+  - Lower costs
+  answer: 0
+  explanation: Some pass by chance.
+- id: pa07
+  type: mcq
+  difficulty: 2
+  prompt: 'A beta fitted on the full sample has:'
+  options:
+  - Look-ahead bias
+  - No bias
+  - Lower cost
+  - More trades
+  answer: 0
+  explanation: Live trading cannot know it.
+- id: pa08
+  type: mcq
+  difficulty: 2
+  prompt: 'Enter when z-score exceeds:'
+  options:
+  - An entry level such as 2
+  - '0'
+  - '-10'
+  - Never
+  answer: 0
+  explanation: Threshold rule.
+- id: pa09
+  type: mcq
+  difficulty: 2
+  prompt: 'A long half-life means:'
+  options:
+  - Capital tied up and borrow paid for months
+  - Fast profit
+  - No risk
+  - Low volatility
+  answer: 0
+  explanation: Carry cost.
+- id: pa10
+  type: mcq
+  difficulty: 2
+  prompt: 'A merger announced on one leg:'
+  options:
+  - Can break the relationship permanently
+  - Helps
+  - Is irrelevant
+  - Cancels borrow
+  answer: 0
+  explanation: Use stops.
+- id: pa11
+  type: mcq
+  difficulty: 2
+  prompt: 'Size a pairs trade by:'
+  options:
+  - Dollar volatility of the spread
+  - Notional only
+  - Price
+  - Ticker
+  answer: 0
+  explanation: Risk, not notional.
+- id: pa12
+  type: mcq
+  difficulty: 2
+  prompt: 'A flow desk meets pairs when:'
+  options:
+  - Clients trade pair swaps
+  - Never
+  - It runs the strategy as its main business
+  - Index changes
+  answer: 0
+  explanation: Price financing, borrow and margin.
+- id: pa13
+  type: mcq
+  difficulty: 3
+  prompt: 'Hedge ratio when A = B squared:'
+  options:
+  - '2'
+  - '1'
+  - '0.5'
+  - '0'
+  answer: 0
+  explanation: ln A = 2 ln B.
+- id: pa14
+  type: mcq
+  difficulty: 2
+  prompt: 'A sensible time stop is:'
+  options:
+  - A multiple of the half-life
+  - None
+  - One minute
+  - Next year
+  answer: 0
+  explanation: Unreverted after three half-lives is suspect.
+- id: pa15
+  type: mcq
+  difficulty: 2
+  prompt: 'Margin on a hedged pair:'
+  options:
+  - Lower under portfolio margin than under Reg T
+  - Always equal
+  - Higher under portfolio margin
+  - Zero
+  answer: 0
+  explanation: Portfolio margin recognises offsets.

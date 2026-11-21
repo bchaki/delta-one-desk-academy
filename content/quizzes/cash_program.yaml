@@ -1,0 +1,150 @@
+questions:
+- id: cp01
+  type: mcq
+  difficulty: 1
+  prompt: In an agency trade, who bears the market risk?
+  options:
+  - The client
+  - The desk
+  - The exchange
+  - The index provider
+  answer: 0
+  explanation: An agent works the order; the client takes the price risk and pays commission.
+- id: cp02
+  type: mcq
+  difficulty: 1
+  prompt: 'A principal risk bid includes:'
+  options:
+  - Half spread, impact and a risk charge
+  - Only commission
+  - Only the risk charge
+  - Only the FTP spread
+  answer: 0
+  explanation: A principal price compensates for spread, impact and the risk of holding the position.
+- id: cp03
+  type: numeric
+  difficulty: 2
+  prompt: 'Square-root impact: k = 0.6, daily vol 1.5%, order 4% of ADV (bps).'
+  answer: 18.0
+  tolerance: 0.05
+  explanation: 0.6 x 0.015 x sqrt(0.04) x 10,000 = 18 bps.
+  unit: bps
+- id: cp04
+  type: numeric
+  difficulty: 2
+  prompt: 'Same stock, order 16% of ADV: impact (bps)?'
+  answer: 36.0
+  tolerance: 0.05
+  explanation: 'Quadrupling the size doubles impact: 36 bps.'
+  unit: bps
+- id: cp05
+  type: mcq
+  difficulty: 2
+  prompt: 'Doubling an order''s size multiplies square-root impact by about:'
+  options:
+  - '1.41'
+  - '2'
+  - '4'
+  - '0.5'
+  answer: 0
+  explanation: Impact grows with the square root of size.
+- id: cp06
+  type: numeric
+  difficulty: 2
+  prompt: 'Risk charge: daily vol 1.0%, horizon 4 days, risk aversion 0.5 (bps).'
+  answer: 100.0
+  tolerance: 0.05
+  explanation: 1% x 2 x 0.5 x 10,000 = 100 bps.
+  unit: bps
+- id: cp07
+  type: mcq
+  difficulty: 2
+  prompt: Why can a basket be priced tighter than the sum of its stocks?
+  options:
+  - Diversification lowers basket volatility
+  - Commission is lower
+  - Stocks are correlated at 1
+  - Auctions are cheaper
+  answer: 0
+  explanation: Imperfect correlation reduces the risk charge.
+- id: cp08
+  type: mcq
+  difficulty: 1
+  prompt: 'VWAP is:'
+  options:
+  - Volume-weighted average price over a window
+  - Value-weighted adjusted price
+  - Variable weighted asking price
+  - The closing auction price
+  answer: 0
+  explanation: A common execution benchmark.
+- id: cp09
+  type: mcq
+  difficulty: 2
+  prompt: 'Implementation shortfall is measured against:'
+  options:
+  - The arrival price
+  - The close
+  - The previous day's VWAP
+  - The NAV
+  answer: 0
+  explanation: Shortfall = execution price versus the price when the order arrived.
+- id: cp10
+  type: numeric
+  difficulty: 2
+  prompt: 'Total bid: half spread 3 bps, impact 12 bps, risk charge 25 bps; notional 20m. Amount?'
+  answer: 80000.0
+  tolerance: 1
+  explanation: 40 bps x 20,000,000 = 80,000.
+  unit: currency units
+- id: cp11
+  type: mcq
+  difficulty: 2
+  prompt: 'If the desk wins a basket, its expected PnL (before moves) equals:'
+  options:
+  - The risk charge
+  - The half spread
+  - The impact
+  - Zero
+  answer: 0
+  explanation: Half spread and impact are paid out while trading; the risk charge is what is kept.
+- id: cp12
+  type: mcq
+  difficulty: 1
+  prompt: What is transition management?
+  options:
+  - Moving a portfolio between managers or strategies with controlled cost
+  - Moving to a new office
+  - A type of ETF
+  - A margin call
+  answer: 0
+  explanation: A program trade service for large portfolio changes.
+- id: cp13
+  type: mcq
+  difficulty: 2
+  prompt: Which is a pitfall of program trading?
+  options:
+  - Information leakage before execution
+  - Too little volume
+  - Fixed FTP
+  - Fewer clients
+  answer: 0
+  explanation: Leakage moves prices against you.
+- id: cp14
+  type: numeric
+  difficulty: 3
+  prompt: Two equal legs, vol 2% each, correlation 0.5. Basket daily vol (decimal)?
+  answer: 0.017321
+  tolerance: 0.0001
+  explanation: sigma^2 = 2 x 0.25 x 0.0004 + 0.5 x 2 x 0.25 x 0.0004 = 0.0003, so 1.73%.
+- id: cp15
+  type: mcq
+  difficulty: 2
+  prompt: 'Closing auctions on index rebalance days are:'
+  options:
+  - Very large and crowded
+  - Empty
+  - Closed
+  - Always cheaper
+  answer: 0
+  explanation: Index funds trade at the close, so volumes spike.

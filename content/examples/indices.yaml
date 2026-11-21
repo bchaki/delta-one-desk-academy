@@ -1,0 +1,73 @@
+examples:
+  level:
+    fn: core.indices.index_level
+    args:
+      prices:
+      - 100.0
+      - 50.0
+      - 20.0
+      shares:
+      - 1000.0
+      - 2000.0
+      - 5000.0
+      free_float:
+      - 1.0
+      - 0.5
+      - 1.0
+      cap_factor:
+      - 1.0
+      - 1.0
+      - 1.0
+      divisor: 100.0
+    expected: 2500.0
+    tolerance: 1.0e-09
+    note: (100,000 + 50,000 + 100,000) / 100
+  divisor:
+    fn: core.indices.adjust_divisor
+    args:
+      old_divisor: 100.0
+      old_value: 250000.0
+      new_value: 300000.0
+    expected: 120.0
+    tolerance: 1.0e-09
+    note: 100 x 300,000 / 250,000
+  cap:
+    fn: core.indices.apply_cap
+    args:
+      weights:
+      - 0.5
+      - 0.3
+      - 0.2
+      cap: 0.4
+    expected:
+    - 0.4
+    - 0.36
+    - 0.24
+    tolerance: 1.0e-09
+    note: excess 10% redistributed pro rata
+  inclusion:
+    fn: core.indices.inclusion_demand
+    args:
+      tracked_aum: 200000000000.0
+      new_weight: 0.002
+      price: 50.0
+      adv: 4000000.0
+      impact_k: 0.7
+      daily_vol: 0.02
+    expected:
+      shares: 8000000.0
+      notional: 400000000.0
+      days_of_adv: 2.0
+      impact_bps: 197.989898732
+    tolerance: 1.0e-06
+    note: 2e11 x 0.2% / 50 = 8m shares
+  tr:
+    fn: core.indices.total_return_step
+    args:
+      prev_tr_level: 1000.0
+      price_level_prev: 1000.0
+      price_level_new: 1010.0
+      div_points: 4.0
+    expected: 1014.0
+    tolerance: 1.0e-09
+    note: 1000 x (1010 + 4)/1000

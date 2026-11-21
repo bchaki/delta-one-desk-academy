@@ -1,0 +1,130 @@
+questions:
+- id: ca01
+  type: mcq
+  difficulty: 1
+  prompt: What principle governs every corporate action adjustment?
+  options:
+  - Value just before equals value just after, counting cash and new securities
+  - The price must not change
+  - The quantity must not change
+  - The desk keeps the difference
+  answer: 0
+  explanation: Adjustments are designed to be value neutral.
+- id: ca02
+  type: numeric
+  difficulty: 1
+  prompt: 'A 3-for-1 split: new price of a stock at 90?'
+  answer: 30.0
+  tolerance: 0.001
+  explanation: Price factor 1/3 gives 30.
+- id: ca03
+  type: numeric
+  difficulty: 1
+  prompt: 'A 1-for-10 reverse split (0.1 new per old): new price of a stock at 2.50?'
+  answer: 25.0
+  tolerance: 0.001
+  explanation: Price factor 1/0.1 = 10, so 25.
+- id: ca04
+  type: numeric
+  difficulty: 2
+  prompt: TERP for P = 80, K = 60, 1 new for every 2 held (ratio 0.5)?
+  answer: 73.333333
+  tolerance: 0.001
+  explanation: (80 + 0.5 x 60) / 1.5 = 73.33.
+- id: ca05
+  type: numeric
+  difficulty: 2
+  prompt: Rights quantity factor for P = 80, K = 60, ratio 0.5?
+  answer: 1.090909
+  tolerance: 0.0001
+  explanation: P / TERP = 80 / 73.33 = 1.0909.
+- id: ca06
+  type: numeric
+  difficulty: 2
+  prompt: 'Spin-off: parent at 60, spin-off worth 9 per parent share. Parent price factor?'
+  answer: 0.85
+  tolerance: 0.0001
+  explanation: (60 - 9)/60 = 0.85.
+- id: ca07
+  type: numeric
+  difficulty: 2
+  prompt: A swap on 5,000 parent shares at 60 undergoes a 2-for-1 split. New share count?
+  answer: 10000.0
+  tolerance: 0.5
+  explanation: 5,000 x 2 = 10,000.
+- id: ca08
+  type: mcq
+  difficulty: 2
+  prompt: A cash merger terminates a swap on the target. What is the swap's final equity value per share?
+  options:
+  - The offer price
+  - The last traded price
+  - The acquirer's price
+  - Zero
+  answer: 0
+  explanation: The position is closed and the offer price is received.
+- id: ca09
+  type: numeric
+  difficulty: 2
+  prompt: 'Stock merger: target 40, acquirer 60, ratio 0.5, cash 8. Value per old share after?'
+  answer: 38.0
+  tolerance: 0.001
+  explanation: 0.5 x 60 + 8 = 38.
+- id: ca10
+  type: mcq
+  difficulty: 2
+  prompt: If the target traded at 40 and deal value is 38, what is the gap?
+  options:
+  - 'Merger-arb spread: a real PnL for holders'
+  - A booking error
+  - An index error
+  - A dividend
+  answer: 0
+  explanation: Value is only preserved if the target traded at the deal value.
+- id: ca11
+  type: mcq
+  difficulty: 1
+  prompt: What is the most expensive operational error in corporate actions on a hedged swap?
+  options:
+  - Adjusting the swap but not the hedge, or the reverse
+  - Choosing the wrong font
+  - Late client call
+  - Wrong benchmark
+  answer: 0
+  explanation: The desk is left outright long or short the underlying.
+- id: ca12
+  type: mcq
+  difficulty: 2
+  prompt: Who typically decides adjustments for a swap if the terms are ambiguous?
+  options:
+  - The calculation agent under the confirmation
+  - The index provider
+  - The exchange
+  - The client alone
+  answer: 0
+  explanation: The confirmation names a calculation agent for potential adjustment events.
+- id: ca13
+  type: numeric
+  difficulty: 3
+  prompt: 'Rights issue value check: P = 50, K = 40, ratio 0.25. Value of 1,000 old shares after taking up rights (shares x TERP x qty factor)?'
+  answer: 50000.0
+  tolerance: 0.01
+  explanation: 'Quantity 1,041.67 x 48 = 50,000: unchanged.'
+- id: ca14
+  type: mcq
+  difficulty: 1
+  prompt: Which date matters most for applying a split to a swap?
+  options:
+  - The ex-date
+  - The pay date
+  - The declaration date
+  - Contract expiry
+  answer: 0
+  explanation: Apply on the ex-date, not later.
+- id: ca15
+  type: numeric
+  difficulty: 3
+  prompt: 'Spin-off value check: parent at 100, price factor 0.88, 0.5 new share worth 24 each. Value after per old share?'
+  answer: 100.0
+  tolerance: 0.001
+  explanation: 88 + 12 = 100.

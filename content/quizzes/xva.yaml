@@ -1,0 +1,154 @@
+questions:
+- id: xv01
+  type: mcq
+  difficulty: 1
+  prompt: 'Expected exposure counts:'
+  options:
+  - Only positive values of what the client owes
+  - Negative values too
+  - Only today's MTM
+  - Only collateral
+  answer: 0
+  explanation: Exposure is what the desk could lose.
+- id: xv02
+  type: mcq
+  difficulty: 1
+  prompt: 'PFE is:'
+  options:
+  - A high quantile of future exposure
+  - The average
+  - The minimum
+  - Today's MTM
+  answer: 0
+  explanation: For example the 95th percentile.
+- id: xv03
+  type: mcq
+  difficulty: 2
+  prompt: 'A TRS with periodic resets has an exposure profile that:'
+  options:
+  - Saw-tooths, falling at each reset
+  - Grows steadily
+  - Is flat
+  - Is negative
+  answer: 0
+  explanation: Resets bring MTM to zero.
+- id: xv04
+  type: mcq
+  difficulty: 2
+  prompt: 'The margin period of risk is:'
+  options:
+  - Time between the last collateral exchange and close-out
+  - The tenor
+  - The reset period
+  - The CSA threshold
+  answer: 0
+  explanation: Typically about 10 business days.
+- id: xv05
+  type: numeric
+  difficulty: 2
+  prompt: 'CVA: flat EE 2m at year 1 and 2m at year 2, spread 100 bps, LGD 60%, no discounting.'
+  answer: 39340.679422
+  tolerance: 1
+  explanation: 'Twice the 1m example: 2 x CVA(1m).'
+  unit: currency units
+- id: xv06
+  type: numeric
+  difficulty: 2
+  prompt: 'FVA: EE 3m at years 1 and 2, funding spread 50 bps.'
+  answer: 30000.0
+  tolerance: 1
+  explanation: 0.005 x (3m + 3m) = 30,000.
+  unit: currency units
+- id: xv07
+  type: numeric
+  difficulty: 2
+  prompt: 'MVA: average IM 10m, 3 years, 30 bps.'
+  answer: 90000.0
+  tolerance: 1
+  explanation: 10m x 0.3% x 3 = 90,000.
+  unit: currency units
+- id: xv08
+  type: numeric
+  difficulty: 2
+  prompt: 'XVA charge: 120,000 on 20m over 3 years (bps a year).'
+  answer: 20.0
+  tolerance: 0.001
+  explanation: 120k/20m/3 x 10,000 = 20 bps.
+  unit: bps
+- id: xv09
+  type: mcq
+  difficulty: 2
+  prompt: 'Wider credit spreads give:'
+  options:
+  - Higher CVA
+  - Lower CVA
+  - No change
+  - Negative CVA
+  answer: 0
+  explanation: Higher default probability.
+- id: xv10
+  type: mcq
+  difficulty: 2
+  prompt: 'Collateral with an MPOR lag:'
+  options:
+  - Shrinks exposure to gap risk but does not remove it
+  - Removes exposure
+  - Increases it
+  - Has no effect
+  answer: 0
+  explanation: Moves during the lag are uncollateralised.
+- id: xv11
+  type: mcq
+  difficulty: 2
+  prompt: 'Wrong-way risk is:'
+  options:
+  - Exposure rising as the counterparty weakens
+  - Exposure falling
+  - Independent exposure
+  - A fee
+  answer: 0
+  explanation: Correlation between exposure and default.
+- id: xv12
+  type: mcq
+  difficulty: 2
+  prompt: 'KVA is the cost of:'
+  options:
+  - Capital held against exposure
+  - Funding exposure
+  - Margin
+  - Collateral
+  answer: 0
+  explanation: Capital valuation adjustment.
+- id: xv13
+  type: mcq
+  difficulty: 2
+  prompt: Who typically manages and hedges XVA?
+  options:
+  - A dedicated XVA desk
+  - The client
+  - The exchange
+  - Audit
+  answer: 0
+  explanation: Often with CDS hedges.
+- id: xv14
+  type: mcq
+  difficulty: 2
+  prompt: 'A trade booked without an active CSA means:'
+  options:
+  - Higher XVA and an error flagged by validation
+  - Lower XVA
+  - No exposure
+  - No margin
+  answer: 0
+  explanation: Uncollateralised exposure costs more.
+- id: xv15
+  type: mcq
+  difficulty: 2
+  prompt: 'The simple model omits:'
+  options:
+  - Netting, stochastic rates and credit, wrong-way risk
+  - The notional
+  - Resets
+  - Volatility
+  answer: 0
+  explanation: Listed limitations.

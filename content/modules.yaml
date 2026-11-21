@@ -1,0 +1,1265 @@
+sections:
+- id: start
+  title: Start Here
+- id: foundations
+  title: Market Foundations
+- id: products
+  title: Products
+- id: sbl_repo
+  title: Stock Borrow & Lending
+- id: pricing_booking
+  title: Pricing & Booking
+- id: risk_pnl
+  title: Risk & PnL
+- id: margin_capital
+  title: Margin & Capital
+- id: strategies
+  title: Strategy Lab
+- id: practice
+  title: Practice & Reference
+modules:
+- id: home
+  section: start
+  title: Home
+  icon: ':material/home:'
+  help: What this app is, your 4-week path, progress and the desk at a glance.
+  week: 0
+  built: true
+  reference: true
+- id: desk_inside
+  section: start
+  title: Inside a Delta One Desk
+  icon: ':material/domain:'
+  help: What the desk does, who it talks to and how it makes money.
+  week: 1
+  built: true
+  minutes: 40
+  difficulty: 1
+  prereqs: []
+  purpose: Understand what a Delta One desk sells, who does what and how the desk earns and loses money.
+  objectives:
+  - Define delta one and list the desk's products.
+  - Name the roles around the desk and what each owns.
+  - List the desk's revenue sources and cost items.
+  - Describe the residual risks on a hedged book.
+  related:
+  - tda_playbook
+  - equity_swaps
+  - pnl_explain
+  terms:
+  - TDA
+  - delta one
+  - middle office
+  - product control
+  - internalisation
+  - break
+- id: tda_playbook
+  section: start
+  title: The TDA Playbook
+  icon: ':material/checklist:'
+  help: The role, a day in the life, checklists and a 30/60/90 plan.
+  week: 1
+  built: true
+  minutes: 40
+  difficulty: 1
+  prereqs:
+  - desk_inside
+  purpose: Learn the TDA's day, priorities, checklists and a 30/60/90 plan.
+  objectives:
+  - Describe a typical TDA day by region.
+  - Prioritise tasks by cost and client impact.
+  - Write a clear break note.
+  - Plan the first 90 days.
+  related:
+  - desk_inside
+  - booking_lifecycle
+  - automation
+  terms:
+  - TDA
+  - break
+  - handover
+- id: rates_funding
+  section: foundations
+  title: Rates, Funding & Financing
+  icon: ':material/percent:'
+  help: Benchmarks, day counts, compounding and funding transfer pricing.
+  week: 1
+  built: true
+  minutes: 40
+  difficulty: 1
+  prereqs: []
+  purpose: 'Read and compare rates correctly: benchmark, day count, compounding and the desk''s funding cost.'
+  objectives:
+  - Name the overnight benchmark, calendar and day count for each major currency.
+  - Compute simple interest and restate a rate on another day count.
+  - Compound overnight fixings in arrears and explain lookback and observation shift.
+  - Explain the funds transfer price and how it sets the floor on a swap spread.
+  related:
+  - dividends
+  - equity_swaps
+  - cost_of_exposure
+  - s_financing_basis
+  terms:
+  - SOFR
+  - ESTR
+  - SONIA
+  - TONA
+  - SARON
+  - bps
+  - ACT/360
+  - ACT/365F
+  - compounding in arrears
+  - lookback
+  - observation shift
+  - funds transfer pricing
+  - benchmark
+- id: dividends
+  section: foundations
+  title: Dividends
+  icon: ':material/payments:'
+  help: Schedules, forecasts, withholding tax and index dividend points.
+  week: 1
+  built: true
+  minutes: 40
+  difficulty: 2
+  prereqs:
+  - rates_funding
+  purpose: Understand every date and cash flow of a dividend and what it does to futures, swaps and the desk's PnL.
+  objectives:
+  - Order the four dividend dates and state which one drives a swap.
+  - Compute yield, present value and index dividend points.
+  - Back out market-implied dividends from a forward.
+  - Calculate dividend leakage from withholding tax and pass-through.
+  related:
+  - index_futures
+  - equity_swaps
+  - div_derivs
+  - s_dividend
+  terms:
+  - ex-date
+  - record date
+  - special dividend
+  - dividend leakage
+  - withholding tax
+  - manufactured dividend
+  - dividend yield
+  - present value of dividends
+  - dividend points
+  - pass-through
+- id: corporate_actions
+  section: foundations
+  title: Corporate Actions
+  icon: ':material/call_split:'
+  help: Splits, rights, spin-offs, mergers and how swaps adjust.
+  week: 1
+  built: true
+  minutes: 40
+  difficulty: 2
+  prereqs:
+  - dividends
+  purpose: Adjust swaps and hedges correctly for splits, rights issues, spin-offs and mergers while preserving value.
+  objectives:
+  - State the value-preservation rule and test an adjustment against it.
+  - Compute split, rights (TERP) and spin-off adjustments.
+  - Explain cash and stock mergers and the merger-arb gap.
+  - Describe how swaps and hedges must be adjusted together and who decides in ambiguity.
+  related:
+  - dividends
+  - equity_swaps
+  - indices
+  - booking_lifecycle
+  terms:
+  - corporate action
+  - TERP
+  - rights issue
+  - spin-off
+  - stock split
+  - calculation agent
+  - merger arbitrage
+- id: indices
+  section: foundations
+  title: Equity Indices
+  icon: ':material/show_chart:'
+  help: Weighting, capping, divisors and rebalance events.
+  week: 1
+  built: true
+  minutes: 40
+  difficulty: 2
+  prereqs:
+  - dividends
+  purpose: Build an index level from constituents and know what the divisor, caps and rebalances do.
+  objectives:
+  - Compute an index level from prices, shares, free float and caps.
+  - Adjust the divisor so the level is unchanged across a membership change.
+  - Apply capping and compute inclusion demand in days of ADV.
+  - Distinguish price and total return indices.
+  related:
+  - index_futures
+  - dividends
+  - etfs
+  - s_rebalance
+  terms:
+  - divisor
+  - free float
+  - capping factor
+  - rebalance
+  - inclusion demand
+  - price index
+  - total return index
+- id: cash_program
+  section: products
+  title: Cash Equities & Program Trading
+  icon: ':material/shopping_basket:'
+  help: Agency vs principal, risk bids, benchmarks and auctions.
+  week: 1
+  built: true
+  minutes: 45
+  difficulty: 2
+  prereqs:
+  - rates_funding
+  purpose: 'Price and manage cash equity trades: agency versus principal, impact, risk bids and program trades.'
+  objectives:
+  - Distinguish agency and principal execution and the risk each carries.
+  - Estimate square-root market impact and a risk charge.
+  - Build a principal risk bid for a basket and its win-PnL distribution.
+  - Name the benchmarks and the main pitfalls of program trading.
+  related:
+  - etfs
+  - indices
+  - s_flow
+  - pricing_lab
+  terms:
+  - risk bid
+  - program trade
+  - VWAP
+  - implementation shortfall
+  - square-root impact
+  - ADV
+  - closing auction
+  - transition management
+- id: index_futures
+  section: products
+  title: Index Futures & Total Return Futures
+  icon: ':material/trending_up:'
+  help: Fair value, basis, implied repo, the roll, TRFs and margin.
+  week: 1
+  built: true
+  minutes: 45
+  difficulty: 2
+  prereqs:
+  - rates_funding
+  - dividends
+  - indices
+  purpose: Price an index future from spot, rates and dividends, read the basis, and know what the desk does with it.
+  objectives:
+  - Compute fair value with discrete dividends and explain every term.
+  - Back out implied repo from a futures price and decide whether the future is rich or cheap.
+  - Explain basis convergence, the roll and the cost of staying long.
+  - Relate a total return futures spread to a price-future basis and to a swap spread.
+  - State how exchange margin and daily variation margin differ.
+  related:
+  - equity_swaps
+  - s_index_arb
+  - s_roll
+  - cost_of_exposure
+  terms:
+  - fair value
+  - basis
+  - implied repo
+  - cash and carry
+  - reverse cash and carry
+  - roll
+  - calendar spread
+  - total return future
+  - variation margin
+  - initial margin
+  - multiplier
+  - convergence
+  - cost of carry
+  - dividend points
+- id: equity_swaps
+  section: products
+  title: Equity Swaps, TRS & CFDs
+  icon: ':material/swap_horiz:'
+  help: Equity leg, funding leg, resets and the swap lifecycle simulator.
+  week: 1
+  built: true
+  minutes: 60
+  difficulty: 2
+  prereqs:
+  - rates_funding
+  - dividends
+  - corporate_actions
+  purpose: Understand every cash flow of an equity swap, how the desk hedges it and why its economics reduce to a spread.
+  objectives:
+  - Compute the equity, dividend and funding legs for a long and a short swap.
+  - Explain why the desk's hedged PnL reduces to notional x (spread - FTP or borrow) x period.
+  - Build a client spread from its components.
+  - 'Describe the lifecycle: reset, dividend, corporate action, unwind, termination.'
+  - Name the terms that matter in a confirmation, including pass-through and 871(m).
+  related:
+  - rates_funding
+  - dividends
+  - pricing_lab
+  - booking_lifecycle
+  terms:
+  - total return swap
+  - notional
+  - notional reset
+  - spread build-up
+  - CFD
+  - synthetic prime brokerage
+  - ISDA master agreement
+  - CSA
+  - 871(m)
+  - reset
+  - partial unwind
+  - pass-through
+  - hedge
+- id: etfs
+  section: products
+  title: ETFs
+  icon: ':material/pie_chart:'
+  help: Creation and redemption, NAV, premium and discount.
+  week: 1
+  built: true
+  minutes: 40
+  difficulty: 2
+  prereqs:
+  - indices
+  purpose: Understand ETF structure, NAV and premium, and the create/redeem arbitrage that links an ETF to its basket.
+  objectives:
+  - Compute NAV, iNAV and premium or discount.
+  - Calculate the break-even threshold and edge of a create/redeem arbitrage.
+  - Explain physical versus synthetic replication.
+  - Describe why premiums widen in stress.
+  related:
+  - indices
+  - index_futures
+  - s_etf_arb
+  - cost_of_exposure
+  terms:
+  - NAV
+  - iNAV
+  - premium
+  - creation unit
+  - authorised participant
+  - in-kind
+  - synthetic ETF
+- id: adrs
+  section: products
+  title: ADRs & Cross-listings
+  icon: ':material/public:'
+  help: Ratios, depositary fees, parity and conversion.
+  week: 1
+  built: true
+  minutes: 35
+  difficulty: 2
+  prereqs:
+  - rates_funding
+  purpose: Convert between local shares and ADRs, find the arbitrage band and understand conversion mechanics and risks.
+  objectives:
+  - Compute ADR parity from local price, ratio and FX, including a JPY line.
+  - Build the arbitrage band from conversion fees and costs.
+  - Decide whether to issue or cancel and compute the edge.
+  - List the timing, FX, dividend and borrow risks.
+  related:
+  - etfs
+  - s_adr_arb
+  - dividends
+  - equity_swaps
+  terms:
+  - ADR
+  - GDR
+  - ADR ratio
+  - depositary bank
+  - parity
+  - dual listing
+- id: div_derivs
+  section: products
+  title: Dividend Derivatives & D1 Notes
+  icon: ':material/request_quote:'
+  help: Dividend futures and swaps, trackers and certificates.
+  week: 1
+  built: true
+  minutes: 40
+  difficulty: 3
+  prereqs:
+  - dividends
+  - index_futures
+  purpose: Trade and value dividend exposure, and understand delta-one notes and who hedges what.
+  objectives:
+  - Compute dividend swap PnL and PV, and a strip's value.
+  - Compare market-implied dividends with forecasts.
+  - Calculate the PnL of a cancellation.
+  - Value a tracker note and explain how the desk hedges it.
+  related:
+  - dividends
+  - index_futures
+  - s_dividend
+  - equity_swaps
+  terms:
+  - dividend future
+  - dividend swap
+  - delta-one note
+  - dividend cancellation
+  - dividend leakage
+- id: sbl_structure
+  section: sbl_repo
+  title: SBL Market Structure
+  icon: ':material/account_tree:'
+  help: Lenders, borrowers, agents and collateral.
+  week: 2
+  built: true
+  minutes: 40
+  difficulty: 1
+  prereqs:
+  - desk_inside
+  purpose: Understand who lends and borrows stock, what collateral is used and how fees and dividends flow.
+  objectives:
+  - Describe the chain from beneficial owner to end borrower.
+  - Compute collateral required for domestic and cross-border loans.
+  - Split lending revenue between owner and agent.
+  - Explain utilisation, locates and manufactured dividends.
+  related:
+  - loan_economics
+  - sbl_ops
+  - internalisation
+  - equity_swaps
+  terms:
+  - securities lending
+  - beneficial owner
+  - lending agent
+  - general collateral
+  - hard to borrow
+  - utilisation
+  - locate
+  - manufactured dividend
+  - rehypothecation
+  - GMSLA
+- id: loan_economics
+  section: sbl_repo
+  title: Loan Economics
+  icon: ':material/calculate:'
+  help: Fees, rebates, cash reinvestment and splits.
+  week: 2
+  built: true
+  minutes: 40
+  difficulty: 2
+  prereqs:
+  - sbl_structure
+  - rates_funding
+  purpose: Compute fees, rebates and the carry cost of a short, and see how utilisation drives fees.
+  objectives:
+  - Compute loan fees and cash rebates with day count.
+  - Explain negative rebates.
+  - Add manufactured dividends to short carry.
+  - Read the utilisation-to-fee curve.
+  related:
+  - sbl_structure
+  - sbl_ops
+  - sbl_cases
+  - cost_of_exposure
+  terms:
+  - rebate
+  - borrow fee
+  - negative rebate
+  - short cost drag
+  - reinvestment rate
+  - utilisation
+- id: sbl_ops
+  section: sbl_repo
+  title: SBL Operations & Risk
+  icon: ':material/settings:'
+  help: Marks, recalls, buy-ins and manufactured dividends.
+  week: 2
+  built: true
+  minutes: 40
+  difficulty: 2
+  prereqs:
+  - loan_economics
+  purpose: 'Run the daily SBL process: collateral marks, recalls, corporate actions and reconciliations.'
+  objectives:
+  - Mark collateral and apply a minimum transfer amount.
+  - Compare re-borrow, buy-in and internalisation costs for a recall.
+  - Treat dividends and splits on loaned stock.
+  - List the key controls and breaks.
+  related:
+  - loan_economics
+  - internalisation
+  - sbl_cases
+  - booking_lifecycle
+  terms:
+  - recall
+  - buy-in
+  - collateral mark
+  - minimum transfer amount
+  - settlement fail
+  - manufactured dividend
+- id: internalisation
+  section: sbl_repo
+  title: Internalisation & Financing Book
+  icon: ':material/inventory:'
+  help: Netting long and short inventory across clients.
+  week: 2
+  built: true
+  minutes: 40
+  difficulty: 2
+  prereqs:
+  - sbl_ops
+  purpose: Quantify how covering shorts from internal supply saves borrow cost, and where the risks lie.
+  objectives:
+  - Compute internal supply, cover and street borrow.
+  - Calculate the saving and its annualised size.
+  - Explain rehypothecation limits and concentration risk.
+  - Choose an allocation rule.
+  related:
+  - sbl_ops
+  - repo
+  - funding_capital
+  - equity_swaps
+  terms:
+  - internal cover
+  - coverage ratio
+  - street borrow
+  - rehypothecation
+- id: repo
+  section: sbl_repo
+  title: Repo & Equity Financing
+  icon: ':material/account_balance:'
+  help: Haircuts, term vs open, general vs special.
+  week: 2
+  built: true
+  minutes: 40
+  difficulty: 2
+  prereqs:
+  - rates_funding
+  - loan_economics
+  purpose: 'Understand equity repo as cash-for-collateral funding: haircuts, GC versus special, margin calls and funding comparisons.'
+  objectives:
+  - Compute cash lent and repo interest.
+  - Explain GC versus special rates.
+  - Compute a repo margin call.
+  - Compare unsecured, repo and swap funding.
+  related:
+  - loan_economics
+  - funding_capital
+  - cost_of_exposure
+  terms:
+  - repo
+  - haircut
+  - special collateral
+  - tri-party repo
+  - rollover risk
+  - repo margin call
+- id: sbl_cases
+  section: sbl_repo
+  title: SBL Case Studies
+  icon: ':material/gavel:'
+  help: A squeeze and cum-ex, taught as compliance cases.
+  week: 2
+  built: true
+  minutes: 45
+  difficulty: 2
+  prereqs:
+  - sbl_ops
+  purpose: Learn from squeezes, recall waves, locate failures and cum-ex as risk and compliance cases.
+  objectives:
+  - Explain how a short squeeze develops and what to monitor.
+  - Estimate squeeze utilisation and fee.
+  - Recognise red flags in dividend-related trades.
+  - Describe controls that protect the desk.
+  related:
+  - sbl_ops
+  - loan_economics
+  - limits_conduct
+  - dividends
+  terms:
+  - short squeeze
+  - short interest
+  - cum-ex
+  - red flag
+  - recall
+  - buy-in
+- id: pricing_lab
+  section: pricing_booking
+  title: Pricing Lab
+  icon: ':material/science:'
+  help: Build a client spread from its components.
+  week: 2
+  built: true
+  minutes: 45
+  difficulty: 2
+  prereqs:
+  - index_futures
+  - equity_swaps
+  purpose: Price forwards, implied financing, swap spreads and TRF conversions, and check them against each other.
+  objectives:
+  - Compute continuous and discrete forwards.
+  - Derive implied repo from a futures price.
+  - Build a swap spread from its components.
+  - Convert between price basis and TRF spread.
+  related:
+  - index_futures
+  - equity_swaps
+  - cost_of_exposure
+  terms:
+  - forward price
+  - implied repo
+  - TRF
+  - price basis
+  - FTP
+  - spread build-up
+- id: cost_of_exposure
+  section: pricing_booking
+  title: Cost of Exposure
+  icon: ':material/compare_arrows:'
+  help: Futures vs swap vs ETF for the same exposure.
+  week: 2
+  built: true
+  minutes: 40
+  difficulty: 2
+  prereqs:
+  - pricing_lab
+  purpose: Compare futures, swaps, ETFs and cash stocks for the same exposure across holding periods.
+  objectives:
+  - Decompose cost into financing, fee, leakage and trading.
+  - Compute running and trading costs.
+  - Find the breakeven holding period between wrappers.
+  - State what the simple model omits.
+  related:
+  - pricing_lab
+  - index_futures
+  - etfs
+  - equity_swaps
+  terms:
+  - cost of exposure
+  - breakeven holding period
+  - TER
+  - roll cost
+  - TRF
+- id: booking_lifecycle
+  section: pricing_booking
+  title: Trade Booking & Lifecycle
+  icon: ':material/edit_note:'
+  help: Tickets, validation and lifecycle events.
+  week: 2
+  built: true
+  minutes: 45
+  difficulty: 2
+  prereqs:
+  - equity_swaps
+  purpose: Book a swap correctly, validate it and follow its lifecycle events and cash flows.
+  objectives:
+  - List what a swap ticket contains.
+  - Apply the validation rules.
+  - Replay lifecycle events to derive state.
+  - Round cash flows correctly and find booking breaks.
+  related:
+  - equity_swaps
+  - marks_eod
+  - pnl_explain
+  - tda_playbook
+  terms:
+  - trade ticket
+  - effective date
+  - lifecycle event
+  - four eyes
+  - orphan hedge
+  - half-even rounding
+- id: marks_eod
+  section: pricing_booking
+  title: Market Data, Marks & EOD
+  icon: ':material/schedule:'
+  help: Closing marks, fixings and the end-of-day process.
+  week: 2
+  built: true
+  minutes: 40
+  difficulty: 2
+  prereqs:
+  - booking_lifecycle
+  purpose: Source and check marks, size the impact of a wrong one and run the end-of-day sequence.
+  objectives:
+  - Name the sources of marks.
+  - Run stale, move and source-comparison checks.
+  - Size the PnL impact of a wrong mark.
+  - Follow the EOD process and override rules.
+  related:
+  - booking_lifecycle
+  - pnl_explain
+  - var_stress
+  terms:
+  - mark
+  - stale price
+  - fixing
+  - price override
+  - independent price verification
+  - end of day
+- id: risk_sens
+  section: risk_pnl
+  title: Risk Sensitivities
+  icon: ':material/speed:'
+  help: Delta, FX, funding, dividend and borrow sensitivities.
+  week: 3
+  built: true
+  minutes: 45
+  difficulty: 2
+  prereqs:
+  - equity_swaps
+  - pricing_lab
+  purpose: 'Read the desk''s risk report: delta, beta, FX, funding, dividend, borrow, liquidity and concentration.'
+  objectives:
+  - Compute delta and beta-adjusted delta.
+  - Size FX, funding and dividend sensitivities.
+  - Compute days to liquidate and concentration.
+  - Read a risk report as a list of questions.
+  related:
+  - var_stress
+  - limits_conduct
+  - pnl_explain
+  terms:
+  - delta
+  - net delta
+  - gross exposure
+  - beta-adjusted delta
+  - FX delta
+  - days to liquidate
+  - concentration
+- id: pnl_explain
+  section: risk_pnl
+  title: PnL Explain & Attribution
+  icon: ':material/waterfall_chart:'
+  help: Components, unexplained and finding breaks.
+  week: 3
+  built: true
+  minutes: 50
+  difficulty: 3
+  prereqs:
+  - booking_lifecycle
+  - risk_sens
+  purpose: Explain daily PnL by component, find the cause of unexplained PnL and attribute results.
+  objectives:
+  - List the PnL components.
+  - Explain why booking errors land in unexplained.
+  - Size the usual breaks and match them to an amount.
+  - Apply the diagnostic method and attribute PnL.
+  related:
+  - booking_lifecycle
+  - marks_eod
+  - limits_conduct
+  terms:
+  - PnL explain
+  - unexplained PnL
+  - break signature
+  - attribution
+  - full revaluation
+- id: var_stress
+  section: risk_pnl
+  title: VaR, ES & Stress
+  icon: ':material/warning:'
+  help: Historical, parametric and Monte Carlo VaR; scenarios.
+  week: 3
+  built: true
+  minutes: 50
+  difficulty: 3
+  prereqs:
+  - risk_sens
+  purpose: Measure portfolio risk with VaR and ES, backtest it and complement it with stress tests.
+  objectives:
+  - Compute parametric VaR for one and two positions.
+  - Scale VaR over time and compute ES.
+  - Interpret component VaR and the backtest traffic light.
+  - Read a stress result by factor and leg.
+  related:
+  - risk_sens
+  - limits_conduct
+  - margin_suite
+  terms:
+  - VaR
+  - expected shortfall
+  - historical simulation
+  - parametric VaR
+  - component VaR
+  - marginal VaR
+  - backtesting
+  - stress test
+- id: limits_conduct
+  section: risk_pnl
+  title: Limits, Controls & Conduct
+  icon: ':material/shield:'
+  help: Limits, escalation and market conduct.
+  week: 3
+  built: true
+  minutes: 45
+  difficulty: 2
+  prereqs:
+  - var_stress
+  purpose: Read limit reports, run the breach process and understand controls and conduct, including the market-abuse cases to recognise and refuse.
+  objectives:
+  - Interpret soft and hard limits and utilisation.
+  - Follow a breach process.
+  - Name the lines of defence and information barriers.
+  - Recognise market-abuse patterns and escalate correctly.
+  related:
+  - var_stress
+  - risk_sens
+  - sbl_cases
+  - tda_playbook
+  terms:
+  - soft limit
+  - hard limit
+  - three lines of defence
+  - information barrier
+  - front-running
+  - spoofing
+  - market abuse
+  - whistleblowing
+- id: margin_suite
+  section: margin_capital
+  title: Margin Calculator Suite
+  icon: ':material/calculate:'
+  help: Exchange, SIMM-lite, Reg T, portfolio, prime and CSA.
+  week: 3
+  built: true
+  minutes: 55
+  difficulty: 3
+  prereqs:
+  - index_futures
+  - equity_swaps
+  purpose: 'Compare six margin methods on the same book: exchange, schedule and SIMM-lite, Reg T, portfolio, PB house and CSA.'
+  objectives:
+  - Compute exchange scan, calendar and inter-commodity margin.
+  - Compute schedule and SIMM-lite initial margin.
+  - Compare Reg T and portfolio margin.
+  - Work through a CSA call and a dispute.
+  related:
+  - funding_capital
+  - xva
+  - var_stress
+  terms:
+  - initial margin
+  - variation margin
+  - SPAN
+  - SIMM
+  - net-to-gross ratio
+  - Reg T
+  - portfolio margin
+  - threshold
+  - margin call
+  - independent amount
+- id: funding_capital
+  section: margin_capital
+  title: Funding, Balance Sheet & Capital
+  icon: ':material/account_balance_wallet:'
+  help: Leverage exposure, RWA and return on capital.
+  week: 3
+  built: true
+  minutes: 50
+  difficulty: 3
+  prereqs:
+  - pricing_lab
+  - margin_suite
+  purpose: Cost a trade's funding, balance sheet and capital, and test whether its spread earns its cost of equity.
+  objectives:
+  - Compute EAD, leverage exposure, RWA and capital.
+  - Find the binding capital constraint.
+  - Convert balance sheet and capital into bps.
+  - Compute return on capital and economic profit.
+  related:
+  - pricing_lab
+  - xva
+  - internalisation
+  - equity_swaps
+  terms:
+  - FTP
+  - exposure at default
+  - SA-CCR
+  - leverage exposure
+  - RWA
+  - CET1
+  - leverage ratio
+  - return on capital
+  - economic profit
+- id: xva
+  section: margin_capital
+  title: Counterparty Risk & XVA
+  icon: ':material/handshake:'
+  help: Exposure profiles, CVA and funding adjustments.
+  week: 3
+  built: true
+  minutes: 50
+  difficulty: 3
+  prereqs:
+  - funding_capital
+  purpose: Understand counterparty exposure on swaps and how CVA, FVA, KVA and MVA turn into a spread.
+  objectives:
+  - Describe the saw-tooth exposure of a resetting TRS.
+  - Explain how collateral and MPOR shape exposure.
+  - Compute CVA, FVA, KVA and MVA in simple cases.
+  - Convert XVA to bps a year and identify wrong-way risk.
+  related:
+  - funding_capital
+  - margin_suite
+  - equity_swaps
+  - limits_conduct
+  terms:
+  - XVA
+  - CVA
+  - FVA
+  - KVA
+  - MVA
+  - expected exposure
+  - potential future exposure
+  - margin period of risk
+  - wrong-way risk
+- id: s_index_arb
+  section: strategies
+  title: Index Arbitrage
+  icon: ':material/balance:'
+  help: Cash-and-carry and reverse against the no-arbitrage band.
+  week: 4
+  built: true
+  minutes: 45
+  difficulty: 3
+  prereqs:
+  - index_futures
+  - pricing_lab
+  purpose: Trade the gap between a future and its fair value, and see how costs, funding and dividends decide whether it pays.
+  objectives:
+  - Compute fair value and the signal.
+  - Run a cash-and-carry and a reverse trade in points and currency.
+  - Explain how band width trades frequency against edge.
+  - Name the main failure modes.
+  related:
+  - index_futures
+  - s_roll
+  - s_financing_basis
+  terms:
+  - cash-and-carry
+  - reverse cash-and-carry
+  - no-arbitrage band
+  - slippage
+- id: s_roll
+  section: strategies
+  title: Roll & Calendar Spreads
+  icon: ':material/event_repeat:'
+  help: Roll cost, richness and calendar trades.
+  week: 4
+  built: true
+  minutes: 40
+  difficulty: 3
+  prereqs:
+  - index_futures
+  purpose: Price the roll, separate fair carry from richness and trade the calendar spread.
+  objectives:
+  - Compute roll cost in points, currency and bps a year.
+  - Separate fair carry from richness.
+  - Describe roll-week behaviour.
+  - State the risks of a calendar position.
+  related:
+  - index_futures
+  - s_index_arb
+  - cost_of_exposure
+  terms:
+  - roll
+  - calendar spread
+  - roll cost
+  - richness
+  - open interest
+- id: s_financing_basis
+  section: strategies
+  title: Financing & Basis
+  icon: ':material/price_change:'
+  help: Trading implied repo against funding.
+  week: 4
+  built: true
+  minutes: 40
+  difficulty: 3
+  prereqs:
+  - equity_swaps
+  - funding_capital
+  purpose: Compute swap financing carry, compare stock and futures hedges and see how fast carry disappears when funding rises.
+  objectives:
+  - Compute financing carry in bps and currency.
+  - Compare stock and futures hedges.
+  - Stress funding and balance sheet.
+  - Explain how netting improves the result.
+  related:
+  - funding_capital
+  - equity_swaps
+  - pricing_lab
+  terms:
+  - financing spread
+  - implied financing
+  - carry
+  - FTP
+- id: s_dividend
+  section: strategies
+  title: Dividend Trading
+  icon: ':material/paid:'
+  help: Dividend futures, swaps and forecast edge.
+  week: 4
+  built: true
+  minutes: 40
+  difficulty: 3
+  prereqs:
+  - dividends
+  - div_derivs
+  purpose: Trade and hedge dividend exposure, including the cancellation stress.
+  objectives:
+  - Compute dividend future and swap PnL.
+  - Size the exposure from structured notes.
+  - Stress a cancellation.
+  - Explain path risk.
+  related:
+  - div_derivs
+  - dividends
+  - equity_swaps
+  terms:
+  - dividend future
+  - dividend delta
+  - dividend cancellation
+- id: s_etf_arb
+  section: strategies
+  title: ETF Arbitrage
+  icon: ':material/autorenew:'
+  help: Create and redeem against premium or discount.
+  week: 4
+  built: true
+  minutes: 40
+  difficulty: 3
+  prereqs:
+  - etfs
+  purpose: Trade ETF premiums and discounts through create and redeem, and see why costs widen the band in stress.
+  objectives:
+  - Compute premium, threshold and edge.
+  - Choose between create and redeem.
+  - Explain stress widening.
+  - Name data and settlement risks.
+  related:
+  - etfs
+  - index_futures
+  - s_index_arb
+  terms:
+  - authorised participant
+  - creation unit
+  - premium to NAV
+- id: s_rebalance
+  section: strategies
+  title: Index Rebalance & Events
+  icon: ':material/event:'
+  help: Inclusion demand and event-driven flow.
+  week: 4
+  built: true
+  minutes: 45
+  difficulty: 3
+  prereqs:
+  - indices
+  - cash_program
+  purpose: Understand index events, size inclusion demand, compare pre-positioning with facilitation and recognise where the compliance line sits.
+  objectives:
+  - Compute inclusion demand and impact.
+  - Compute pre-position and facilitation PnL.
+  - Explain crowded exits.
+  - Identify the information-barrier rule.
+  related:
+  - indices
+  - cash_program
+  - limits_conduct
+  terms:
+  - inclusion demand
+  - market-on-close
+  - facilitation
+  - crowded trade
+  - front-running
+- id: s_adr_arb
+  section: strategies
+  title: ADR Arbitrage
+  icon: ':material/currency_exchange:'
+  help: Parity band, FX and conversion cost.
+  week: 4
+  built: true
+  minutes: 40
+  difficulty: 3
+  prereqs:
+  - adrs
+  purpose: Trade ADR deviations from parity, with FX, fees and timing in the band.
+  objectives:
+  - Compute parity and band.
+  - Choose issue or cancel.
+  - Identify FX and timing risk.
+  - State the checks before a trade.
+  related:
+  - adrs
+  - etfs
+  - s_etf_arb
+  terms:
+  - ADR parity
+  - depositary
+  - conversion fee
+- id: s_pairs
+  section: strategies
+  title: Pairs & Stat Arb
+  icon: ':material/stacked_line_chart:'
+  help: Spread, hedge ratio and mean reversion.
+  week: 4
+  built: true
+  minutes: 40
+  difficulty: 3
+  prereqs:
+  - var_stress
+  purpose: Understand pairs trading mechanics, test for cointegration, size by spread risk and know why it fails.
+  objectives:
+  - Estimate hedge ratio and spread.
+  - Run a cointegration test and half-life.
+  - Trade a z-score rule.
+  - Name the traps.
+  related:
+  - s_flow
+  - var_stress
+  - margin_suite
+  terms:
+  - cointegration
+  - half-life
+  - z-score
+  - statistical arbitrage
+  - hedge ratio
+- id: s_sbl
+  section: strategies
+  title: Securities Lending Strategies
+  icon: ':material/library_books:'
+  help: Fee capture and recall risk.
+  week: 4
+  built: true
+  minutes: 40
+  difficulty: 3
+  prereqs:
+  - loan_economics
+  - sbl_ops
+  purpose: 'Earn and protect lending revenue: screen for specials, price along the fee curve and answer a recall.'
+  objectives:
+  - Compute lending revenue and split.
+  - Read the fee curve.
+  - Rank recall responses.
+  - Compute upgrade revenue and name reinvestment risk.
+  related:
+  - loan_economics
+  - sbl_ops
+  - internalisation
+  - sbl_cases
+  terms:
+  - general collateral
+  - collateral upgrade
+  - rebate
+- id: s_flow
+  section: strategies
+  title: Client Flow & Inventory
+  icon: ':material/groups:'
+  help: Internalising flow and managing inventory.
+  week: 4
+  built: true
+  minutes: 40
+  difficulty: 3
+  prereqs:
+  - internalisation
+  purpose: See how client flow becomes PnL, why netting matters and how risk and agency differ.
+  objectives:
+  - Decompose flow PnL.
+  - Compare agency and risk trades.
+  - Explain internalisation and inventory limits.
+  - Read a daily flow report.
+  related:
+  - internalisation
+  - cash_program
+  - s_pnl_gen
+  terms:
+  - internalisation rate
+  - axe
+  - adverse selection
+  - agency trade
+- id: s_pnl_gen
+  section: strategies
+  title: PnL Generation (capstone)
+  icon: ':material/emoji_events:'
+  help: All sources of desk PnL in one view.
+  week: 4
+  built: true
+  minutes: 50
+  difficulty: 4
+  prereqs:
+  - pnl_explain
+  - funding_capital
+  purpose: Tie revenue sources, costs and capital together into net contribution and economic profit.
+  objectives:
+  - Group PnL by source, sub-book and client tier.
+  - Compute net contribution and economic profit.
+  - Separate client revenue from risk revenue.
+  - Read a budget variance.
+  related:
+  - pnl_explain
+  - funding_capital
+  - s_flow
+  - s_financing_basis
+  terms:
+  - net contribution
+  - client revenue
+  - risk revenue
+  - budget variance
+  - economic profit
+- id: simulator
+  section: practice
+  title: Desk Simulator
+  icon: ':material/sports_esports:'
+  help: Run a desk day and get a scored debrief.
+  week: 4
+  built: true
+  reference: true
+  minutes: 30
+- id: quiz_centre
+  section: practice
+  title: Quiz Centre & Interview Prep
+  icon: ':material/quiz:'
+  help: Mixed quizzes, weak topics and interview questions.
+  week: 4
+  built: true
+  reference: true
+- id: glossary
+  section: practice
+  title: Glossary
+  icon: ':material/menu_book:'
+  help: Searchable terms with formulas and examples.
+  week: 0
+  built: true
+  reference: true
+- id: formula_sheet
+  section: practice
+  title: Formula Sheet & Calculator Hub
+  icon: ':material/functions:'
+  help: Every formula in one place, with quick calculators.
+  week: 0
+  built: true
+  reference: true
+- id: conventions_reg
+  section: practice
+  title: Conventions & Regulation
+  icon: ':material/gavel:'
+  help: Day counts, settlement and rules, with verify labels.
+  week: 0
+  built: true
+  reference: true
+- id: automation
+  section: practice
+  title: Automation Corner
+  icon: ':material/terminal:'
+  help: Ten runnable snippets for TDA tasks.
+  week: 4
+  built: true
+  reference: true
+- id: data_explorer
+  section: practice
+  title: Data Explorer
+  icon: ':material/database:'
+  help: Browse the synthetic world.
+  week: 0
+  built: true
+  reference: true

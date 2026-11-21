@@ -1,0 +1,15 @@
+as_of: 2026-11-21
+source: "Simplified from public statutory rates and common treaty rates. Actual relief depends on investor, treaty, documentation and local rules."
+verify: true
+
+# Rates are percentages of the gross dividend.
+rates:
+  US: {statutory_pct: 30.0,   treaty_pct: 15.0, note: "Non-US persons; 871(m) applies to dividend equivalents on delta-one derivatives"}
+  DE: {statutory_pct: 26.375, treaty_pct: 15.0, note: "Includes solidarity surcharge; reclaim processes vary"}
+  FR: {statutory_pct: 25.0,   treaty_pct: 15.0, note: "Rate for corporate holders; individuals differ"}
+  NL: {statutory_pct: 15.0,   treaty_pct: 15.0, note: "Dividend withholding tax at the standard rate"}
+  CH: {statutory_pct: 35.0,   treaty_pct: 15.0, note: "Verrechnungssteuer; refundable subject to conditions"}
+  ES: {statutory_pct: 19.0,   treaty_pct: 15.0, note: "Non-resident rate"}
+  IT: {statutory_pct: 26.0,   treaty_pct: 15.0, note: "Substitute tax for non-residents"}
+  UK: {statutory_pct: 0.0,    treaty_pct: 0.0,  note: "No withholding on ordinary dividends"}
+  JP: {statutory_pct: 15.315, treaty_pct: 10.0, note: "Listed shares; treaty rates vary"}

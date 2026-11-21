@@ -1,0 +1,149 @@
+questions:
+- id: pl01
+  type: numeric
+  difficulty: 1
+  prompt: 'Continuous forward: S=200, r=3%, q=1%, T=1.'
+  answer: 204.040268
+  tolerance: 0.001
+  explanation: 200 e^0.02 = 204.04.
+- id: pl02
+  type: mcq
+  difficulty: 1
+  prompt: 'In the discrete model, dividends are:'
+  options:
+  - Reinvested at the financing rate from ex-date to expiry
+  - Ignored
+  - Paid at expiry
+  - Added to spot
+  answer: 0
+  explanation: Each dividend is grown forward at r.
+- id: pl03
+  type: numeric
+  difficulty: 2
+  prompt: 'Implied simple repo: S=50, F=50.9, FV divs 0.3, 90 days, basis 360.'
+  answer: 0.096
+  tolerance: 0.0001
+  explanation: (51.2/50 - 1) x 4 = 9.6%.
+  unit: decimal
+- id: pl04
+  type: mcq
+  difficulty: 2
+  prompt: 'A future priced above fair value with funding below the implied repo implies:'
+  options:
+  - Cash-and-carry is attractive
+  - Reverse carry
+  - No trade
+  - A dividend cut
+  answer: 0
+  explanation: The implied financing is higher than your cost.
+- id: pl05
+  type: numeric
+  difficulty: 2
+  prompt: 'Spread: funding 30, balance sheet 5, capital 4, XVA 3, hedge 2, margin 6 (bps).'
+  answer: 50.0
+  tolerance: 0.01
+  explanation: Sum = 50 bps.
+  unit: bps
+- id: pl06
+  type: mcq
+  difficulty: 2
+  prompt: 'For a short, the first component of the spread build-up is:'
+  options:
+  - The borrow fee
+  - The funding cost
+  - The margin
+  - Capital
+  answer: 0
+  explanation: Shorts cost borrow instead of funding.
+- id: pl07
+  type: mcq
+  difficulty: 2
+  prompt: 'A total return future differs from a price future in that:'
+  options:
+  - Dividends are paid through and it is quoted as a spread
+  - It has no expiry
+  - It is OTC only
+  - It ignores dividends
+  answer: 0
+  explanation: TRFs settle on the total return index.
+- id: pl08
+  type: numeric
+  difficulty: 3
+  prompt: 'Price basis for a TRF: S=4,000, spread 20 bps, benchmark 3%, tau 0.5, FV divs 25.'
+  answer: 39.0
+  tolerance: 0.01
+  explanation: 4,000 x 3.2% x 0.5 - 25 = 39.
+- id: pl09
+  type: numeric
+  difficulty: 3
+  prompt: 'TRF spread from a price future: S=4,000, F=4,039, benchmark 3%, tau 0.5, FV divs 25 (bps).'
+  answer: 20.0
+  tolerance: 0.01
+  explanation: (64/2,000 - 0.03) x 10,000 = 20 bps.
+  unit: bps
+- id: pl10
+  type: mcq
+  difficulty: 2
+  prompt: 'Raising the financing rate by 1 bp raises the forward by roughly:'
+  options:
+  - S x T x 1 bp
+  - S x 1 bp
+  - T x 1 bp
+  - Nothing
+  answer: 0
+  explanation: Rho scales with spot and time.
+- id: pl11
+  type: mcq
+  difficulty: 2
+  prompt: Which is the largest source of pricing disagreement between systems?
+  options:
+  - Dividend forecasts
+  - Spot
+  - Day names
+  - Ticker symbols
+  answer: 0
+  explanation: A point of dividend moves the forward by a point.
+- id: pl12
+  type: mcq
+  difficulty: 1
+  prompt: 'A quoted spread should be:'
+  options:
+  - Time-stamped with its build-up saved
+  - Remembered
+  - Verbal only
+  - Fixed for a month
+  answer: 0
+  explanation: Funding spreads move; keep the stack.
+- id: pl13
+  type: mcq
+  difficulty: 2
+  prompt: 'Mental check on a half-year forward at 100 with r=4%, q=2% should be near:'
+  options:
+  - '101'
+  - '99'
+  - '104'
+  - '100'
+  answer: 0
+  explanation: About 1% of spot above spot.
+- id: pl14
+  type: mcq
+  difficulty: 2
+  prompt: Which convention error most often causes a few bps pricing break?
+  options:
+  - Day count or compounding mismatch
+  - Font size
+  - Time zone of the desk
+  - Ticker case
+  answer: 0
+  explanation: Check day count and compounding first.
+- id: pl15
+  type: mcq
+  difficulty: 2
+  prompt: 'A bilateral swap at 50 bps versus a cleared TRF at 16 bps: the 34 bps gap mainly reflects:'
+  options:
+  - Balance sheet, credit and margin costs of the swap
+  - Dividends
+  - FX
+  - Index weights
+  answer: 0
+  explanation: What the cleared future does not carry.

@@ -1,0 +1,1728 @@
+terms:
+- term: fair value
+  category: Futures
+  definition: 'The theoretical price of a future: spot grown at the financing rate less the dividends paid before expiry, each grown to expiry.'
+  formula: F = S e^(rT) - sum D_i e^(r(T - t_i))
+  example: 'S 5,000, r 4.5%, T 0.25, one 15-point dividend: 5,041.47.'
+  modules:
+  - index_futures
+- term: basis
+  category: Futures
+  definition: Future minus spot (F - S), in index points. It converges to zero at expiry.
+  formula: basis = F - S
+  modules:
+  - index_futures
+  example: 'Future 5,040 and spot 5,000: basis +40 points.'
+- term: implied repo
+  category: Futures
+  definition: The financing rate that makes the model forward equal the market futures price. Compare it with the desk's funding to judge rich or cheap.
+  formula: r = ((F + FV(divs)) / S - 1) x basis / days
+  example: 'S 5,000, F 5,040, divs 14.5, 91 days ACT/360: 4.312%.'
+  modules:
+  - index_futures
+  aliases:
+  - implied repo rate
+- term: cash and carry
+  category: Futures
+  definition: Buy the basket and sell the future when the future is rich, financing the purchase and locking in the difference.
+  modules:
+  - index_futures
+  example: 'Future 5 points rich: sell it, buy the basket, keep the 5 points less costs.'
+- term: reverse cash and carry
+  category: Futures
+  definition: Short the basket and buy the future when the future is cheap, earning the short rebate on the proceeds.
+  modules:
+  - index_futures
+  example: 'Future 5 points cheap: buy it, short the basket, keep 5 points less costs and borrow.'
+- term: roll
+  category: Futures
+  definition: 'Replacing an expiring contract with the next one: sell the near, buy the far. Its cost is the calendar spread.'
+  modules:
+  - index_futures
+  example: Sell 10 March contracts and buy 10 June contracts before March expiry.
+- term: calendar spread
+  category: Futures
+  definition: The price difference between two expiries of the same future. Fair value is the carry between the dates, net of dividends in between.
+  formula: spread = F_far - F_near
+  modules:
+  - index_futures
+  example: 'March 5,000 and June 5,030: spread +30 points.'
+- term: total return future
+  category: Futures
+  definition: A future that pays the index's total return (dividends included), quoted as a spread over an overnight benchmark. Also called TRF.
+  aliases:
+  - TRF
+  modules:
+  - index_futures
+  example: 'A future on a total return index: dividends are in the price, so it quotes close to spot plus financing.'
+- term: variation margin
+  category: Margin
+  definition: Daily cash settlement of futures gains and losses with the clearing house.
+  formula: VM_t = qty x multiplier x (P_t - P_{t-1})
+  modules:
+  - index_futures
+  aliases:
+  - VM
+  example: '10 contracts x 50 x a 20-point rise: 10,000 moves from short to long that day.'
+- term: initial margin
+  category: Margin
+  definition: A buffer posted when a position is opened to cover a potential adverse move over the close-out period.
+  modules:
+  - index_futures
+  aliases:
+  - IM
+  example: '10 index futures at 5,000 x 50 with a 7% scan: 175,000 posted up front.'
+- term: multiplier
+  category: Futures
+  definition: Currency units per index point for one contract. PnL = quantity x multiplier x change in points.
+  modules:
+  - index_futures
+  example: A multiplier of 50 means one contract gains 50 per index point.
+- term: convergence
+  category: Futures
+  definition: The forced narrowing of the basis to zero at expiry, because the future settles to the index level.
+  modules:
+  - index_futures
+  example: A 12-point basis ten days out falls to zero at expiry.
+- term: cost of carry
+  category: Futures
+  definition: 'Financing cost of holding an asset less the income it pays. For equities: interest minus dividends.'
+  modules:
+  - index_futures
+  example: 'Financing 4.5% less a 1.5% dividend yield: carry 3.0% a year.'
+- term: dividend points
+  category: Dividends
+  definition: 'The index-level equivalent of the dividends paid by the constituents: sum of dividend x shares x weight factors divided by the divisor.'
+  modules:
+  - index_futures
+  example: Constituent dividends worth 15 index points before expiry reduce fair value by about 15.
+- term: funding cost
+  category: Rates
+  definition: What it costs the desk to finance a position or a cash balance, usually benchmark plus a funds transfer pricing spread.
+  aliases:
+  - FTP
+  modules:
+  - index_futures
+  example: Funding 10m at 5.3% ACT/360 for 30 days costs 44,167.
+- term: delta one
+  category: Products
+  definition: 'Products whose value moves one-for-one with the underlying (delta about 1), with no optionality: futures, swaps, ETFs, cash equities.'
+  aliases:
+  - D1
+  - delta-one
+  example: 'Long 1,000 shares gains 1,000 for each 1 the stock rises: delta 1.'
+- term: total return swap
+  category: Swaps
+  definition: A swap where one side pays the total return of an equity or index and the other pays a funding rate plus a spread.
+  aliases:
+  - TRS
+  - equity swap
+  example: Client receives the stock's return and pays SOFR + 60 bps on 10m.
+- term: SOFR
+  category: Rates
+  definition: Secured Overnight Financing Rate, the USD overnight benchmark, quoted ACT/360.
+  example: SOFR 5.30% ACT/360 accrues 1,472 a day on 10m.
+- term: ESTR
+  category: Rates
+  definition: Euro short-term rate, the EUR overnight benchmark, quoted ACT/360.
+  aliases:
+  - EUR STR
+  - STR
+  example: ESTR 3.90% ACT/360 on 10m accrues 1,083 a day.
+- term: SONIA
+  category: Rates
+  definition: Sterling Overnight Index Average, the GBP overnight benchmark, quoted ACT/365F.
+  example: SONIA 4.70% ACT/365F on 10m accrues 1,288 a day.
+- term: TONA
+  category: Rates
+  definition: Tokyo Overnight Average Rate, the JPY overnight benchmark, quoted ACT/365F.
+  example: TONA 0.50% ACT/365F on 1bn yen accrues about 13,699 yen a day.
+- term: SARON
+  category: Rates
+  definition: Swiss Average Rate Overnight, the CHF overnight benchmark, quoted ACT/360.
+  example: SARON 1.50% ACT/360 on 10m CHF accrues 417 a day.
+- term: bps
+  category: Conventions
+  definition: 'Basis points: one hundredth of one percent (0.01%). Spreads on this desk are quoted in bps per year over a named benchmark.'
+  aliases:
+  - basis points
+  - bp
+  example: 60 bps on 50m is 300,000 a year.
+- term: ACT/360
+  category: Conventions
+  definition: 'Day count: actual days divided by 360. Used for USD and EUR money markets.'
+  example: '30 actual days at 5% on 10m: 10m x 5% x 30/360 = 41,667.'
+- term: ACT/365F
+  category: Conventions
+  definition: 'Day count: actual days divided by 365 (fixed). Used for GBP and JPY money markets.'
+  example: '30 days at 5% on 10m: 10m x 5% x 30/365 = 41,096.'
+- term: notional
+  category: Swaps
+  definition: The reference amount on which the equity and funding legs are calculated.
+  example: A swap on 100,000 shares at 50 has a 5,000,000 notional.
+- term: hedge
+  category: Trading
+  definition: A position taken to offset the risk of another. For a client swap, the desk hedges with stock or futures.
+  example: 'Client long 10m through a swap: the desk buys 10m of the stock.'
+- term: mark to market
+  category: Pricing
+  definition: Valuing a position at current market prices.
+  aliases:
+  - MTM
+  - mark-to-market
+  example: 'Bought at 50, now 52: gain of 2 a share.'
+- term: rebate
+  category: SBL
+  definition: 'Interest paid on cash collateral in a stock loan: benchmark rate less the borrow fee.'
+  example: 'Cash reinvested at 5.0% less a 1.0% fee: the borrower earns a 4.0% rebate.'
+- term: borrow fee
+  category: SBL
+  definition: The annual fee, in bps of loan value, for borrowing a stock.
+  aliases:
+  - loan fee
+  example: A 150 bps fee on a 20m short costs 300,000 a year.
+- term: ex-date
+  category: Dividends
+  definition: The first day a share trades without the right to the declared dividend. The price typically drops by about the dividend.
+  aliases:
+  - ex-dividend date
+  example: 'A dividend of 0.80 with ex-date Tuesday: the stock opens about 0.80 lower that day.'
+- term: divisor
+  category: Indices
+  definition: The number that converts total constituent market value to an index level. It is adjusted so corporate events do not move the level.
+  example: Total constituent value 50,000 and a divisor of 50 gives an index level of 1,000.
+- term: rich
+  category: Futures
+  definition: A future priced above fair value (or its implied repo above funding).
+  example: 'Market future 5,046 against fair value 5,041: 5 points rich.'
+- term: cheap
+  category: Futures
+  definition: A future priced below fair value (or its implied repo below the short rebate).
+  example: 'Market future 5,036 against fair value 5,041: 5 points cheap.'
+- term: no-arbitrage band
+  category: Futures
+  definition: The range around fair value inside which costs make arbitrage unprofitable.
+  modules:
+  - index_futures
+  example: 'Fair value 5,041 with costs of 2 points: band 5,039 to 5,043.'
+- term: clearing house
+  category: Margin
+  definition: The central counterparty that guarantees exchange-traded futures and collects margin.
+  aliases:
+  - CCP
+  example: The clearing house stands between buyer and seller of an index future.
+- term: settlement
+  category: Conventions
+  definition: 'The completion of a trade: delivery of securities against cash, or a cash payment. Cycles differ by market (T+1, T+2).'
+  example: A trade on Monday settles on Tuesday under T+1.
+- term: unexplained
+  category: PnL
+  definition: The part of daily PnL that the explain model cannot attribute to a known driver. A persistent unexplained points to a booking or data break.
+  example: Booked PnL 295,815 against 69,187 explained leaves 226,628 unexplained.
+- term: break
+  category: Operations
+  definition: A mismatch between two records (booking vs confirmation, our PnL vs the model, our price vs the vendor's) that needs investigation.
+  example: Booked PnL 295,815 against a model of 69,187 is a 226,628 break.
+- term: TDA
+  category: Desk
+  definition: 'Trading desk assistant: supports the trading desk with PnL, risk, booking checks, resets and client queries.'
+  aliases:
+  - trading desk assistant
+  example: A TDA checks the overnight PnL explain before the desk opens.
+- term: pass-through
+  category: Swaps
+  definition: The share of a dividend that the swap pays the client. Below 100% leaves the desk with a dividend residual.
+  example: '85% pass-through on a 0.80 dividend over 100,000 shares: 68,000 to the client.'
+- term: compounding in arrears
+  category: Rates
+  definition: 'Compounding the daily overnight fixings over a period and paying the result at the end: R = [prod(1 + r_i d_i / basis) - 1] x basis / D.'
+  formula: R = [prod(1 + r_i d_i / basis) - 1] x basis / D
+  modules:
+  - rates_funding
+  example: Daily fixings compounded over a month and paid at its end.
+- term: lookback
+  category: Rates
+  definition: A convention that takes each day's fixing from a few business days earlier so the payment is known in advance.
+  modules:
+  - rates_funding
+  example: A five-day lookback uses the fixing from five business days earlier for each day.
+- term: observation shift
+  category: Rates
+  definition: A convention that shifts both the fixings and their weights back by a few business days.
+  modules:
+  - rates_funding
+  example: The fixings and their weights both move back by the shift period.
+- term: funds transfer pricing
+  category: Rates
+  definition: 'The internal rate treasury charges the desk for funding: benchmark plus a spread reflecting the bank''s term funding cost.'
+  aliases:
+  - FTP spread
+  modules:
+  - rates_funding
+  example: Treasury charges SOFR + 35 bps to fund a long hedge.
+- term: benchmark
+  category: Rates
+  definition: The reference rate a spread is quoted over, such as SOFR or ESTR.
+  modules:
+  - rates_funding
+  example: 'SOFR + 60 bps: the benchmark is SOFR.'
+- term: record date
+  category: Dividends
+  definition: The date ownership is checked to decide who receives a dividend, usually one business day after the ex-date in a T+1 market.
+  modules:
+  - dividends
+  example: A dividend with record date Friday goes to holders of record on that day.
+- term: special dividend
+  category: Dividends
+  definition: A large, usually one-off dividend handled as a corporate action with a price adjustment.
+  modules:
+  - dividends
+  example: A one-off 3.00 payment on a 50 stock is handled as an adjustment, not a regular dividend.
+- term: dividend leakage
+  category: Dividends
+  definition: 'The desk''s gain or loss on dividends for a hedged swap: shares x (gross x (1 - WHT) - pass-through x gross).'
+  formula: leakage = shares x (gross(1-WHT) - pt x gross)
+  modules:
+  - dividends
+  example: 'Desk receives 0.80 and passes 85% through on 100,000 shares: keeps 12,000.'
+- term: withholding tax
+  category: Dividends
+  definition: Tax deducted at source from dividends paid to non-residents. The statutory rate may be reduced by treaty.
+  aliases:
+  - WHT
+  modules:
+  - dividends
+  example: A 30% statutory rate on a 100 dividend leaves 70; a 15% treaty rate leaves 85.
+- term: manufactured dividend
+  category: SBL
+  definition: A payment equal to a dividend that a borrower owes the stock lender while the borrowed shares are out on loan.
+  modules:
+  - dividends
+  example: 'Short 100,000 shares and the stock pays 0.80: the borrower owes the lender 80,000.'
+- term: dividend yield
+  category: Dividends
+  definition: Annual dividend divided by the share price.
+  formula: yield = D / P
+  modules:
+  - dividends
+  example: 'Annual dividends of 2.00 on a 50 stock: 4.0%.'
+- term: present value of dividends
+  category: Dividends
+  definition: The sum of future dividends discounted from their ex-dates; subtracted from spot in forward pricing.
+  aliases:
+  - PVD
+  modules:
+  - dividends
+  example: A 20-point dividend in 0.1 years at 4% is worth about 19.92 today.
+- term: corporate action
+  category: Corporate actions
+  definition: 'An event that changes a company''s shares, price or ownership: splits, rights issues, spin-offs, mergers, special dividends.'
+  modules:
+  - corporate_actions
+  example: A 2-for-1 split on 100 shares gives 200 shares at half the price.
+- term: TERP
+  category: Corporate actions
+  definition: 'Theoretical ex-rights price: (P + ratio x K) / (1 + ratio).'
+  formula: TERP = (P + r K) / (1 + r)
+  aliases:
+  - theoretical ex-rights price
+  modules:
+  - corporate_actions
+  example: 'Price 74, rights price 59, 1 new per 5 old: (74 + 0.2 x 59) / 1.2 = 71.5.'
+- term: rights issue
+  category: Corporate actions
+  definition: An offer to existing holders to buy new shares at a discount in proportion to their holdings.
+  modules:
+  - corporate_actions
+  example: One new share at 59 for every 5 held when the stock trades at 74.
+- term: spin-off
+  category: Corporate actions
+  definition: A distribution of shares of a subsidiary to the parent's holders, creating a new listed line.
+  modules:
+  - corporate_actions
+  example: Each parent share also receives half a share of the new company.
+- term: stock split
+  category: Corporate actions
+  definition: An increase in the number of shares with a proportional fall in price; value is unchanged.
+  aliases:
+  - split
+  modules:
+  - corporate_actions
+  example: A 2-for-1 split turns 100 shares at 80 into 200 shares at 40.
+- term: calculation agent
+  category: Swaps
+  definition: The party named in a swap confirmation that determines adjustments and valuations when the terms need interpretation.
+  modules:
+  - corporate_actions
+  example: The bank named in the confirmation decides how a split adjusts the swap.
+- term: merger arbitrage
+  category: Strategies
+  definition: Trading the gap between a target's price and the deal value.
+  aliases:
+  - merger-arb
+  modules:
+  - corporate_actions
+  example: 'Target at 48.50 with a 50.00 cash offer: 1.50 gap (3.1%) for the deal risk.'
+- term: free float
+  category: Indices
+  definition: The fraction of a company's shares available to public investors, used to weight constituents.
+  modules:
+  - indices
+  example: Free float 80% means only 80% of shares count for index weights.
+- term: capping factor
+  category: Indices
+  definition: A multiplier on a constituent's share count that limits its weight to a cap.
+  modules:
+  - indices
+  example: A factor of 0.7 cuts a constituent's share count by 30% in the index.
+- term: rebalance
+  category: Indices
+  definition: A scheduled reset of index weights or constituents, often quarterly.
+  aliases:
+  - index rebalance
+  modules:
+  - indices
+  example: 'Quarterly review: weights reset and members added or removed.'
+- term: inclusion demand
+  category: Indices
+  definition: 'Shares index funds must buy when a stock joins an index: tracked assets x new weight / price.'
+  modules:
+  - indices
+  example: AUM 50bn x weight 1.5% = 750m of buying.
+- term: price index
+  category: Indices
+  definition: An index that ignores dividends.
+  modules:
+  - indices
+  example: A 1% dividend yield is not in a price index's return.
+- term: total return index
+  category: Indices
+  definition: 'An index that reinvests dividends: TR'' = TR (P'' + D)/P.'
+  aliases:
+  - TR index
+  modules:
+  - indices
+  example: 'Index 1,000, price rises to 1,010, dividend 5: TR rises by (1,010 + 5)/1,000.'
+- term: spread build-up
+  category: Swaps
+  definition: The assembly of a client spread from funding or borrow, balance sheet, capital, XVA, hedging cost and target margin.
+  modules:
+  - equity_swaps
+  example: FTP 35 + balance sheet 10 + capital 8 + XVA 3 + hedge 4 + margin 5 = 65 bps.
+- term: notional reset
+  category: Swaps
+  definition: A feature where the funding notional is updated to the current value of the shares at each reset.
+  modules:
+  - equity_swaps
+  example: 'Stock up 10% at the reset: pay 10% of the old notional and the new notional is 11m on 10m.'
+- term: CFD
+  category: Swaps
+  definition: 'Contract for difference: an equity-linked contract with daily financing and dividend adjustments, typically single-stock.'
+  aliases:
+  - contract for difference
+  modules:
+  - equity_swaps
+  example: A CFD on a stock pays its return and charges daily financing on the position.
+- term: synthetic prime brokerage
+  category: Swaps
+  definition: Packaging a client's portfolio as swaps so it can lever up without a prime broker's balance sheet.
+  modules:
+  - equity_swaps
+  example: A fund holds its book as swaps with the bank instead of a prime brokerage account.
+- term: ISDA master agreement
+  category: Documentation
+  definition: The standard master contract for OTC derivatives, with schedules and confirmations for each trade.
+  aliases:
+  - ISDA
+  modules:
+  - equity_swaps
+  example: Each client swap sits under an ISDA signed with the client's legal entity.
+- term: CSA
+  category: Margin
+  definition: 'Credit support annex: the collateral terms of an ISDA.'
+  aliases:
+  - credit support annex
+  modules:
+  - equity_swaps
+  example: A CSA sets a threshold of 0, MTA 250,000 and cash collateral.
+- term: 871(m)
+  category: Tax
+  definition: US tax rule treating certain dividend-equivalent payments on derivatives as US-source dividends subject to withholding.
+  modules:
+  - equity_swaps
+  example: A swap on a US stock with a non-US client needs an 871(m) flag and withholding.
+- term: reset
+  category: Swaps
+  definition: A date on which a swap period ends, cash settles and the notional or price base is updated.
+  modules:
+  - equity_swaps
+  example: On a monthly reset the swap settles gains in cash and restarts at the new price.
+- term: partial unwind
+  category: Swaps
+  definition: Closing part of a swap before maturity; shares reduce and the hedge is reduced the same day.
+  modules:
+  - equity_swaps
+  example: Closing 40,000 of 100,000 swap shares leaves 60,000 and the hedge sells 40,000.
+- term: risk bid
+  category: Trading
+  definition: 'A principal price for a basket: half spread plus impact plus a risk charge.'
+  modules:
+  - cash_program
+  example: 'A basket bid with half-spread 3 bps, impact 12 and a risk charge of 5: 20 bps.'
+- term: program trade
+  category: Trading
+  definition: A basket of stocks traded together, such as an index rebalance or a portfolio transition.
+  aliases:
+  - portfolio trade
+  modules:
+  - cash_program
+  example: A 50-stock basket traded together at the close.
+- term: VWAP
+  category: Trading
+  definition: 'Volume-weighted average price: an execution benchmark.'
+  modules:
+  - cash_program
+  example: Trades of 100 at 10.00 and 300 at 10.20 give a VWAP of 10.15.
+- term: implementation shortfall
+  category: Trading
+  definition: Difference between the execution price and the price when the order arrived.
+  aliases:
+  - arrival price
+  modules:
+  - cash_program
+  example: 'Arrival price 50.00, average fill 50.10 on a buy: 20 bps shortfall.'
+- term: square-root impact
+  category: Trading
+  definition: A model where market impact in bps = k x vol x sqrt(quantity / ADV) x 10,000.
+  formula: impact = k sigma sqrt(Q/ADV)
+  modules:
+  - cash_program
+  example: 'Trading 10% of ADV at 2% volatility with k = 0.7: about 44 bps.'
+- term: ADV
+  category: Trading
+  definition: Average daily volume in shares.
+  aliases:
+  - average daily volume
+  modules:
+  - cash_program
+  example: 'ADV of 2 million shares: a 200,000-share order is 10% of ADV.'
+- term: closing auction
+  category: Trading
+  definition: The exchange's end-of-day auction that sets the official closing price.
+  modules:
+  - cash_program
+  example: A 4pm cross sets the official close that index funds use.
+- term: transition management
+  category: Trading
+  definition: Moving a large portfolio between managers or strategies with controlled cost and risk.
+  modules:
+  - cash_program
+  example: Moving a 2bn portfolio between managers over a week with cost controls.
+- term: NAV
+  category: ETFs
+  definition: 'Net asset value per share: (sum of holdings x prices + cash) / shares outstanding.'
+  modules:
+  - etfs
+  example: 'Holdings 10,000,000 plus cash 50,000 over 100,000 shares: NAV 100.50.'
+- term: iNAV
+  category: ETFs
+  definition: 'Indicative NAV: NAV computed intraday from live prices.'
+  modules:
+  - etfs
+  example: Using live prices at 11:00 gives an iNAV of 100.62 versus the closing NAV of 100.50.
+- term: premium
+  category: ETFs
+  definition: ETF price over NAV minus 1; negative is a discount.
+  aliases:
+  - discount
+  - premium/discount
+  modules:
+  - etfs
+  example: 'ETF 100.50 against NAV 100.00: a 0.5% premium.'
+- term: creation unit
+  category: ETFs
+  definition: The block of ETF shares an authorised participant creates or redeems.
+  modules:
+  - etfs
+  example: A creation unit of 50,000 shares at 100 is a 5m basket.
+- term: authorised participant
+  category: ETFs
+  definition: A bank approved to create and redeem ETF shares with the fund.
+  aliases:
+  - AP
+  modules:
+  - etfs
+  example: An AP delivers the basket and receives 50,000 new ETF shares.
+- term: in-kind
+  category: ETFs
+  definition: Creation or redemption settled with securities rather than cash.
+  modules:
+  - etfs
+  example: Redeeming a unit for stocks instead of cash.
+- term: synthetic ETF
+  category: ETFs
+  definition: An ETF that gets index exposure through a swap and holds collateral.
+  modules:
+  - etfs
+  example: An ETF that holds collateral and a swap with a bank to deliver the index return.
+- term: ADR
+  category: ADRs
+  definition: 'American depositary receipt: a dollar-traded certificate representing foreign shares held by a depositary bank.'
+  aliases:
+  - depositary receipt
+  modules:
+  - adrs
+  example: One ADR represents 2 local shares and trades in dollars.
+- term: GDR
+  category: ADRs
+  definition: 'Global depositary receipt: like an ADR but listed outside the US.'
+  modules:
+  - adrs
+  example: A GDR listed in London represents shares of a company listed elsewhere.
+- term: ADR ratio
+  category: ADRs
+  definition: Local shares represented by one ADR.
+  modules:
+  - adrs
+  example: A ratio of 0.5 means one ADR is half a local share.
+- term: depositary bank
+  category: ADRs
+  definition: The bank that issues and cancels depositary receipts and holds the local shares.
+  modules:
+  - adrs
+  example: The depositary holds the local shares and issues the ADRs.
+- term: parity
+  category: ADRs
+  definition: The ADR price implied by the local price, ratio and FX.
+  modules:
+  - adrs
+  example: 'Local 25, ratio 2, FX 1.10: parity 55.00.'
+- term: dual listing
+  category: ADRs
+  definition: A company with its own shares listed on two exchanges.
+  aliases:
+  - dual-listed
+  modules:
+  - adrs
+  example: A company with shares listed on two exchanges at once.
+- term: dividend future
+  category: Dividend derivatives
+  definition: An exchange-traded contract settling to an index's dividend points over a period.
+  modules:
+  - div_derivs
+  example: 'Long 10 units at 20 settling at 17.5: loses 25 per unit-point set.'
+- term: dividend swap
+  category: Dividend derivatives
+  definition: An OTC contract paying realised dividends against a fixed strike.
+  modules:
+  - div_derivs
+  example: 'Strike 20, realised 22, 1,000 units: the buyer gains 2,000.'
+- term: delta-one note
+  category: Products
+  definition: A bond-like note that pays the performance of an underlying less fees, with issuer credit risk.
+  aliases:
+  - tracker
+  - certificate
+  modules:
+  - div_derivs
+  example: A note paying an index's return less 50 bps a year in fees.
+- term: dividend cancellation
+  category: Dividends
+  definition: A company withdrawing a declared or forecast dividend, typically in a crisis.
+  aliases:
+  - cancellation
+  modules:
+  - div_derivs
+  example: 'A company cancels a 0.80 dividend: a swap passing it through settles nothing.'
+- term: middle office
+  category: Desk
+  definition: The function that independently validates trades and PnL.
+  modules:
+  - desk_inside
+  example: The middle office checks trade economics against the confirmation.
+- term: product control
+  category: Desk
+  definition: Finance function that owns the official PnL and valuation of the desk's positions.
+  modules:
+  - desk_inside
+  example: Product control signs off the official PnL each day.
+- term: internalisation
+  category: SBL
+  definition: Matching client long and short positions in-house to avoid external borrow and funding costs.
+  modules:
+  - desk_inside
+  example: 'Client A is long 1m of a stock and client B short 1m: the desk hedges nothing.'
+- term: handover
+  category: Process
+  definition: The structured transfer of open items and context between shifts or colleagues.
+  modules:
+  - tda_playbook
+  example: A handover note lists open breaks, pending resets and owners.
+- term: securities lending
+  category: SBL
+  definition: Lending stock to a borrower for a fee against collateral, typically to support short sales.
+  aliases:
+  - SBL
+  - stock lending
+  - stock borrow
+  modules:
+  - sbl_structure
+  example: Lend 100,000 shares for a fee of 50 bps against collateral.
+- term: beneficial owner
+  category: SBL
+  definition: The long-term holder of securities, such as a pension fund, that lends stock through an agent.
+  modules:
+  - sbl_structure
+  example: A pension fund lends its stock through an agent.
+- term: lending agent
+  category: SBL
+  definition: A custodian that runs securities lending for beneficial owners and takes a share of revenue.
+  aliases:
+  - agent lender
+  modules:
+  - sbl_structure
+  example: The agent keeps 15% of fee revenue and passes 85% to the owner.
+- term: general collateral
+  category: SBL
+  definition: Securities in ample supply, borrowed at low fees.
+  aliases:
+  - GC
+  modules:
+  - sbl_structure
+  example: Most large caps borrow at 20 to 40 bps.
+- term: hard to borrow
+  category: SBL
+  definition: Stock with scarce lendable supply and a high borrow fee.
+  aliases:
+  - HTB
+  - special
+  modules:
+  - sbl_structure
+  example: A stock at 3,800 bps is hard to borrow.
+- term: utilisation
+  category: SBL
+  definition: Quantity on loan divided by lendable supply.
+  aliases:
+  - utilization
+  modules:
+  - sbl_structure
+  example: '40m on loan against 100m lendable: 40%.'
+- term: locate
+  category: SBL
+  definition: Confirmation that shares can be borrowed before a short sale.
+  modules:
+  - sbl_structure
+  example: Get a locate before shorting 50,000 shares.
+- term: rehypothecation
+  category: SBL
+  definition: Reuse of client collateral or securities by an intermediary, within agreed limits.
+  aliases:
+  - reuse
+  modules:
+  - sbl_structure
+  example: A broker reuses a client's collateral within agreed limits.
+- term: GMSLA
+  category: Documentation
+  definition: Global Master Securities Lending Agreement.
+  modules:
+  - sbl_structure
+  example: Stock loans between banks sit under a GMSLA.
+- term: negative rebate
+  category: SBL
+  definition: A rebate below zero, when the fee exceeds the reinvestment rate; the borrower pays.
+  modules:
+  - loan_economics
+  example: 'Reinvestment 5% and fee 6%: rebate -1%.'
+- term: short cost drag
+  category: SBL
+  definition: 'Carry cost of a short beyond price PnL: borrow fee plus manufactured dividends.'
+  modules:
+  - loan_economics
+  example: 'Short 100,000 at 50 for 30 days at 150 bps: fee 6,250; plus any manufactured dividends.'
+- term: reinvestment rate
+  category: SBL
+  definition: The rate the lender earns on reinvested cash collateral.
+  modules:
+  - loan_economics
+  example: Cash collateral reinvested at 5.0% a year.
+- term: recall
+  category: SBL
+  definition: A lender's demand that borrowed shares be returned.
+  modules:
+  - sbl_ops
+  example: The lender recalls 100,000 shares with settlement in 2 days.
+- term: buy-in
+  category: SBL
+  definition: Forced purchase of shares to close a short or failed delivery, at the defaulter's cost.
+  modules:
+  - sbl_ops
+  example: Buying 100,000 shares at a 2% premium to close a failed delivery.
+- term: collateral mark
+  category: SBL
+  definition: Daily revaluation of loan and collateral with top-ups or returns.
+  aliases:
+  - mark to market of collateral
+  modules:
+  - sbl_ops
+  example: 'The stock rises 5%: the borrower tops up collateral that day.'
+- term: minimum transfer amount
+  category: Margin
+  definition: The smallest collateral movement worth making; smaller excesses stay in place.
+  aliases:
+  - MTA
+  modules:
+  - sbl_ops
+  example: A 250,000 MTA means a 200,000 shortfall is not called.
+- term: settlement fail
+  category: Operations
+  definition: A delivery that does not settle on the due date.
+  aliases:
+  - fail
+  modules:
+  - sbl_ops
+  example: 'Shares not delivered on settlement date: a fail.'
+- term: internal cover
+  category: SBL
+  definition: Shares covered from client longs and desk inventory instead of the street.
+  modules:
+  - internalisation
+  example: Cover a client short from another client's long, not the street.
+- term: coverage ratio
+  category: SBL
+  definition: Notional covered internally divided by notional of short demand.
+  modules:
+  - internalisation
+  example: 'Cover 60m of 80m of short demand internally: 75%.'
+- term: street borrow
+  category: SBL
+  definition: Stock borrowed from external lenders rather than internal supply.
+  aliases:
+  - external borrow
+  modules:
+  - internalisation
+  example: Borrow 100,000 shares from an external lender.
+- term: repo
+  category: Financing
+  definition: 'Repurchase agreement: a cash loan secured by securities, repaid with interest.'
+  aliases:
+  - repurchase agreement
+  modules:
+  - repo
+  example: Lend 10m cash against bonds for a week at 5.3%.
+- term: haircut
+  category: Financing
+  definition: Discount applied to collateral value to set the cash lent.
+  modules:
+  - repo
+  example: A 2% haircut on 10m of collateral lends 9.8m.
+- term: special collateral
+  category: Financing
+  definition: Collateral in demand, financing at a repo rate below GC.
+  aliases:
+  - special
+  modules:
+  - repo
+  example: A bond in demand repos at 4.8% against general collateral at 5.3%.
+- term: tri-party repo
+  category: Financing
+  definition: Repo where an agent bank values, selects and substitutes collateral.
+  modules:
+  - repo
+  example: An agent bank selects and values the collateral for both sides.
+- term: rollover risk
+  category: Financing
+  definition: The risk that short-term funding cannot be renewed.
+  modules:
+  - repo
+  example: Overnight funding that cannot be renewed tomorrow.
+- term: repo margin call
+  category: Financing
+  definition: Request for more collateral or cash when collateral value falls short of cash lent.
+  modules:
+  - repo
+  example: 'Collateral falls 3%: the borrower posts more.'
+- term: short squeeze
+  category: SBL
+  definition: A rally driven by short sellers covering, amplified by recalls and rising fees.
+  aliases:
+  - squeeze
+  modules:
+  - sbl_cases
+  example: Short interest 40% and a recall wave push the price up 80% in a week.
+- term: short interest
+  category: SBL
+  definition: Shares sold short, often as a percentage of free float.
+  modules:
+  - sbl_cases
+  example: '20m shares short of a 100m free float: 20%.'
+- term: cum-ex
+  category: Compliance
+  definition: Unlawful dividend-tax refund schemes using trades around the dividend date to claim refunds on tax withheld once; taught here as a compliance case.
+  aliases:
+  - cum-ex trading
+  - dividend arbitrage
+  modules:
+  - sbl_cases
+  example: Trades around the dividend date used to claim the same tax refund twice; taught as a compliance case.
+- term: red flag
+  category: Compliance
+  definition: A feature of a trade that suggests misuse and should be escalated.
+  aliases:
+  - red flags
+  modules:
+  - sbl_cases
+  example: A trade reversed on the day after the dividend with no economic purpose.
+- term: forward price
+  category: Pricing
+  definition: 'No-arbitrage price for future delivery: spot grown at the financing rate less the value of dividends.'
+  aliases:
+  - fair value
+  modules:
+  - pricing_lab
+  example: '5,000 grown 4% for half a year less dividends: about 5,081 before dividends.'
+- term: TRF
+  category: Pricing
+  definition: 'Total return future: settles on the total return index and is quoted as a spread over the benchmark.'
+  aliases:
+  - total return future
+  modules:
+  - pricing_lab
+  example: A TRF quotes spot plus financing spread, for example +12 points.
+- term: price basis
+  category: Pricing
+  definition: Futures price minus spot, in index points.
+  aliases:
+  - basis
+  modules:
+  - pricing_lab
+  example: 'Future 5,040 minus spot 5,000: 40 points.'
+- term: FTP
+  category: Funding
+  definition: 'Funds transfer pricing: the internal charge for funding a position.'
+  aliases:
+  - funds transfer pricing
+  modules:
+  - pricing_lab
+  example: FTP of SOFR + 35 bps on a 50m hedge costs 175,000 a year.
+- term: cost of exposure
+  category: Pricing
+  definition: Cost of holding index or stock exposure in a given wrapper, in excess of the benchmark rate.
+  modules:
+  - cost_of_exposure
+  example: Holding index exposure through futures costs the implied financing, through an ETF the TER and spread.
+- term: breakeven holding period
+  category: Pricing
+  definition: The holding period at which two wrappers cost the same.
+  modules:
+  - cost_of_exposure
+  example: 'A swap spread of 40 bps against an ETF TER of 10 bps plus a 15 bps round trip: about 6 months.'
+- term: TER
+  category: ETFs
+  definition: 'Total expense ratio: the annual fee an ETF charges, in bps.'
+  aliases:
+  - total expense ratio
+  modules:
+  - cost_of_exposure
+  example: A TER of 20 bps costs 20,000 a year on 10m.
+- term: roll cost
+  category: Futures
+  definition: Cost of moving a futures position from the near to the next contract.
+  aliases:
+  - roll
+  modules:
+  - cost_of_exposure
+  example: 'Near 5,000 and far 5,030: the long pays 30 points.'
+- term: trade ticket
+  category: Booking
+  definition: The record of a trade's identity, economics and flags used to book it.
+  modules:
+  - booking_lifecycle
+  example: A ticket lists underlying, direction, shares, spread, benchmark and ISDA reference.
+- term: effective date
+  category: Booking
+  definition: The date from which a swap accrues financing.
+  modules:
+  - booking_lifecycle
+  example: A swap with effective date 1 March accrues financing from then.
+- term: lifecycle event
+  category: Booking
+  definition: 'A change to a live trade: reset, dividend, corporate action, unwind, amendment or termination.'
+  modules:
+  - booking_lifecycle
+  example: A reset, dividend or split on a live swap.
+- term: four eyes
+  category: Controls
+  definition: A control where a second person checks a booking.
+  aliases:
+  - four-eyes check
+  modules:
+  - booking_lifecycle
+  example: One person books, a second checks against the confirmation.
+- term: orphan hedge
+  category: Booking
+  definition: A hedge trade with no linked client trade.
+  modules:
+  - booking_lifecycle
+  example: A hedge trade booked with no client swap linked to it.
+- term: half-even rounding
+  category: Booking
+  definition: Rounding to the nearest even digit at an exact half; also called banker's rounding.
+  aliases:
+  - banker's rounding
+  modules:
+  - booking_lifecycle
+  example: 2.5 rounds to 2 and 3.5 to 4.
+- term: mark
+  category: Marks
+  definition: The price or rate used to value a position at a point in time.
+  aliases:
+  - marks
+  - mark to market
+  modules:
+  - marks_eod
+  example: The 16:00 close is the mark for end-of-day valuation.
+- term: stale price
+  category: Marks
+  definition: A price that has not updated although the market moved.
+  aliases:
+  - stale mark
+  modules:
+  - marks_eod
+  example: A mark identical to yesterday's although the stock moved 4%.
+- term: fixing
+  category: Marks
+  definition: A published benchmark rate or FX rate at a set time.
+  aliases:
+  - fixings
+  modules:
+  - marks_eod
+  example: The ESTR fixing for the day.
+- term: price override
+  category: Marks
+  definition: A manual replacement of a mark, requiring approval and evidence.
+  aliases:
+  - override
+  modules:
+  - marks_eod
+  example: Replacing a bad mark with the exchange close, with evidence and approval.
+- term: independent price verification
+  category: Marks
+  definition: Product control's comparison of desk marks with external sources.
+  aliases:
+  - IPV
+  modules:
+  - marks_eod
+  example: Product control compares the desk's marks with vendor prices.
+- term: end of day
+  category: Process
+  definition: The daily process that turns marks into official PnL and risk.
+  aliases:
+  - EOD
+  modules:
+  - marks_eod
+  example: The EOD process freezes marks and publishes PnL and risk.
+- term: delta
+  category: Risk
+  definition: PnL change for a 1% move in the underlying; the exposure in currency for linear products.
+  aliases:
+  - delta exposure
+  modules:
+  - risk_sens
+  example: 'Long 1m of stock: delta 10,000 per 1% move.'
+- term: net delta
+  category: Risk
+  definition: 'Sum of signed exposures: the directional risk.'
+  modules:
+  - risk_sens
+  example: 'Long 12m and short 5m: net delta 7m.'
+- term: gross exposure
+  category: Risk
+  definition: 'Sum of absolute exposures: the size of the book.'
+  aliases:
+  - gross
+  modules:
+  - risk_sens
+  example: 'Long 12m and short 5m: gross 17m.'
+- term: beta-adjusted delta
+  category: Risk
+  definition: 'Delta multiplied by beta: equivalent index exposure.'
+  aliases:
+  - beta delta
+  modules:
+  - risk_sens
+  example: 'A 10m position in a stock with beta 1.2: 12m index-equivalent.'
+- term: FX delta
+  category: Risk
+  definition: PnL for a 1% move of a currency against the reporting currency.
+  modules:
+  - risk_sens
+  example: 'Long 10m EUR of stock: a 1% EUR rise adds about 100,000 USD.'
+- term: days to liquidate
+  category: Risk
+  definition: Days needed to sell a position at a set share of average daily volume.
+  modules:
+  - risk_sens
+  example: '3m shares, ADV 2m, 20% participation: 7.5 days.'
+- term: concentration
+  category: Risk
+  definition: The share of the book in a few names, often measured by top-five share and the Herfindahl index.
+  aliases:
+  - HHI
+  - Herfindahl index
+  modules:
+  - risk_sens
+  example: The top five names are 45% of the book.
+- term: PnL explain
+  category: PnL
+  definition: Reconciliation of booked PnL with a clean model, by component.
+  aliases:
+  - P&L explain
+  - PnL attribution
+  modules:
+  - pnl_explain
+  example: 'Price +150,000, FX -20,000, funding +30,000, unexplained 0: total +160,000.'
+- term: unexplained PnL
+  category: PnL
+  definition: Total booked PnL minus the explained components; a signal of a break when large or persistent.
+  aliases:
+  - unexplained
+  modules:
+  - pnl_explain
+  example: 'Total +295,815 against explained +69,187: unexplained +226,628.'
+- term: break signature
+  category: PnL
+  definition: The size, sign, timing and scope pattern that points to the cause of a break.
+  modules:
+  - pnl_explain
+  example: A one-day break equal to shares times a dividend points to a missed dividend.
+- term: attribution
+  category: PnL
+  definition: Slicing PnL by book, client, ticker or trade.
+  modules:
+  - pnl_explain
+  example: 'PnL by client tier: tier 1 +1.5m, tier 2 -1.0m.'
+- term: full revaluation
+  category: PnL
+  definition: Computing PnL by revaluing positions and cash flows rather than by sensitivities.
+  modules:
+  - pnl_explain
+  example: Revalue every position at today's and yesterday's marks and difference them.
+- term: VaR
+  category: Risk
+  definition: 'Value at risk: a loss level exceeded with a small, stated probability over a horizon.'
+  aliases:
+  - value at risk
+  modules:
+  - var_stress
+  example: '99% one-day VaR of 350,000: a loss above that is expected about once in 100 days.'
+- term: expected shortfall
+  category: Risk
+  definition: Average loss in the tail beyond VaR.
+  aliases:
+  - ES
+  - CVaR
+  modules:
+  - var_stress
+  example: Average of losses beyond VaR, for example 480,000 when VaR is 350,000.
+- term: historical simulation
+  category: Risk
+  definition: VaR from applying past returns to current positions.
+  aliases:
+  - historical VaR
+  modules:
+  - var_stress
+  example: Apply the last 500 daily returns to today's book and take the 5th worst loss.
+- term: parametric VaR
+  category: Risk
+  definition: VaR from a normal-return assumption and a covariance matrix.
+  aliases:
+  - variance-covariance VaR
+  modules:
+  - var_stress
+  example: 2.326 x 1.5% x 10m = 349,000.
+- term: component VaR
+  category: Risk
+  definition: A position's contribution to total VaR; components sum to the total.
+  modules:
+  - var_stress
+  example: Three positions contribute 200k, 100k and 50k to a total VaR of 350k.
+- term: marginal VaR
+  category: Risk
+  definition: Change in VaR from a small increase in a position.
+  modules:
+  - var_stress
+  example: Adding 1m to a position raises VaR by 12,000.
+- term: backtesting
+  category: Risk
+  definition: Comparing VaR forecasts with realised losses and counting exceptions.
+  aliases:
+  - traffic light
+  modules:
+  - var_stress
+  example: 7 VaR exceptions in 250 days at 99% is more than the 2.5 expected.
+- term: stress test
+  category: Risk
+  definition: Revaluing positions under a specified severe scenario.
+  aliases:
+  - scenario analysis
+  modules:
+  - var_stress
+  example: 'Equities -20%, vol +50%: book loses 1.8m.'
+- term: soft limit
+  category: Limits
+  definition: A limit level that triggers escalation and explanation.
+  modules:
+  - limits_conduct
+  example: 'Delta of 2.2m against a soft limit of 2.0m: explain and escalate.'
+- term: hard limit
+  category: Limits
+  definition: A limit level that requires action to reduce risk or an approved exception.
+  modules:
+  - limits_conduct
+  example: 'Delta of 5.3m against a hard limit of 5.0m: breach, reduce or get approval.'
+- term: three lines of defence
+  category: Controls
+  definition: Desk owns risk, risk and compliance oversee, audit tests independently.
+  modules:
+  - limits_conduct
+  example: Desk (1), risk and compliance (2), internal audit (3).
+- term: information barrier
+  category: Conduct
+  definition: Controls separating confidential information between parts of a firm.
+  aliases:
+  - Chinese wall
+  modules:
+  - limits_conduct
+  example: Sales cannot see the facilitation book.
+- term: front-running
+  category: Conduct
+  definition: Trading ahead of a known client order for one's own benefit; prohibited. Taught as a compliance case.
+  modules:
+  - limits_conduct
+  example: 'Buying a stock for the desk because you know a client is about to buy a large amount: prohibited.'
+- term: spoofing
+  category: Conduct
+  definition: Placing orders without intent to execute to move prices; prohibited. Taught as a compliance case.
+  modules:
+  - limits_conduct
+  example: 'Placing large orders you do not intend to fill to move the price: prohibited.'
+- term: market abuse
+  category: Conduct
+  definition: Insider dealing and market manipulation.
+  modules:
+  - limits_conduct
+  example: Trading on inside information before an announcement.
+- term: whistleblowing
+  category: Conduct
+  definition: Reporting suspected misconduct through a protected channel.
+  modules:
+  - limits_conduct
+  example: Reporting a colleague's suspected misconduct through the protected channel.
+- term: SPAN
+  category: Margin
+  definition: Exchange margin method scanning price scenarios to find the worst loss.
+  aliases:
+  - SPAN-like
+  modules:
+  - margin_suite
+  example: '10 ES contracts with a 7% scan range: 175,000.'
+- term: SIMM
+  category: Margin
+  definition: Standard initial margin model for uncleared derivatives, based on sensitivities and risk weights.
+  modules:
+  - margin_suite
+  example: Sensitivities of 100,000 and -50,000 in a bucket combine with weights and correlation, not simply add.
+- term: net-to-gross ratio
+  category: Margin
+  definition: Net notional over gross notional; reduces schedule IM through netting.
+  aliases:
+  - NGR
+  modules:
+  - margin_suite
+  example: 'Net 20m over gross 100m: NGR 0.2.'
+- term: Reg T
+  category: Margin
+  definition: US rule setting initial margin for broker-dealer customer accounts.
+  modules:
+  - margin_suite
+  example: 'Long 2m: initial 1m, maintenance 500,000.'
+- term: portfolio margin
+  category: Margin
+  definition: Margin based on the worst loss of the whole portfolio across a scenario grid.
+  modules:
+  - margin_suite
+  example: 'Long a stock and short an index: worst loss lower than the sum of the parts.'
+- term: threshold
+  category: Margin
+  definition: Unsecured exposure allowed before collateral is called under a CSA.
+  modules:
+  - margin_suite
+  example: A threshold of 1m means the first 1m of exposure is unsecured.
+- term: margin call
+  category: Margin
+  definition: A request for collateral to cover required margin.
+  modules:
+  - margin_suite
+  example: 'Required 4m, held 3m: call 1m.'
+- term: independent amount
+  category: Margin
+  definition: Collateral posted regardless of mark-to-market under a CSA.
+  aliases:
+  - IA
+  modules:
+  - margin_suite
+  example: A 2m independent amount is posted regardless of MTM.
+- term: exposure at default
+  category: Capital
+  definition: Amount at risk with a counterparty at default; in SA-CCR-lite, alpha x (replacement cost + add-on).
+  aliases:
+  - EAD
+  modules:
+  - funding_capital
+  example: 1.4 x (1m + 0.32 x 50m) = 23.8m.
+- term: SA-CCR
+  category: Capital
+  definition: 'Standardised approach for counterparty credit risk: the regulatory method for derivative exposure.'
+  modules:
+  - funding_capital
+  example: 'A regulatory method: replacement cost plus an add-on, times alpha 1.4.'
+- term: leverage exposure
+  category: Capital
+  definition: 'Balance sheet measure for the leverage ratio: derivative exposure plus assets held, such as hedge stock.'
+  modules:
+  - funding_capital
+  example: 'EAD 23.8m plus a 50m hedge: 73.8m.'
+- term: RWA
+  category: Capital
+  definition: 'Risk-weighted assets: exposure times risk weight.'
+  aliases:
+  - risk-weighted assets
+  modules:
+  - funding_capital
+  example: '23.8m EAD at 0.2 risk weight: 4.76m RWA.'
+- term: CET1
+  category: Capital
+  definition: 'Common equity tier 1: the highest-quality regulatory capital, held as a ratio of RWA.'
+  modules:
+  - funding_capital
+  example: A 12% CET1 ratio on 17m RWA is 2.0m.
+- term: leverage ratio
+  category: Capital
+  definition: Capital divided by leverage exposure, independent of risk weights.
+  modules:
+  - funding_capital
+  example: 4% of 73.8m exposure is 2.95m of capital.
+- term: return on capital
+  category: Capital
+  definition: Net contribution divided by capital.
+  aliases:
+  - RoC
+  modules:
+  - funding_capital
+  example: 'Net 130,000 on 6m capital: 2.2%.'
+- term: economic profit
+  category: Capital
+  definition: Net contribution minus capital times cost of equity.
+  modules:
+  - funding_capital
+  example: 'Net 130,000 less 10% x 6m: -470,000.'
+- term: XVA
+  category: XVA
+  definition: Family of valuation adjustments for counterparty credit, funding, capital and margin costs.
+  modules:
+  - xva
+  example: CVA 20,000 + FVA 12,000 + KVA 24,000 + MVA 40,000 = 96,000.
+- term: CVA
+  category: XVA
+  definition: 'Credit valuation adjustment: expected loss from counterparty default.'
+  aliases:
+  - credit valuation adjustment
+  modules:
+  - xva
+  example: 'Exposure 1m for two years, 100 bps spread, 60% LGD: about 19,670.'
+- term: FVA
+  category: XVA
+  definition: 'Funding valuation adjustment: cost of funding uncollateralised exposure.'
+  aliases:
+  - funding valuation adjustment
+  modules:
+  - xva
+  example: '60 bps funding spread on 1m for two years: 12,000.'
+- term: KVA
+  category: XVA
+  definition: 'Capital valuation adjustment: cost of holding capital against exposure.'
+  modules:
+  - xva
+  example: '10% hurdle x 12% capital x 2m exposure-years: 24,000.'
+- term: MVA
+  category: XVA
+  definition: 'Margin valuation adjustment: cost of funding initial margin.'
+  modules:
+  - xva
+  example: '5m margin for 2 years at 40 bps: 40,000.'
+- term: expected exposure
+  category: XVA
+  definition: Average positive exposure to a counterparty at a future date.
+  aliases:
+  - EE
+  modules:
+  - xva
+  example: Average positive MTM of 230,000 across scenarios at a date.
+- term: potential future exposure
+  category: XVA
+  definition: A high quantile of future exposure to a counterparty.
+  aliases:
+  - PFE
+  modules:
+  - xva
+  example: 95th percentile of future MTM is 1.6m.
+- term: margin period of risk
+  category: XVA
+  definition: Time between the last collateral exchange and the close-out of a defaulter's positions.
+  aliases:
+  - MPOR
+  modules:
+  - xva
+  example: Ten business days from the last call to close-out.
+- term: wrong-way risk
+  category: XVA
+  definition: Exposure to a counterparty that rises as its credit quality falls.
+  modules:
+  - xva
+  example: A fund long a concentrated stock owes most when that stock falls.
+- term: cash-and-carry
+  category: Strategies
+  definition: Sell a rich future and buy the underlying basket, holding to convergence.
+  modules:
+  - s_index_arb
+  example: Sell a rich future, buy the basket.
+- term: reverse cash-and-carry
+  category: Strategies
+  definition: Buy a cheap future and short the underlying basket.
+  modules:
+  - s_index_arb
+  example: Buy a cheap future, short the basket.
+- term: slippage
+  category: Execution
+  definition: Difference between the price modelled for a trade and the price obtained.
+  modules:
+  - s_index_arb
+  example: 'Modelled close 5,000.0, fill 5,000.5: 0.5 points of slippage.'
+- term: richness
+  category: Strategies
+  definition: Market spread minus fair spread; positive means rich.
+  modules:
+  - s_roll
+  example: 'Spread 30 less fair spread 25: 5 points rich.'
+- term: open interest
+  category: Strategies
+  definition: Number of outstanding futures contracts; migrates from near to far in roll week.
+  modules:
+  - s_roll
+  example: Open interest falls in the near contract and rises in the next in roll week.
+- term: financing spread
+  category: Strategies
+  definition: Spread over benchmark charged to the client, less the cost of funding and balance sheet.
+  modules:
+  - s_financing_basis
+  example: 'Client pays 60, desk pays 35 + 10: 15 bps kept.'
+- term: implied financing
+  category: Strategies
+  definition: Financing rate embedded in the price of a future, over the benchmark.
+  modules:
+  - s_financing_basis
+  example: A future 0.5 bps of spot rich three months out implies about 2 bps a year above the model funding.
+- term: carry
+  category: Strategies
+  definition: Net income from holding a position over time, such as spread minus funding.
+  modules:
+  - s_financing_basis
+  example: 'Earn 60 bps, pay 45: carry 15 bps.'
+- term: dividend delta
+  category: Strategies
+  definition: Sensitivity of the book to a change in dividends, by year and market.
+  modules:
+  - s_dividend
+  example: 'Notes of 1,000 units on a 20-point dividend: 20,000 of dividend delta a year.'
+- term: premium to NAV
+  category: Strategies
+  definition: ETF price over NAV minus one; negative is a discount.
+  modules:
+  - s_etf_arb
+  example: 'ETF 100.50 vs NAV 100.00: +50 bps.'
+- term: market-on-close
+  category: Execution
+  definition: Order executed at the closing auction price.
+  aliases:
+  - MOC
+  modules:
+  - s_rebalance
+  example: An order to trade at the 16:00 closing auction price.
+- term: facilitation
+  category: Strategies
+  definition: Guaranteeing a client a price, such as the close, and managing the hedge.
+  modules:
+  - s_rebalance
+  example: Guarantee a fund the close on 1m shares, hedge during the day.
+- term: crowded trade
+  category: Strategies
+  definition: Position held by many participants, making exits costly.
+  modules:
+  - s_rebalance
+  example: 'Many hold the same pre-position: exit impact three times normal.'
+- term: ADR parity
+  category: Strategies
+  definition: ADR price equal to local price times ratio times FX.
+  modules:
+  - s_adr_arb
+  example: 25 x 2 x 1.10 = 55.00.
+- term: depositary
+  category: Strategies
+  definition: Bank that issues and cancels ADRs against local shares.
+  modules:
+  - s_adr_arb
+  example: The depositary issues new ADRs against delivered local shares.
+- term: conversion fee
+  category: Strategies
+  definition: Fee per ADR charged by the depositary for issue or cancellation.
+  modules:
+  - s_adr_arb
+  example: 0.02 per ADR to issue or cancel.
+- term: cointegration
+  category: Strategies
+  definition: Property that a combination of non-stationary prices is stationary.
+  modules:
+  - s_pairs
+  example: Two stocks whose log-price spread is stationary.
+- term: half-life
+  category: Strategies
+  definition: Time for a mean-reverting spread to close half its gap.
+  modules:
+  - s_pairs
+  example: 'phi 0.9: half-life 6.6 days.'
+- term: z-score
+  category: Strategies
+  definition: Distance from the mean in standard deviations.
+  modules:
+  - s_pairs
+  example: 'Spread 2 standard deviations above its mean: z = 2.'
+- term: statistical arbitrage
+  category: Strategies
+  definition: Trading many small relative-value mispricings identified by statistics.
+  aliases:
+  - stat arb
+  modules:
+  - s_pairs
+  example: Trading hundreds of small pair spreads on statistical signals.
+- term: hedge ratio
+  category: Strategies
+  definition: Amount of one leg per unit of the other in a spread trade.
+  modules:
+  - s_pairs
+  example: 'A = B squared: hedge ratio 2.'
+- term: collateral upgrade
+  category: SBL
+  definition: Lending high-quality collateral against lower-quality for a fee.
+  modules:
+  - s_sbl
+  example: 'Lend gilts, take equities, earn 12 bps on 20m for 90 days: 6,000.'
+- term: internalisation rate
+  category: Strategies
+  definition: Share of client notional netted without hedging.
+  modules:
+  - s_flow
+  example: 'Hedged 16% of gross notional: internalisation 84%.'
+- term: axe
+  category: Strategies
+  definition: Inventory the desk wants to trade, advertised to clients.
+  modules:
+  - s_flow
+  example: The desk is short a stock after client flow and advertises an axe to buy.
+- term: adverse selection
+  category: Strategies
+  definition: Trading with better-informed counterparties who profit at the desk's expense.
+  modules:
+  - s_flow
+  example: A client regularly buys just before the stock rises.
+- term: agency trade
+  category: Strategies
+  definition: Trade executed for a commission with no inventory risk to the desk.
+  modules:
+  - s_flow
+  example: 'Execute 10m for a client at 5 bps commission: 5,000, no risk.'
+- term: net contribution
+  category: PnL
+  definition: Revenue minus funding and balance sheet costs.
+  modules:
+  - s_pnl_gen
+  example: 'Revenue 600,000 less funding 350,000 and balance sheet 120,000: 130,000.'
+- term: client revenue
+  category: PnL
+  definition: 'Revenue from serving flow: financing, bid/offer, fees and lending.'
+  modules:
+  - s_pnl_gen
+  example: Financing spread and bid/offer on client trades.
+- term: risk revenue
+  category: PnL
+  definition: 'Revenue from holding positions: price and basis moves.'
+  modules:
+  - s_pnl_gen
+  example: Gain on inventory when the price moves your way.
+- term: budget variance
+  category: PnL
+  definition: Actual minus budget, with its percentage of budget.
+  modules:
+  - s_pnl_gen
+  example: 'Actual 90, budget 100: -10, or -10%.'
+- term: bid/offer spread
+  category: Trading
+  definition: Difference between the best price to sell and the best price to buy.
+  example: 'Bid 49.98, offer 50.02: a 0.04 spread, 8 bps of the mid.'
+  formula: spread = offer - bid
+  modules:
+  - cash_program
+  aliases:
+  - bid-ask spread
+- term: mid price
+  category: Trading
+  definition: Average of the best bid and best offer.
+  example: Bid 49.98 and offer 50.02 give a mid of 50.00.
+  formula: mid = (bid + offer) / 2
+  modules:
+  - cash_program
+  aliases: []
+- term: tick size
+  category: Trading
+  definition: Smallest allowed price increment.
+  example: A tick of 0.01 means 50.004 is not a valid price.
+  modules:
+  - cash_program
+  aliases: []
+- term: market impact
+  category: Execution
+  definition: Price move caused by your own trading.
+  example: Buying 10% of ADV in a stock with 2% daily volatility costs about 0.7 x 2% x sqrt(0.1) = 44 bps with k = 0.7.
+  formula: impact = k x sigma x sqrt(q / ADV)
+  modules:
+  - cash_program
+  aliases: []
+- term: participation rate
+  category: Execution
+  definition: Share of market volume an algorithm takes.
+  example: A 20% rate on 2 million ADV trades up to 400,000 shares a day.
+  modules:
+  - cash_program
+  aliases: []
+- term: benchmark rate
+  category: Rates
+  definition: Reference overnight rate such as SOFR plus spread forming the funding leg.
+  example: SOFR 5.00% plus a 60 bps spread is a 5.60% funding rate (ACT/360).
+  modules:
+  - rates_funding
+  aliases: []
+- term: day count convention
+  category: Conventions
+  definition: 'Rule for counting days in accrual: ACT/360, ACT/365F, 30/360.'
+  example: 30 days at 5% on ACT/360 on 10m accrues 41,666.67.
+  formula: interest = P x r x days / basis
+  modules:
+  - rates_funding
+  aliases: []
+- term: accrual
+  category: Rates
+  definition: Interest or cost earned day by day before it is paid.
+  example: Daily accrual on 10m at 5% ACT/360 is 1,388.89.
+  modules:
+  - rates_funding
+  aliases: []
+- term: settlement date
+  category: Operations
+  definition: Day cash and securities change hands after the trade date.
+  example: A trade on Monday settles Tuesday under T+1.
+  modules:
+  - booking_lifecycle
+  aliases: []
+- term: trade date
+  category: Operations
+  definition: Day the trade is agreed.
+  example: A trade agreed on 20 November has a trade date of 20 November.
+  modules:
+  - booking_lifecycle
+  aliases: []
+- term: net exposure
+  category: Risk
+  definition: Long exposure minus short exposure.
+  example: 'Long 12m, short 5m: net exposure 7m.'
+  formula: net = long - short
+  modules:
+  - risk_sens
+  aliases: []
+- term: volatility
+  category: Risk
+  definition: How much a price moves, usually the annualised standard deviation of returns.
+  example: Daily 1.5% scales to about 23.8% a year (x sqrt(252)).
+  formula: sigma_annual = sigma_daily x sqrt(252)
+  modules:
+  - var_stress
+  aliases: []
+- term: correlation
+  category: Risk
+  definition: Degree to which two returns move together, from -1 to 1.
+  example: Correlation 0.8 between two stocks means they usually move the same way.
+  modules:
+  - var_stress
+  aliases: []
+- term: confidence level
+  category: Risk
+  definition: Probability that a loss will not exceed the VaR.
+  example: At 99% one day, losses should exceed VaR about 1 day in 100.
+  modules:
+  - var_stress
+  aliases: []
+- term: counterparty
+  category: Documentation
+  definition: The other side of a trade.
+  example: A hedge fund client is the desk's counterparty on a swap.
+  modules:
+  - equity_swaps
+  aliases: []
+- term: ISDA
+  category: Documentation
+  definition: Master agreement that sets the legal terms for OTC derivatives.
+  example: Each client swap references an ISDA with its legal entity.
+  modules:
+  - equity_swaps
+  aliases:
+  - ISDA master agreement
+- term: legal entity
+  category: Documentation
+  definition: The company that signs an agreement and bears the obligation.
+  example: A margin call must go to the entity named in the ISDA, not a sister fund.
+  modules:
+  - booking_lifecycle
+  aliases: []
+- term: mark-to-market
+  category: Marks
+  definition: Valuing a position at the current market price.
+  example: 100,000 shares bought at 50 and now 52 have an MTM gain of 200,000.
+  formula: MTM = q x (P_now - P_cost)
+  modules:
+  - marks_eod
+  aliases:
+  - MTM
+- term: long position
+  category: Trading
+  definition: Owning an asset, which gains when price rises.
+  example: Owning 1,000 shares is a long position.
+  modules:
+  - cash_program
+  aliases:
+  - long
+- term: short position
+  category: Trading
+  definition: Owing an asset, which gains when price falls; needs borrow.
+  example: Selling 1,000 borrowed shares is a short position.
+  modules:
+  - cash_program
+  aliases:
+  - short

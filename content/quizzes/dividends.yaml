@@ -1,0 +1,138 @@
+questions:
+- id: dv01
+  type: mcq
+  difficulty: 1
+  prompt: On which date does the share price typically fall by about the dividend?
+  options:
+  - Ex-date
+  - Declaration date
+  - Pay date
+  - Record date
+  answer: 0
+  explanation: The [[ex-date]] is the first day shares trade without the dividend.
+- id: dv02
+  type: mcq
+  difficulty: 1
+  prompt: For a swap, which date triggers the dividend payment to a long client?
+  options:
+  - Ex-date
+  - Pay date of the hedge
+  - Declaration date
+  - Expiry
+  answer: 0
+  explanation: The swap's equity leg pays the dividend when the stock goes ex.
+- id: dv03
+  type: numeric
+  difficulty: 1
+  prompt: Dividend yield of a 80 stock paying 2.40 a year (decimal)?
+  answer: 0.03
+  tolerance: 0.0001
+  explanation: 2.40 / 80 = 3.0%.
+- id: dv04
+  type: numeric
+  difficulty: 1
+  prompt: 'Net dividend per share: gross 3.00, 30% withholding?'
+  answer: 2.1
+  tolerance: 0.001
+  explanation: 3.00 x (1 - 0.30) = 2.10.
+- id: dv05
+  type: numeric
+  difficulty: 2
+  prompt: 'Leakage on a long swap hedged with stock: 200,000 shares, gross 1.50, WHT 20%, 100% pass-through. Gain (+) or loss (-)?'
+  answer: -60000.0
+  tolerance: 1
+  explanation: 200,000 x (1.20 - 1.50) = -60,000.
+- id: dv06
+  type: numeric
+  difficulty: 2
+  prompt: 'Same trade at 80% pass-through: gain (+) or loss (-)?'
+  answer: 0.0
+  tolerance: 1
+  explanation: 'Receives 240,000, pays 0.8 x 300,000 = 240,000: zero leakage.'
+- id: dv07
+  type: numeric
+  difficulty: 2
+  prompt: 'Index points: dividend 0.80 per share, 5,000,000 index shares, divisor 200,000.'
+  answer: 20.0
+  tolerance: 1.0e-06
+  explanation: 0.80 x 5,000,000 / 200,000 = 20 points.
+- id: dv08
+  type: numeric
+  difficulty: 2
+  prompt: S = 200, forward = 203, DF = 0.98. Implied PV of dividends?
+  answer: 1.06
+  tolerance: 0.001
+  explanation: PVD = S - F x DF = 200 - 198.94 = 1.06.
+- id: dv09
+  type: mcq
+  difficulty: 2
+  prompt: A forward trades above its no-dividend fair value for the same rate. What does that imply about market dividends?
+  options:
+  - Lower implied dividends than the forecast
+  - Higher implied dividends
+  - Nothing
+  - A cancellation has been announced
+  answer: 0
+  explanation: A higher forward means a smaller PV of dividends has been subtracted.
+- id: dv10
+  type: mcq
+  difficulty: 2
+  prompt: 'A desk''s hedge receives dividends net of withholding while the swap pays 100% gross. The desk''s result on that dividend is:'
+  options:
+  - A loss equal to the withholding
+  - A gain equal to the withholding
+  - Zero
+  - Depends on the borrow fee
+  answer: 0
+  explanation: 'It receives gross x (1 - WHT) and pays gross: it loses gross x WHT.'
+- id: dv11
+  type: mcq
+  difficulty: 1
+  prompt: What is a special dividend?
+  options:
+  - A large, usually one-off dividend
+  - A dividend paid in shares only
+  - A cancelled dividend
+  - A dividend on an ETF only
+  answer: 0
+  explanation: A special is a large one-off payout, often treated as a corporate action.
+- id: dv12
+  type: mcq
+  difficulty: 2
+  prompt: Why does the desk care about analyst dividend forecasts?
+  options:
+  - They drive futures fair value, swap pricing and dividend derivative marks
+  - They set the borrow fee
+  - They determine the FTP spread
+  - They are required by SOFR
+  answer: 0
+  explanation: Everything priced off future dividends moves with the forecast.
+- id: dv13
+  type: numeric
+  difficulty: 3
+  prompt: PV of a 2.00 dividend in 0.25 years at a continuous rate of 4% (use e^(-rt))?
+  answer: 1.9801
+  tolerance: 0.002
+  explanation: 2 x e^-0.01 = 1.9801.
+- id: dv14
+  type: mcq
+  difficulty: 2
+  prompt: A short swap's hedge requires the desk to pay a manufactured dividend to the stock lender. Where does the desk fund it from?
+  options:
+  - The dividend the short client pays on the swap
+  - The exchange
+  - The index divisor
+  - The FTP spread
+  answer: 0
+  explanation: The client pays the dividend on the swap leg, which funds the manufactured dividend.
+- id: dv15
+  type: mcq
+  difficulty: 2
+  prompt: 'After a dividend cancellation episode, dividend future prices:'
+  options:
+  - Fall, because forecast dividends fall
+  - Rise
+  - Do not change
+  - Settle to zero
+  answer: 0
+  explanation: The futures settle on realised dividends, so cancellations lower expected settlement.

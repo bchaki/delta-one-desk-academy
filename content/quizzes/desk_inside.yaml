@@ -1,0 +1,166 @@
+questions:
+- id: di01
+  type: mcq
+  difficulty: 1
+  prompt: What does 'delta one' mean?
+  options:
+  - Products whose value moves one-for-one with the underlying
+  - Options with delta 0.5
+  - Products with no financing
+  - Only index futures
+  answer: 0
+  explanation: Delta is one, so there is no optionality to price.
+- id: di02
+  type: mcq
+  difficulty: 1
+  prompt: Which is NOT usually a revenue source for the desk?
+  options:
+  - Option premium decay
+  - Spread on swaps
+  - Securities lending margin
+  - Execution commission
+  answer: 0
+  explanation: Option premium belongs to derivatives desks.
+- id: di03
+  type: mcq
+  difficulty: 1
+  prompt: Who owns the official PnL and balance sheet numbers?
+  options:
+  - Finance and product control
+  - Sales
+  - Technology
+  - Legal
+  answer: 0
+  explanation: Product control signs off the official numbers.
+- id: di04
+  type: mcq
+  difficulty: 1
+  prompt: 'The TDA''s core responsibility is:'
+  options:
+  - Trade lifecycle and daily numbers for the book
+  - Setting client spreads
+  - Writing the ISDA
+  - Sourcing liquidity
+  answer: 0
+  explanation: The TDA runs the process and the reconciliation.
+- id: di05
+  type: mcq
+  difficulty: 2
+  prompt: Which is the biggest source of unexplained PnL in practice?
+  options:
+  - Booking and process errors
+  - Interest rate options
+  - Equity beta
+  - Weather
+  answer: 0
+  explanation: Operational breaks dominate.
+- id: di06
+  type: mcq
+  difficulty: 1
+  prompt: 'An internal desk that borrows stock from the Delta One desk is:'
+  options:
+  - A client of the desk
+  - A regulator
+  - A custodian
+  - An exchange
+  answer: 0
+  explanation: Internal desks are clients with their own documentation.
+- id: di07
+  type: mcq
+  difficulty: 2
+  prompt: 'Internalisation means:'
+  options:
+  - Matching client longs and shorts in-house to save external costs
+  - Hiring internally
+  - Trading only with internal desks
+  - Netting dividends
+  answer: 0
+  explanation: The desk keeps the saved borrow and funding.
+- id: di08
+  type: mcq
+  difficulty: 2
+  prompt: Which risk remains on a fully hedged swap book?
+  options:
+  - Basis, dividend, borrow, funding and operational risk
+  - None
+  - Only price risk
+  - Only credit risk
+  answer: 0
+  explanation: Delta is hedged; the other risks are not.
+- id: di09
+  type: mcq
+  difficulty: 1
+  prompt: Which function sets and monitors limits?
+  options:
+  - Risk
+  - Sales
+  - Operations
+  - Documentation
+  answer: 0
+  explanation: Risk owns limit setting and monitoring.
+- id: di10
+  type: mcq
+  difficulty: 2
+  prompt: Why does the ISDA reference matter at booking?
+  options:
+  - The trade must sit under valid documentation
+  - It sets the spread
+  - It sets the dividend
+  - It sets the benchmark
+  answer: 0
+  explanation: A trade without paper cannot be margined or enforced.
+- id: di11
+  type: mcq
+  difficulty: 2
+  prompt: Which client type is the main user of swaps for leverage?
+  options:
+  - Hedge funds
+  - Retail brokers
+  - Exchanges
+  - Central banks
+  answer: 0
+  explanation: Hedge funds use swaps to lever and short.
+- id: di12
+  type: mcq
+  difficulty: 1
+  prompt: Who validates trades and PnL independently of the front office?
+  options:
+  - Middle office
+  - The trader
+  - The client
+  - The index provider
+  answer: 0
+  explanation: Middle office provides the independent check.
+- id: di13
+  type: mcq
+  difficulty: 2
+  prompt: 'A booked spread is 10 bps too low on a 25 million swap. The shortfall per 30-day period (ACT/360) is about:'
+  options:
+  - 2,083
+  - 20,833
+  - '208'
+  - '0'
+  answer: 0
+  explanation: 25,000,000 x 0.0010 x 30/360 = 2,083.
+- id: di14
+  type: mcq
+  difficulty: 2
+  prompt: Which describes the desk's three products?
+  options:
+  - Exposure, leverage and financing, access
+  - Options, bonds, FX
+  - Research, advice, custody
+  - Issuance, listing, clearing
+  answer: 0
+  explanation: Clients buy exposure, leverage and access to markets.
+- id: di15
+  type: mcq
+  difficulty: 2
+  prompt: 'A trader asks why PnL does not reconcile. The best first step is:'
+  options:
+  - Look at size and sign of the unexplained to suggest the break type
+  - Wait until month end
+  - Ignore small amounts
+  - Re-book all trades
+  answer: 0
+  explanation: The pattern of the residual points to the cause.

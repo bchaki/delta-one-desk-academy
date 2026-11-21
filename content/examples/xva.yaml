@@ -1,0 +1,116 @@
+examples:
+  profile_unc:
+    fn: core.financing.xva_lite.simulate_exposure
+    args:
+      notional: 10000000.0
+      vol: 0.25
+      maturity: 1.0
+      n_steps: 52
+      reset_every: 13
+      direction:
+        $: core.types.Direction
+        args:
+        - LONG
+      n_paths: 5000
+      seed: 0
+    expected:
+      peak_pfe: 1881577.3638735164
+      epe: 309749.51274698053
+    tolerance: 0.5
+    note: seeded GBM, no CSA
+  profile_col:
+    fn: core.financing.xva_lite.simulate_exposure
+    args:
+      notional: 10000000.0
+      vol: 0.25
+      maturity: 1.0
+      n_steps: 52
+      reset_every: 13
+      direction:
+        $: core.types.Direction
+        args:
+        - LONG
+      n_paths: 5000
+      seed: 0
+      mpor_steps: 2
+      threshold: 0.0
+    expected:
+      peak_pfe: 813754.3099933043
+      epe: 117765.68289816716
+    tolerance: 0.5
+    note: collateral lags two weeks
+  cva:
+    fn: core.financing.xva_lite.cva
+    args:
+      ee:
+        $: numpy.array
+        args:
+        - - 1000000.0
+          - 1000000.0
+      times:
+        $: numpy.array
+        args:
+        - - 1.0
+          - 2.0
+      cds_spread_bps: 100.0
+      lgd: 0.6
+      rate: 0.0
+    expected: 19670.33971079646
+    tolerance: 0.01
+    note: flat hazard 1.67%
+  fva:
+    fn: core.financing.xva_lite.fva
+    args:
+      ee:
+        $: numpy.array
+        args:
+        - - 1000000.0
+          - 1000000.0
+      times:
+        $: numpy.array
+        args:
+        - - 1.0
+          - 2.0
+      funding_spread_bps: 60.0
+      rate: 0.0
+    expected: 12000.0
+    tolerance: 0.01
+    note: 0.6% x 2m
+  kva:
+    fn: core.financing.xva_lite.kva
+    args:
+      ee:
+        $: numpy.array
+        args:
+        - - 1000000.0
+          - 1000000.0
+      times:
+        $: numpy.array
+        args:
+        - - 1.0
+          - 2.0
+      risk_weight: 1.0
+      cet1_ratio: 0.12
+      hurdle: 0.1
+      rate: 0.0
+    expected: 24000.0
+    tolerance: 0.01
+    note: 10% x 12% x 2m
+  mva:
+    fn: core.financing.xva_lite.mva
+    args:
+      avg_initial_margin: 5000000.0
+      maturity: 2.0
+      funding_spread_bps: 40.0
+    expected: 40000.0
+    tolerance: 0.01
+    note: 5m x 0.4% x 2
+  charge:
+    fn: core.financing.xva_lite.xva_charge_bps
+    args:
+      total_xva: 50000.0
+      notional: 10000000.0
+      tenor_years: 2.0
+    expected: 25.0
+    tolerance: 1.0e-09
+    note: 50k / 10m / 2

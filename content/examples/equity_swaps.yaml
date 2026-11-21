@@ -1,0 +1,145 @@
+examples:
+  client_long:
+    fn: core.pricing.swaps.period_cashflows
+    args:
+      terms:
+        $: core.pricing.swaps.SwapTerms
+        kwargs:
+          direction:
+            $: core.types.Direction
+            args:
+            - LONG
+          shares: 10000.0
+          initial_price: 100.0
+          spread_bps: 40.0
+      dividends: []
+      start: &id001 2026-03-02
+      end: &id002 2026-03-09
+      start_price: 100.0
+      end_price: 104.0
+      fixings: &id003
+        2026-03-02: 0.04
+        2026-03-03: 0.04
+        2026-03-04: 0.04
+        2026-03-05: 0.04
+        2026-03-06: 0.041
+    expected:
+      price_cf: 40000.0
+      dividend_cf: 0.0
+      funding_cf: -864.11
+      net_cf: 39135.89
+    tolerance: 0.006
+    note: 40,000 equity; -1,000,000 x 7/360 x (4.044% + 0.40%)
+  client_short:
+    fn: core.pricing.swaps.period_cashflows
+    args:
+      terms:
+        $: core.pricing.swaps.SwapTerms
+        kwargs:
+          direction:
+            $: core.types.Direction
+            args:
+            - SHORT
+          shares: 10000.0
+          initial_price: 100.0
+          spread_bps: 40.0
+      dividends: []
+      start: *id001
+      end: *id002
+      start_price: 100.0
+      end_price: 104.0
+      fixings: *id003
+    expected:
+      price_cf: -40000.0
+      dividend_cf: 0.0
+      funding_cf: 708.56
+    tolerance: 0.006
+    note: short receives R - spread on proceeds
+  desk_long:
+    fn: core.pricing.swaps.desk_economics
+    args:
+      terms:
+        $: core.pricing.swaps.SwapTerms
+        kwargs:
+          direction:
+            $: core.types.Direction
+            args:
+            - LONG
+          shares: 10000.0
+          initial_price: 100.0
+          spread_bps: 40.0
+      dividends: []
+      ftp_bps: 35.0
+      start: *id001
+      end: *id002
+      start_price: 100.0
+      end_price: 104.0
+      fixings: *id003
+    expected:
+      total: 9.717376609514758
+      spread_edge: 9.722222222222223
+    tolerance: 0.01
+    note: spread edge 1,000,000 x 5 bps x 7/360
+  desk_short:
+    fn: core.pricing.swaps.desk_economics
+    args:
+      terms:
+        $: core.pricing.swaps.SwapTerms
+        kwargs:
+          direction:
+            $: core.types.Direction
+            args:
+            - SHORT
+          shares: 10000.0
+          initial_price: 100.0
+          spread_bps: 40.0
+      dividends: []
+      ftp_bps: 35.0
+      borrow_bps: 150.0
+      start: *id001
+      end: *id002
+      start_price: 100.0
+      end_price: 104.0
+      fixings: *id003
+    expected:
+      total: -213.88959883173084
+      spread_edge: -213.88888888888889
+    tolerance: 0.01
+    note: (40 - 150) bps on 1,000,000 for 7/360
+  spread_build:
+    fn: core.pricing.swaps.spread_build_up
+    args:
+      direction:
+        $: core.types.Direction
+        args:
+        - LONG
+      ftp_bps: 35.0
+      borrow_bps: 0.0
+      balance_sheet_bps: 4.0
+      capital_bps: 3.0
+      xva_bps: 2.0
+      hedge_cost_bps: 1.0
+      margin_bps: 5.0
+    expected:
+      total_bps: 50.0
+    tolerance: 1.0e-09
+    note: 35 + 4 + 3 + 2 + 1 + 5
+  unwind:
+    fn: core.pricing.swaps.unwind
+    args:
+      shares: 10000.0
+      fraction: 0.4
+    expected:
+    - 4000.0
+    - 6000.0
+    tolerance: 1.0e-09
+    note: 40% unwound
+  swap_dividend:
+    fn: core.dividends.swap_dividend_amount
+    args:
+      gross_per_share: 2.0
+      shares: 10000.0
+      pass_through: 0.85
+    expected: 17000.0
+    tolerance: 1.0e-09
+    note: 2.00 x 10,000 x 85%

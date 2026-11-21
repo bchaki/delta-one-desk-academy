@@ -1,0 +1,59 @@
+as_of: 2026-11-21
+source: "Stylised factor moves in the spirit of each episode. They are teaching approximations, not historical records."
+verify: true
+
+# equity_pct: % move by region. vol_pts: implied vol change (points). rates_bps: parallel move on
+# the overnight/term curve by benchmark. fx_pct: % move in the quoted pair (EURUSD, GBPUSD, USDJPY).
+# div_pct: % change in forecast dividends by region. borrow_bps: change in borrow fees (bps)
+# for the tier. single_name_pct: shock applied to the flagged single name only.
+scenarios:
+  crash_1987:
+    name: "1987-type crash"
+    kind: historical_style
+    equity_pct: {US: -22.0, EU: -18.0, UK: -20.0, JP: -15.0}
+    vol_pts: 30
+    rates_bps: {SOFR: -50, ESTR: -30, SONIA: -40, TONA: -10}
+    fx_pct: {EURUSD: 1.0, GBPUSD: 1.0, USDJPY: -2.0}
+    div_pct: {US: -5.0, EU: -5.0, UK: -5.0, JP: -5.0}
+    borrow_bps: {GC: 20, warm: 100, special: 400, hard_to_borrow: 1500}
+    single_name_pct: 0.0
+  gfc_2008:
+    name: "2008 financial crisis"
+    kind: historical_style
+    equity_pct: {US: -35.0, EU: -40.0, UK: -35.0, JP: -30.0}
+    vol_pts: 40
+    rates_bps: {SOFR: -150, ESTR: -100, SONIA: -150, TONA: -20}
+    fx_pct: {EURUSD: -10.0, GBPUSD: -20.0, USDJPY: -12.0}
+    div_pct: {US: -20.0, EU: -30.0, UK: -35.0, JP: -15.0}
+    borrow_bps: {GC: 40, warm: 200, special: 800, hard_to_borrow: 3000}
+    single_name_pct: 0.0
+  covid_2020:
+    name: "March 2020 (with dividend cancellations)"
+    kind: historical_style
+    equity_pct: {US: -30.0, EU: -33.0, UK: -30.0, JP: -25.0}
+    vol_pts: 45
+    rates_bps: {SOFR: -150, ESTR: -10, SONIA: -65, TONA: -5}
+    fx_pct: {EURUSD: -3.0, GBPUSD: -7.0, USDJPY: -4.0}
+    div_pct: {US: -15.0, EU: -45.0, UK: -50.0, JP: -10.0}
+    borrow_bps: {GC: 30, warm: 150, special: 600, hard_to_borrow: 2500}
+    single_name_pct: 0.0
+  rates_shock_2022:
+    name: "2022 rates shock"
+    kind: historical_style
+    equity_pct: {US: -20.0, EU: -18.0, UK: -8.0, JP: -8.0}
+    vol_pts: 15
+    rates_bps: {SOFR: 300, ESTR: 250, SONIA: 300, TONA: 0}
+    fx_pct: {EURUSD: -12.0, GBPUSD: -15.0, USDJPY: 25.0}
+    div_pct: {US: 0.0, EU: 0.0, UK: 0.0, JP: 0.0}
+    borrow_bps: {GC: 10, warm: 30, special: 100, hard_to_borrow: 300}
+    single_name_pct: 0.0
+  squeeze_single_name:
+    name: "Single-name short squeeze"
+    kind: historical_style
+    equity_pct: {US: 0.0, EU: 0.0, UK: 0.0, JP: 0.0}
+    vol_pts: 5
+    rates_bps: {SOFR: 0, ESTR: 0, SONIA: 0, TONA: 0}
+    fx_pct: {EURUSD: 0.0, GBPUSD: 0.0, USDJPY: 0.0}
+    div_pct: {US: 0.0, EU: 0.0, UK: 0.0, JP: 0.0}
+    borrow_bps: {GC: 0, warm: 100, special: 1500, hard_to_borrow: 8000}
+    single_name_pct: 80.0

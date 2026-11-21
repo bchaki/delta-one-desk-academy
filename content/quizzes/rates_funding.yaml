@@ -1,0 +1,146 @@
+questions:
+- id: rf01
+  type: mcq
+  difficulty: 1
+  prompt: Which overnight benchmark does USD use?
+  options:
+  - SOFR
+  - ESTR
+  - SONIA
+  - TONA
+  answer: 0
+  explanation: '[[SOFR]] is the USD overnight benchmark. ESTR is EUR, SONIA GBP, TONA JPY.'
+- id: rf02
+  type: mcq
+  difficulty: 1
+  prompt: Which day count do GBP money markets use?
+  options:
+  - ACT/365F
+  - ACT/360
+  - 30/360
+  - ACT/ACT
+  answer: 0
+  explanation: GBP (SONIA) and JPY (TONA) use [[ACT/365F]]; USD and EUR use [[ACT/360]].
+- id: rf03
+  type: numeric
+  difficulty: 1
+  prompt: Interest on 20m for 90 days at 3.60% ACT/360 (currency units)?
+  answer: 180000.0
+  tolerance: 1
+  explanation: 20,000,000 x 0.036 x 90/360 = 180,000.
+  unit: currency units
+- id: rf04
+  type: numeric
+  difficulty: 2
+  prompt: Restate 5.00% ACT/360 on ACT/365F (as a decimal, 0.05 = 5%).
+  answer: 0.050694
+  tolerance: 1.0e-05
+  explanation: 5.00% x 365/360 = 5.0694%.
+- id: rf05
+  type: mcq
+  difficulty: 1
+  prompt: A Friday overnight fixing applies for how many calendar days?
+  options:
+  - '3'
+  - '1'
+  - '2'
+  - '7'
+  answer: 0
+  explanation: It runs to the next business day, Monday, so three calendar days.
+- id: rf06
+  type: mcq
+  difficulty: 2
+  prompt: Why does compounding in arrears give a higher rate than a simple average of the same fixings?
+  options:
+  - Interest earns interest within the period
+  - It uses a different day count
+  - It ignores weekends
+  - It adds the FTP spread
+  answer: 0
+  explanation: Each day's interest is added to the balance, so later days earn interest on interest.
+- id: rf07
+  type: numeric
+  difficulty: 2
+  prompt: 'Desk funding: SOFR 4.10% plus a 35 bps FTP spread. Funding rate as a decimal?'
+  answer: 0.0445
+  tolerance: 1.0e-05
+  explanation: 4.10% + 0.35% = 4.45%.
+- id: rf08
+  type: mcq
+  difficulty: 2
+  prompt: A long swap earns SOFR + 40 bps from the client and the desk funds the hedge at SOFR + 35 bps. What is the desk's net funding carry?
+  options:
+  - +5 bps a year on notional
+  - +40 bps a year
+  - -35 bps a year
+  - 'Zero: the benchmark cancels'
+  answer: 0
+  explanation: The benchmark cancels; the spread over FTP is 40 - 35 = 5 bps a year.
+- id: rf09
+  type: numeric
+  difficulty: 2
+  prompt: 'Funding carry in currency units: notional 50m, swap spread 38 bps, FTP 30 bps, one year.'
+  answer: 40000.0
+  tolerance: 1
+  explanation: 50,000,000 x 8 bps = 40,000.
+  unit: currency units
+- id: rf10
+  type: mcq
+  difficulty: 2
+  prompt: What does an observation shift or lookback change?
+  options:
+  - Which fixings are used and when the amount is known, not the compounding formula
+  - The day count
+  - The currency
+  - The notional
+  answer: 0
+  explanation: They move the observation window so payment amounts are known earlier.
+- id: rf11
+  type: mcq
+  difficulty: 1
+  prompt: 'Spreads on the desk are quoted:'
+  options:
+  - In bps over a named benchmark
+  - As a percentage of notional upfront
+  - As an absolute amount per share
+  - Without reference to a benchmark
+  answer: 0
+  explanation: Always bps per year over a named benchmark, with day count and compounding stated.
+- id: rf12
+  type: numeric
+  difficulty: 3
+  prompt: 'A 100 bps wrong fixing on a monthly reset: notional 25m, 30 days ACT/360. Error in currency units?'
+  answer: 20833.333333
+  tolerance: 1
+  explanation: 25,000,000 x 1% x 30/360 = 20,833.33.
+  unit: currency units
+- id: rf13
+  type: mcq
+  difficulty: 2
+  prompt: 'A missing TONA fixing on a day that is a UK holiday but a Japanese business day is:'
+  options:
+  - A real fixing the reset should use
+  - Never a problem
+  - Not needed
+  - Replaced by SOFR
+  answer: 0
+  explanation: The fixing follows the benchmark's own calendar, not the trade's other legs.
+- id: rf14
+  type: numeric
+  difficulty: 3
+  prompt: '4.30% ACT/360 for 182 days on 1m: interest (currency units)?'
+  answer: 21738.888889
+  tolerance: 0.01
+  explanation: 1,000,000 x 0.043 x 182/360 = 21,738.89.
+  unit: currency units
+- id: rf15
+  type: mcq
+  difficulty: 2
+  prompt: 'If treasury raises the FTP spread by 10 bps and swap spreads do not move, long trades'' carry:'
+  options:
+  - Falls 10 bps a year
+  - Rises 10 bps
+  - Is unchanged
+  - Doubles
+  answer: 0
+  explanation: Funding cost rises while the client spread is fixed, so carry falls.

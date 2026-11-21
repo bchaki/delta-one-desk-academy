@@ -1,0 +1,138 @@
+questions:
+- id: es01
+  type: mcq
+  difficulty: 1
+  prompt: In a long client equity swap, who pays the funding leg?
+  options:
+  - The client, at benchmark plus a spread
+  - The desk, at benchmark minus a spread
+  - Nobody
+  - The exchange
+  answer: 0
+  explanation: The long is financed by the desk, so the client pays benchmark plus spread.
+- id: es02
+  type: mcq
+  difficulty: 1
+  prompt: 'A short client on a swap receives funding of:'
+  options:
+  - Benchmark minus a spread that covers borrow
+  - Benchmark plus a spread
+  - Zero
+  - A fixed rate
+  answer: 0
+  explanation: The desk borrows the stock; the short spread covers the borrow fee.
+- id: es03
+  type: numeric
+  difficulty: 1
+  prompt: 'Equity leg to the client: long 5,000 shares, price 80 to 83.'
+  answer: 15000.0
+  tolerance: 0.01
+  explanation: 5,000 x 3 = 15,000.
+- id: es04
+  type: numeric
+  difficulty: 2
+  prompt: 'Funding owed by a long: notional 2,000,000 (reset), 30 days ACT/360, benchmark 4.00%, spread 50 bps.'
+  answer: 7500.0
+  tolerance: 0.01
+  explanation: 2,000,000 x 4.50% x 30/360 = 7,500.
+- id: es05
+  type: numeric
+  difficulty: 2
+  prompt: 'Desk spread edge on a long: notional 20m, spread 45 bps, FTP 35 bps, 91 days ACT/360 (currency units).'
+  answer: 5055.555556
+  tolerance: 0.01
+  explanation: 20,000,000 x 10 bps x 91/360 = 5,055.56.
+- id: es06
+  type: numeric
+  difficulty: 2
+  prompt: 'Desk edge on a short: notional 10m, spread 120 bps, borrow 200 bps, 30 days ACT/360 (currency units).'
+  answer: -6666.666667
+  tolerance: 0.01
+  explanation: 10,000,000 x (-80 bps) x 30/360 = -6,666.67.
+- id: es07
+  type: mcq
+  difficulty: 2
+  prompt: 'With 100% pass-through, no withholding and notional reset, the desk''s hedged PnL on a long swap reduces to:'
+  options:
+  - Notional x (spread - FTP) x period
+  - The price move
+  - The dividend
+  - Zero
+  answer: 0
+  explanation: All other terms cancel between swap and hedge.
+- id: es08
+  type: mcq
+  difficulty: 2
+  prompt: With a fixed (non-reset) notional, what is left over for the desk to manage?
+  options:
+  - A funding residual that grows as the price moves
+  - Nothing
+  - The dividend
+  - The ISDA
+  answer: 0
+  explanation: The funding base no longer tracks the hedge value.
+- id: es09
+  type: numeric
+  difficulty: 2
+  prompt: 'Spread build-up for a long: FTP 30, balance sheet 5, capital 4, XVA 3, hedge cost 2, margin 6 (bps). Quote?'
+  answer: 50.0
+  tolerance: 0.01
+  explanation: Sum = 50 bps.
+- id: es10
+  type: mcq
+  difficulty: 1
+  prompt: Which is typically NOT negotiable in the spread?
+  options:
+  - Funding cost (FTP)
+  - Target margin
+  - Neither
+  - Both
+  answer: 0
+  explanation: FTP is the desk's cost; margin is the negotiable part.
+- id: es11
+  type: numeric
+  difficulty: 2
+  prompt: 'Dividend paid to a long client: 2.50 per share, 20,000 shares, 85% pass-through.'
+  answer: 42500.0
+  tolerance: 0.01
+  explanation: 2.50 x 20,000 x 0.85 = 42,500.
+- id: es12
+  type: mcq
+  difficulty: 2
+  prompt: 'The 871(m) flag matters for:'
+  options:
+  - US underlyings traded with non-US clients
+  - All EUR swaps
+  - Index futures only
+  - Repos
+  answer: 0
+  explanation: 871(m) can tax dividend equivalents on delta-one derivatives.
+- id: es13
+  type: numeric
+  difficulty: 2
+  prompt: A client unwinds 25% of a 12,000-share swap. Shares remaining?
+  answer: 9000.0
+  tolerance: 0.5
+  explanation: 12,000 x 0.75 = 9,000.
+- id: es14
+  type: mcq
+  difficulty: 1
+  prompt: What distinguishes a funded from an unfunded swap?
+  options:
+  - Whether the client posts the cash up front
+  - The currency
+  - The index
+  - The day count
+  answer: 0
+  explanation: Unfunded swaps rely on margin and the CSA instead.
+- id: es15
+  type: mcq
+  difficulty: 2
+  prompt: 'A wrong benchmark fixing on a monthly reset of 25m, 100 bps off, is worth roughly:'
+  options:
+  - Twenty thousand in currency units
+  - A few cents
+  - A million
+  - Nothing
+  answer: 0
+  explanation: 25,000,000 x 1% x 30/360 ~ 20,833.

@@ -1,0 +1,145 @@
+questions:
+- id: fc01
+  type: mcq
+  difficulty: 1
+  prompt: 'FTP is:'
+  options:
+  - The internal charge for funding a position
+  - A client fee
+  - An exchange fee
+  - A tax
+  answer: 0
+  explanation: Funds transfer pricing.
+- id: fc02
+  type: numeric
+  difficulty: 2
+  prompt: 'EAD: MTM 3m, collateral 1m, notional 100m, factor 0.20, alpha 1.4.'
+  answer: 29400000.0
+  tolerance: 1
+  explanation: 1.4 x (2m + 20m) = 30.8m.
+  unit: currency units
+- id: fc03
+  type: mcq
+  difficulty: 2
+  prompt: 'Collateral reduces:'
+  options:
+  - Replacement cost but not the add-on
+  - The add-on only
+  - Both
+  - Neither
+  answer: 0
+  explanation: The add-on covers future moves.
+- id: fc04
+  type: numeric
+  difficulty: 2
+  prompt: 'Leverage exposure: EAD 30m plus hedge 100m.'
+  answer: 130000000.0
+  tolerance: 1
+  explanation: Derivative EAD + hedge.
+  unit: currency units
+- id: fc05
+  type: numeric
+  difficulty: 2
+  prompt: 'RWA: EAD 20m at 0.5.'
+  answer: 10000000.0
+  tolerance: 1
+  explanation: 20m x 0.5 = 10m.
+  unit: currency units
+- id: fc06
+  type: numeric
+  difficulty: 2
+  prompt: 'Capital: leverage exposure 100m at 4% vs RWA 20m at 12%.'
+  answer: 4000000.0
+  tolerance: 1
+  explanation: max(4m, 2.4m) = 4m.
+  unit: currency units
+- id: fc07
+  type: mcq
+  difficulty: 2
+  prompt: Which constraint binds when RWA is small relative to exposure?
+  options:
+  - The leverage ratio
+  - CET1 on RWA
+  - Neither
+  - Both equally
+  answer: 0
+  explanation: Max of the two.
+- id: fc08
+  type: numeric
+  difficulty: 2
+  prompt: 'Balance sheet charge: exposure 150m, notional 100m, 8 bps per exposure (bps).'
+  answer: 12.0
+  tolerance: 0.001
+  explanation: 1.5 x 8 = 12 bps.
+  unit: bps
+- id: fc09
+  type: numeric
+  difficulty: 2
+  prompt: 'Capital charge: capital 6m, notional 100m, CoE 10% (bps).'
+  answer: 60.0
+  tolerance: 0.001
+  explanation: 6m x 10% / 100m = 60 bps.
+  unit: bps
+- id: fc10
+  type: numeric
+  difficulty: 3
+  prompt: 'Economic profit: net 500k, capital 4m, CoE 10%.'
+  answer: 100000.0
+  tolerance: 1
+  explanation: 500k - 400k = 100k.
+  unit: currency units
+- id: fc11
+  type: mcq
+  difficulty: 2
+  prompt: 'Netting opposite client trades in a stock:'
+  options:
+  - Reduces hedge inventory and balance sheet
+  - Raises margin
+  - Raises FTP
+  - Nothing
+  answer: 0
+  explanation: Fewer shares need to be held.
+- id: fc12
+  type: mcq
+  difficulty: 2
+  prompt: 'Futures hedges for index exposure use mainly:'
+  options:
+  - Margin instead of balance sheet
+  - More balance sheet
+  - No funding
+  - Fixed collateral
+  answer: 0
+  explanation: Cleared futures are margin-funded.
+- id: fc13
+  type: mcq
+  difficulty: 2
+  prompt: 'The simple capital model omits:'
+  options:
+  - Netting sets, maturity factors and market-risk capital
+  - Alpha
+  - The notional
+  - The hedge
+  answer: 0
+  explanation: Listed limitations.
+- id: fc14
+  type: mcq
+  difficulty: 2
+  prompt: 'A pension counterparty''s risk weight is, in the illustrative table:'
+  options:
+  - '0.2'
+  - '1.0'
+  - '0.5'
+  - '0'
+  answer: 0
+  explanation: 'Pension and insurer: 0.2.'
+- id: fc15
+  type: mcq
+  difficulty: 2
+  prompt: 'Client profitability is net contribution divided by:'
+  options:
+  - Capital (return on capital)
+  - Notional
+  - Revenue
+  - Funding
+  answer: 0
+  explanation: Return on capital.

@@ -1,0 +1,144 @@
+questions:
+- id: rs01
+  type: numeric
+  difficulty: 1
+  prompt: 'Delta: 20,000 shares at 40, FX 1.25 (reporting currency).'
+  answer: 1000000.0
+  tolerance: 1
+  explanation: 20,000 x 40 x 1.25 = 1,000,000.
+  unit: currency units
+- id: rs02
+  type: mcq
+  difficulty: 1
+  prompt: 'A fully hedged swap book typically has:'
+  options:
+  - Net delta near zero and large gross
+  - Large net and small gross
+  - Zero gross
+  - Negative gross
+  answer: 0
+  explanation: Swap and hedge net out but both count in gross.
+- id: rs03
+  type: numeric
+  difficulty: 2
+  prompt: 'Beta-adjusted: delta 2,000,000, beta 0.8.'
+  answer: 1600000.0
+  tolerance: 1
+  explanation: 2,000,000 x 0.8 = 1,600,000.
+  unit: currency units
+- id: rs04
+  type: numeric
+  difficulty: 2
+  prompt: 'FX delta: 5,000,000 position, currency falls 3%.'
+  answer: -150000.0
+  tolerance: 1
+  explanation: 5m x -3% = -150,000.
+  unit: currency units
+- id: rs05
+  type: numeric
+  difficulty: 2
+  prompt: 'Funding: 250m long, +2 bp on FTP, annual PnL change.'
+  answer: -50000.0
+  tolerance: 1
+  explanation: -250m x 2 bps = -50,000.
+  unit: currency units
+- id: rs06
+  type: numeric
+  difficulty: 2
+  prompt: 'Dividend risk: 20m delta, 2.5% yield, dividends -20%.'
+  answer: -100000.0
+  tolerance: 1
+  explanation: 20m x 2.5% x -20% = -100,000.
+  unit: currency units
+- id: rs07
+  type: mcq
+  difficulty: 2
+  prompt: 'A swap book with 100% pass-through has dividend sensitivity of:'
+  options:
+  - Approximately zero
+  - Large
+  - Equal to gross
+  - Negative gross
+  answer: 0
+  explanation: Dividends flow through.
+- id: rs08
+  type: numeric
+  difficulty: 2
+  prompt: 'Days to liquidate: 1.2m shares, ADV 2m, 20% participation.'
+  answer: 3.0
+  tolerance: 0.01
+  explanation: 1.2m/(0.2 x 2m) = 3 days.
+  unit: days
+- id: rs09
+  type: numeric
+  difficulty: 2
+  prompt: HHI for two equal names.
+  answer: 0.5
+  tolerance: 1.0e-06
+  explanation: 2 x 0.25 = 0.5.
+- id: rs10
+  type: mcq
+  difficulty: 2
+  prompt: 'A hedge with no swap leaves:'
+  options:
+  - A net exposure on that name
+  - Nothing
+  - Negative gross
+  - A funding gain
+  answer: 0
+  explanation: Orphan hedges are a common finding.
+- id: rs11
+  type: mcq
+  difficulty: 1
+  prompt: 'Net delta is useful for:'
+  options:
+  - Directional risk
+  - Balance sheet size
+  - Operational footprint
+  - Fees
+  answer: 0
+  explanation: Gross measures size.
+- id: rs12
+  type: mcq
+  difficulty: 2
+  prompt: 'Borrow sensitivity is positive for:'
+  options:
+  - A net lender
+  - A net borrower
+  - Neither
+  - Everyone
+  answer: 0
+  explanation: Lenders earn more when fees rise.
+- id: rs13
+  type: mcq
+  difficulty: 2
+  prompt: 'A risk report on a stale snapshot misses:'
+  options:
+  - The day's trades
+  - The ticker list
+  - The limits
+  - The currency
+  answer: 0
+  explanation: Check the snapshot time.
+- id: rs14
+  type: mcq
+  difficulty: 2
+  prompt: Why is beta-adjusted delta less reliable for single names?
+  options:
+  - Single-name betas are unstable
+  - Betas are exact
+  - It uses no prices
+  - It ignores FX
+  answer: 0
+  explanation: Estimation error is large.
+- id: rs15
+  type: mcq
+  difficulty: 2
+  prompt: 'First-order sensitivities miss:'
+  options:
+  - Jumps, correlation shifts and interactions
+  - Delta
+  - FX
+  - Funding
+  answer: 0
+  explanation: They are linear approximations.

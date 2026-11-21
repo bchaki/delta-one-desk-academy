@@ -1,0 +1,51 @@
+as_of: 2026-11-21
+source: "Teaching calibration loosely based on public exchange / Reg T / FINRA descriptions. Not an official margin methodology."
+verify: true
+
+# Percentages are fractions of notional (0.08 = 8%).
+exchange:
+  # Price scan range per futures product (worst-case one-day move scanned, +/-).
+  scan_range_pct:
+    ES: 0.070
+    SX5E: 0.085
+    DAX: 0.085
+    FTSE: 0.075
+    NKY: 0.095
+    D1US30: 0.075
+    D1EU20: 0.090
+  scan_points: 7                    # price scenarios from -range to +range
+  calendar_spread_charge_pct: 0.010 # charge on the matched calendar-spread notional
+  # Inter-commodity spread credit: fraction of the smaller leg's scan risk that is credited.
+  inter_index_credit:
+    "ES|D1US30": 0.80
+    "SX5E|D1EU20": 0.80
+    "SX5E|DAX": 0.65
+    "ES|SX5E": 0.30
+  var_confidence: 0.99              # alternative historical-VaR margin
+  var_horizon_days: 2
+
+regt:
+  initial_pct: 0.50                 # Reg T initial margin on long equity purchases
+  maintenance_long_pct: 0.25        # FINRA minimum maintenance, longs
+  short_initial_pct: 1.50           # 100% of proceeds + 50% initial margin on shorts
+  short_maintenance_pct: 0.30       # simplified short maintenance (price >= USD 5)
+
+portfolio_margin:
+  index_range_pct: 0.08             # price grid half-width for broad indices
+  single_name_range_pct: 0.15       # wider grid for single names
+  grid_points: 7
+  min_margin_pct: 0.0               # floor per position, fraction of gross market value
+
+pb_house:
+  vol_multiplier: 3.0               # base = multiplier x daily vol x sqrt(horizon)
+  horizon_days: 3
+  min_base_pct: 0.10
+  concentration_threshold_pct: 0.20 # position / equity above this attracts an add-on
+  concentration_addon_rate: 0.50    # fraction of the excess charged
+  liquidity_days_threshold: 1.0     # days of ADV above which the liquidity add-on starts
+  liquidity_addon_per_day: 0.05     # extra margin pct per day of ADV above threshold
+  liquidity_addon_cap: 0.50
+  directionality_threshold: 0.70    # |net| / gross above this attracts an add-on
+  directionality_addon_pct: 0.05    # of net market value
+  squeeze_short_interest_threshold: 0.15  # short interest as fraction of free float
+  squeeze_addon_pct: 0.10           # of short market value

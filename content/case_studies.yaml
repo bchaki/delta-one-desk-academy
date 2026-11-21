@@ -1,0 +1,57 @@
+# Compliance and risk cases. Taught for recognition and escalation, never as a playbook.
+conduct:
+  - id: front_running
+    title: Front-running a client order
+    what: Trading for your own or the firm's benefit ahead of a client order you know about.
+    red_flags:
+      - A position opened or extended minutes before a large client order is worked.
+      - Questions about client order size or timing from someone with no need to know.
+      - Personal or desk trades that consistently precede client flow.
+    do:
+      - Do not trade on knowledge of client flow, however small the order.
+      - Keep client order details to people who need them to do their job.
+      - If you see a pattern, record it and escalate to compliance without tipping off.
+  - id: spoofing
+    title: Spoofing and layering
+    what: Entering orders with no intention of executing them to move the price, then trading the other way.
+    red_flags:
+      - Large orders placed and cancelled within seconds, repeatedly.
+      - Order-to-trade ratios far above those of comparable traders.
+      - Profit on small trades on one side that follow large cancelled orders on the other.
+    do:
+      - Never enter an order you do not intend to execute.
+      - Surface repeated cancellations that look purposeless to compliance surveillance.
+  - id: closing_manipulation
+    title: Marking the close and squeezes
+    what: Acting at the close, or locking up supply, to move a price others depend on.
+    red_flags:
+      - Unusual size in the closing auction on a thinly traded name that a position is marked to.
+      - Recalls or borrow-lending patterns that restrict supply without a commercial reason.
+    do:
+      - Trade at the close only for a genuine client or hedging purpose.
+      - Escalate when a mark depends on a price you or a colleague can move.
+  - id: inside_information
+    title: Inside information
+    what: Dealing, or passing on, non-public price-sensitive information.
+    red_flags:
+      - A client or colleague shares details of an unannounced deal or result.
+      - Requests to trade a name just before an announcement.
+    do:
+      - Stop the conversation, record it and tell compliance.
+      - Do not trade the name and do not tell anyone else.
+  - id: dividend_tax_schemes
+    title: Dividend-tax refund schemes (cum-ex)
+    what: Structures that create the appearance of several owners of one share at the dividend date to claim multiple refunds of tax withheld once.
+    red_flags:
+      - Trades concentrated around ex-dates with no purpose other than the refund.
+      - Very large volumes against free float at the dividend date.
+      - Lending or financing chains that return the same shares to the starting party.
+    do:
+      - Escalate to compliance, preserve records and do not process until reviewed.
+sbl_red_flags:
+  - Trading concentrated around ex-dates with no purpose beyond a tax refund
+  - Volumes very large relative to free float at the dividend date
+  - Financing or lending chains that return the same shares to the starting party
+  - Counterparty asks for particular dividend-date settlement timing
+  - Return depends entirely on the tax treatment
+  - Complex structure with no commercial rationale you can explain in one sentence

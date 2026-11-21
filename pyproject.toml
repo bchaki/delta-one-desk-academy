@@ -1,0 +1,50 @@
+[project]
+name = "delta-one-academy"
+version = "0.1.0"
+description = "Delta One Desk Academy: a Streamlit learning app for new equity Delta One trading desk assistants"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "streamlit>=1.67",
+    "plotly>=5.24",
+    "pandas>=2.2",
+    "numpy>=2.0",
+    "scipy>=1.14",
+    "pydantic>=2.9",
+    "pyyaml>=6.0",
+    "openpyxl>=3.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-cov>=5.0",
+    "hypothesis>=6.112",
+    "ruff>=0.7",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = { find = { include = ["core*", "ui*"] } }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.coverage.run]
+source = ["core"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "N"]
+# Long docstring lines carry formulas and hand calculations; the formatter wraps code.
+ignore = ["E501", "N806", "N803", "B007"]
+
+[tool.ruff.lint.per-file-ignores]
+"core/data/market.py" = ["B023"]

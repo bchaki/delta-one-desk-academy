@@ -1,0 +1,23 @@
+examples:
+  agency:
+    fn: core.strategies.flow.agency_pnl
+    args:
+      notional: 10000000.0
+      commission_bps: 5.0
+    expected: 5000.0
+    tolerance: 1.0e-09
+    note: 5 bps of 10m
+  risk:
+    fn: core.strategies.flow.risk_trade_ev
+    args:
+      notional: 10000000.0
+      spread_bps: 8.0
+      hedge_cost_bps: 3.0
+      vol_daily: 0.015
+      hold_days: 4.0
+    expected:
+      expected: 5000.0
+      one_sigma_risk: 300000.0
+      ratio: 0.016666666666666666
+    tolerance: 1.0e-09
+    note: EV 5,000; sigma 300,000

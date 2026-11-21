@@ -1,0 +1,147 @@
+questions:
+- id: dd01
+  type: mcq
+  difficulty: 1
+  prompt: 'A long dividend swap pays:'
+  options:
+  - Realised dividends minus strike, times units
+  - Strike minus realised
+  - The share price
+  - Only the first dividend
+  answer: 0
+  explanation: Payoff = units x (realised - strike).
+- id: dd02
+  type: numeric
+  difficulty: 1
+  prompt: Long 500 units, strike 40, realised 46. PnL?
+  answer: 3000.0
+  tolerance: 0.01
+  explanation: 500 x 6 = 3,000.
+  unit: currency units
+- id: dd03
+  type: numeric
+  difficulty: 2
+  prompt: 'PV: units 2,000, strike 50, expected 53, DF 0.95.'
+  answer: 5700.0
+  tolerance: 0.01
+  explanation: 2,000 x 3 x 0.95 = 5,700.
+  unit: currency units
+- id: dd04
+  type: mcq
+  difficulty: 2
+  prompt: 'Structured product desks usually hedge by:'
+  options:
+  - Selling dividend futures
+  - Buying dividend futures
+  - Buying volatility
+  - Shorting the index
+  answer: 0
+  explanation: They are long dividends through the notes and sell to hedge, pushing prices down.
+- id: dd05
+  type: mcq
+  difficulty: 2
+  prompt: 'Far-dated dividend futures typically trade:'
+  options:
+  - Below analyst forecasts
+  - Above forecasts
+  - At forecasts
+  - At zero
+  answer: 0
+  explanation: Hedging supply and risk premium.
+- id: dd06
+  type: numeric
+  difficulty: 2
+  prompt: 'Implied minus forecast: market 85, forecast 90 (points).'
+  answer: -5.0
+  tolerance: 0.001
+  explanation: 85 - 90 = -5 points.
+- id: dd07
+  type: numeric
+  difficulty: 2
+  prompt: A 30% cancellation of a 100 forecast, long 1,000 units at strike 95. PnL?
+  answer: -25000.0
+  tolerance: 1
+  explanation: 'Realised 70: 1,000 x (70 - 95) = -25,000.'
+  unit: currency units
+- id: dd08
+  type: mcq
+  difficulty: 2
+  prompt: Who benefits from a dividend cancellation?
+  options:
+  - Short dividend positions
+  - Long dividend positions
+  - Nobody
+  - Index funds
+  answer: 0
+  explanation: Realised falls below strike for shorts' gain.
+- id: dd09
+  type: numeric
+  difficulty: 2
+  prompt: 'Tracker note: 2m notional, 5% return, 0.5% fee, 3 years.'
+  answer: 2068657.2375
+  tolerance: 1
+  explanation: '2,000,000 x 1.05 x 0.995^3 = 2,068,… '
+  unit: currency units
+- id: dd10
+  type: mcq
+  difficulty: 2
+  prompt: 'Delta-one note investors take the risk of:'
+  options:
+  - The underlying and the issuer's credit
+  - Only the underlying
+  - Only the issuer
+  - None
+  answer: 0
+  explanation: The note is an unsecured claim on the issuer.
+- id: dd11
+  type: mcq
+  difficulty: 1
+  prompt: 'A dividend future differs from a swap in being:'
+  options:
+  - Exchange-traded and cleared
+  - OTC
+  - Settled physically
+  - Option-like
+  answer: 0
+  explanation: Futures are standardised and margined daily.
+- id: dd12
+  type: mcq
+  difficulty: 2
+  prompt: 'A swap with 100% pass-through has dividend risk for the desk of:'
+  options:
+  - Approximately zero
+  - Large
+  - Equal to notional
+  - Negative
+  answer: 0
+  explanation: The dividend flows through unchanged.
+- id: dd13
+  type: mcq
+  difficulty: 2
+  prompt: Where does a desk's residual dividend exposure come from?
+  options:
+  - Pass-through below 100%, withholding drag, ETF or futures hedges
+  - Day counts
+  - FX only
+  - Margin
+  answer: 0
+  explanation: Those create net dividend positions.
+- id: dd14
+  type: numeric
+  difficulty: 3
+  prompt: 'Strip PV: units 100, strikes 10, 10, expected 12, 11, DFs 0.97, 0.94.'
+  answer: 288.0
+  tolerance: 0.01
+  explanation: 100 x (1.94 + 0.94) = 288.
+  unit: currency units
+- id: dd15
+  type: mcq
+  difficulty: 2
+  prompt: 'A dividend future''s settlement counts:'
+  options:
+  - The index's dividend points over the calendar year
+  - The share price
+  - Only specials
+  - Net total return
+  answer: 0
+  explanation: It settles to the annual dividend points.

@@ -1,0 +1,157 @@
+questions:
+- id: vs01
+  type: mcq
+  difficulty: 1
+  prompt: '99% one-day VaR is exceeded on about:'
+  options:
+  - 1% of days
+  - 10% of days
+  - 50%
+  - 0%
+  answer: 0
+  explanation: About 2.5 days in 250.
+- id: vs02
+  type: numeric
+  difficulty: 2
+  prompt: 'Parametric VaR: 5m exposure, daily vol 2%, 99%.'
+  answer: 232634.787404
+  tolerance: 1
+  explanation: 2.3263 x 5m x 2% = 232,635.
+  unit: currency units
+- id: vs03
+  type: numeric
+  difficulty: 2
+  prompt: Ten-day VaR from a one-day VaR of 100,000.
+  answer: 316227.766017
+  tolerance: 1
+  explanation: 100,000 x sqrt(10) = 316,228.
+  unit: currency units
+- id: vs04
+  type: numeric
+  difficulty: 3
+  prompt: 'Two equal opposite positions, rho 1: combined VaR.'
+  answer: 0.0
+  tolerance: 0.5
+  explanation: They cancel exactly.
+  unit: currency units
+- id: vs05
+  type: mcq
+  difficulty: 2
+  prompt: 'Historical simulation''s weakness is:'
+  options:
+  - It only knows the window's history
+  - It assumes normality
+  - It ignores correlation
+  - It needs no data
+  answer: 0
+  explanation: A calm window gives a low VaR.
+- id: vs06
+  type: mcq
+  difficulty: 2
+  prompt: 'Expected shortfall is:'
+  options:
+  - The average loss beyond VaR
+  - The VaR
+  - The median
+  - The maximum
+  answer: 0
+  explanation: It averages the tail.
+- id: vs07
+  type: mcq
+  difficulty: 2
+  prompt: 'ES at the same confidence is:'
+  options:
+  - At least VaR
+  - Below VaR
+  - Equal always
+  - Unrelated
+  answer: 0
+  explanation: The tail average is not below the quantile.
+- id: vs08
+  type: mcq
+  difficulty: 2
+  prompt: 'Component VaRs sum to:'
+  options:
+  - Total VaR (parametric, Euler)
+  - Zero
+  - Gross
+  - ES
+  answer: 0
+  explanation: They allocate the total.
+- id: vs09
+  type: mcq
+  difficulty: 2
+  prompt: 'A hedge has a component VaR that is:'
+  options:
+  - Negative
+  - Positive
+  - Equal to the position
+  - Undefined
+  answer: 0
+  explanation: It reduces portfolio risk.
+- id: vs10
+  type: mcq
+  difficulty: 1
+  prompt: 'Basel traffic light: 7 exceptions in 250 days at 99% is:'
+  options:
+  - Yellow
+  - Green
+  - Red
+  - Black
+  answer: 0
+  explanation: 5 to 9 is yellow.
+- id: vs11
+  type: mcq
+  difficulty: 2
+  prompt: 'Too few exceptions suggests the model is:'
+  options:
+  - Too cautious
+  - Too aggressive
+  - Perfect
+  - Broken data
+  answer: 0
+  explanation: It over-states risk and ties up capital.
+- id: vs12
+  type: mcq
+  difficulty: 2
+  prompt: 'A reverse stress asks:'
+  options:
+  - What scenario would cause a given loss
+  - How big is VaR
+  - What is beta
+  - What is the fee
+  answer: 0
+  explanation: It works backwards from a loss.
+- id: vs13
+  type: mcq
+  difficulty: 2
+  prompt: 'The square-root-of-time rule assumes:'
+  options:
+  - Independent daily returns
+  - Perfect correlation
+  - No volatility
+  - Normal fees
+  answer: 0
+  explanation: A reasonable first approximation.
+- id: vs14
+  type: mcq
+  difficulty: 2
+  prompt: 'Monte Carlo VaR with a normal delta-only book approximately equals:'
+  options:
+  - Parametric VaR
+  - Historical VaR
+  - Zero
+  - Stress
+  answer: 0
+  explanation: Same distribution, sampled.
+- id: vs15
+  type: mcq
+  difficulty: 2
+  prompt: Which risk does VaR typically miss?
+  options:
+  - Liquidity and gap risk
+  - Volatility
+  - Correlation
+  - Delta
+  answer: 0
+  explanation: Hence stress, limits and liquidity measures.

@@ -1,0 +1,58 @@
+examples:
+  mark_up:
+    fn: core.financing.sbl.mark_collateral
+    args:
+      shares: 100000.0
+      price: 52.0
+      margin: 1.02
+      current: 5100000.0
+      min_transfer: 0.0
+    expected:
+      required: 5304000.0
+      transfer: 204000.0
+    tolerance: 0.005
+    note: 5.304m - 5.1m
+  mark_down:
+    fn: core.financing.sbl.mark_collateral
+    args:
+      shares: 100000.0
+      price: 48.0
+      margin: 1.02
+      current: 5100000.0
+      min_transfer: 100000.0
+    expected:
+      required: 4896000.0
+      transfer: -204000.0
+    tolerance: 0.005
+    note: excess 204k > MTA 100k
+  mark_down_min:
+    fn: core.financing.sbl.mark_collateral
+    args:
+      shares: 100000.0
+      price: 48.0
+      margin: 1.02
+      current: 5100000.0
+      min_transfer: 250000.0
+    expected:
+      required: 4896000.0
+      transfer: 0.0
+    tolerance: 0.005
+    note: excess 204k < MTA 250k
+  recall:
+    fn: core.financing.sbl.recall_options
+    args:
+      shares: 100000.0
+      price: 50.0
+      old_fee: 0.01
+      new_fee: 0.04
+      days: 30
+      basis: 360
+      buyin_premium: 0.02
+      buyin_impact: 0.01
+      internal_cost: 0.005
+    expected:
+      reborrow: 12500.0
+      buy_in: 150000.0
+      internalise: 2083.3333333333335
+    tolerance: 0.01
+    note: three recall choices

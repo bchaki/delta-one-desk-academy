@@ -1,0 +1,151 @@
+questions:
+- id: pe01
+  type: mcq
+  difficulty: 1
+  prompt: 'Unexplained PnL is:'
+  options:
+  - Total minus the sum of explained components
+  - The price move
+  - The fees
+  - The FX line
+  answer: 0
+  explanation: It is the residual.
+- id: pe02
+  type: mcq
+  difficulty: 1
+  prompt: Why do booking errors land in unexplained?
+  options:
+  - The total includes them but the clean model does not
+  - The model includes them
+  - They are rounded away
+  - They are tax
+  answer: 0
+  explanation: Total is booked; components are clean.
+- id: pe03
+  type: numeric
+  difficulty: 2
+  prompt: 'Wrong spread: 20m, booked 25 vs correct 35 bps, 60 days basis 360.'
+  answer: -3333.333333
+  tolerance: 0.01
+  explanation: 20m x -10 bps x 60/360 = -3,333.33.
+  unit: currency units
+- id: pe04
+  type: numeric
+  difficulty: 2
+  prompt: 'Missed dividend: 30,000 shares, 0.80 gross.'
+  answer: -24000.0
+  tolerance: 0.01
+  explanation: -30,000 x 0.80.
+  unit: currency units
+- id: pe05
+  type: numeric
+  difficulty: 2
+  prompt: 'Wrong fixing: 8m, booked 4.20% vs 4.00%, 10 days basis 360.'
+  answer: 444.444444
+  tolerance: 0.01
+  explanation: 8m x 0.2% x 10/360 = 444.44.
+  unit: currency units
+- id: pe06
+  type: numeric
+  difficulty: 2
+  prompt: 'Stale mark: 20,000 shares, stale 30.50 vs right 31.00.'
+  answer: -10000.0
+  tolerance: 0.01
+  explanation: 20,000 x -0.50 = -10,000.
+  unit: currency units
+- id: pe07
+  type: mcq
+  difficulty: 2
+  prompt: 'A break that appears on one day and reverses the next is most like:'
+  options:
+  - A stale price
+  - A wrong spread
+  - A wrong fixing
+  - A missed dividend
+  answer: 0
+  explanation: A stale mark corrects itself.
+- id: pe08
+  type: mcq
+  difficulty: 2
+  prompt: 'A steady drift scaling with notional suggests:'
+  options:
+  - A wrong spread
+  - A missed dividend
+  - A stale price
+  - Rounding
+  answer: 0
+  explanation: A spread error accrues daily.
+- id: pe09
+  type: mcq
+  difficulty: 2
+  prompt: 'A one-day jump on an ex-date equal to shares x dividend suggests:'
+  options:
+  - A missed dividend
+  - A wrong fixing
+  - A stale price
+  - FX
+  answer: 0
+  explanation: It matches the dividend.
+- id: pe10
+  type: mcq
+  difficulty: 2
+  prompt: 'The wrong legal entity break shows in PnL as:'
+  options:
+  - Nothing
+  - A large loss
+  - A fee
+  - A dividend
+  answer: 0
+  explanation: It is a legal and margin error.
+- id: pe11
+  type: mcq
+  difficulty: 1
+  prompt: Which is NOT a PnL explain component?
+  options:
+  - Trader's bonus
+  - Price
+  - Funding
+  - Dividends
+  answer: 0
+  explanation: Bonuses are not trading PnL components.
+- id: pe12
+  type: mcq
+  difficulty: 2
+  prompt: 'Never plug unexplained because:'
+  options:
+  - It hides the break and the audit trail
+  - It is slow
+  - It is taxed
+  - It is automatic
+  answer: 0
+  explanation: Escalate instead.
+- id: pe13
+  type: mcq
+  difficulty: 2
+  prompt: 'Attribution answers:'
+  options:
+  - Where PnL came from by book, client, ticker or trade
+  - Why prices moved
+  - What fees are
+  - What the benchmark is
+  answer: 0
+  explanation: Explain gives components; attribution gives slices.
+- id: pe14
+  type: mcq
+  difficulty: 2
+  prompt: 'The first step in diagnosing a break is:'
+  options:
+  - Size and sign
+  - Plug it
+  - Restate
+  - Call the client
+  answer: 0
+  explanation: Then timing and scope.
+- id: pe15
+  type: numeric
+  difficulty: 2
+  prompt: Components 25.004 and 74.996 round to 25.00 and 75.00. Total 100.00. Unexplained?
+  answer: 0.0
+  tolerance: 0.001
+  explanation: 100.00 - 100.00 = 0.00.
+  unit: currency units

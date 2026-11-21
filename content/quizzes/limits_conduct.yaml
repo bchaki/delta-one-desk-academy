@@ -1,0 +1,162 @@
+questions:
+- id: lc01
+  type: mcq
+  difficulty: 1
+  prompt: 'A soft limit triggers:'
+  options:
+  - Escalation and an explanation
+  - A forced stop
+  - Nothing
+  - A fine
+  answer: 0
+  explanation: Soft = escalate.
+- id: lc02
+  type: mcq
+  difficulty: 1
+  prompt: 'A hard limit requires:'
+  options:
+  - Reducing the position or an approved exception
+  - A note
+  - Nothing
+  - A meeting next week
+  answer: 0
+  explanation: Hard = stop.
+- id: lc03
+  type: numeric
+  difficulty: 2
+  prompt: 'Utilisation: VaR 2.4m, hard limit 3.0m (as a decimal).'
+  answer: 0.8
+  tolerance: 1.0e-06
+  explanation: 2.4/3.0 = 0.8.
+- id: lc04
+  type: mcq
+  difficulty: 2
+  prompt: 'A passive breach arises from:'
+  options:
+  - Market moves with no trading
+  - A new trade
+  - A booking
+  - A client call
+  answer: 0
+  explanation: Still recorded.
+- id: lc05
+  type: mcq
+  difficulty: 2
+  prompt: 'The three lines of defence are:'
+  options:
+  - Desk, risk and compliance, audit
+  - Sales, trading, ops
+  - Client, desk, exchange
+  - Legal, tax, HR
+  answer: 0
+  explanation: First, second and third lines.
+- id: lc06
+  type: mcq
+  difficulty: 1
+  prompt: 'An information barrier separates:'
+  options:
+  - Confidential information between parts of the bank
+  - Desks by floor
+  - Currencies
+  - Time zones
+  answer: 0
+  explanation: It prevents misuse of non-public information.
+- id: lc07
+  type: mcq
+  difficulty: 2
+  prompt: 'Front-running is:'
+  options:
+  - Trading ahead of a known client order for your own benefit
+  - Trading after a client
+  - A hedge
+  - An auction
+  answer: 0
+  explanation: A breach of duty.
+- id: lc08
+  type: mcq
+  difficulty: 2
+  prompt: 'Spoofing is:'
+  options:
+  - Entering orders you do not intend to execute to move the price
+  - A type of hedge
+  - A tax
+  - A margin call
+  answer: 0
+  explanation: Prohibited and prosecuted.
+- id: lc09
+  type: mcq
+  difficulty: 2
+  prompt: 'If you suspect misconduct you should:'
+  options:
+  - Stop, record and escalate without tipping off
+  - Confront the person
+  - Delete messages
+  - Ignore
+  answer: 0
+  explanation: Do not investigate alone.
+- id: lc10
+  type: mcq
+  difficulty: 2
+  prompt: Why should approvals be written?
+  options:
+  - If it is not written, it did not happen
+  - Email is faster
+  - Tradition
+  - Cost
+  answer: 0
+  explanation: Records matter.
+- id: lc11
+  type: mcq
+  difficulty: 1
+  prompt: 'Personal account dealing needs:'
+  options:
+  - Pre-approval
+  - Nothing
+  - A client's consent
+  - A dividend
+  answer: 0
+  explanation: A standard conduct rule.
+- id: lc12
+  type: mcq
+  difficulty: 2
+  prompt: 'Retaliating against someone who reports concerns is:'
+  options:
+  - Itself a breach
+  - Acceptable
+  - Required
+  - A control
+  answer: 0
+  explanation: It is protected conduct.
+- id: lc13
+  type: mcq
+  difficulty: 2
+  prompt: 'A TDA mentioning a client''s large position to someone not needing it is:'
+  options:
+  - A conduct problem
+  - Fine
+  - A control
+  - A hedge
+  answer: 0
+  explanation: Need-to-know applies.
+- id: lc14
+  type: mcq
+  difficulty: 2
+  prompt: Which is a pre-trade control?
+  options:
+  - Locate and limit checks
+  - PnL explain
+  - Month-end close
+  - IPV
+  answer: 0
+  explanation: They run before the trade.
+- id: lc15
+  type: mcq
+  difficulty: 2
+  prompt: 'After a breach, the follow-up should check:'
+  options:
+  - The limit is back within bounds and whether the limit is right
+  - Nothing
+  - Only the trader
+  - Only the client
+  answer: 0
+  explanation: Review the limit too.

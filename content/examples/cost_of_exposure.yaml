@@ -1,0 +1,73 @@
+examples:
+  fut:
+    fn: core.pricing.exposure.exposure_cost
+    args:
+      name: futures
+      financing_spread_bps: 12.0
+      one_way_trading_bps: 1.5
+      round_trips: 2.0
+      notional: 50000000.0
+      days: 90
+      basis: 360
+    expected:
+      total: 45000.0
+      total_bps_pa: 36.0
+    tolerance: 1.0e-06
+    note: running 12 bps + 6 bps fixed
+  swap:
+    fn: core.pricing.exposure.exposure_cost
+    args:
+      name: swap
+      financing_spread_bps: 40.0
+      leakage_bps_pa: 15.0
+      one_way_trading_bps: 2.0
+      notional: 50000000.0
+      days: 90
+      basis: 360
+    expected:
+      total: 88750.0
+      total_bps_pa: 71.0
+    tolerance: 1.0e-06
+    note: spread 40 + leakage 15
+  etf:
+    fn: core.pricing.exposure.exposure_cost
+    args:
+      name: etf
+      financing_spread_bps: 50.0
+      fee_bps_pa: 9.0
+      one_way_trading_bps: 2.0
+      one_off_bps: 1.0
+      notional: 50000000.0
+      days: 90
+      basis: 360
+    expected:
+      total: 98750.0
+      total_bps_pa: 79.00000000000001
+    tolerance: 1.0e-06
+    note: funding 50 + TER 9
+  cash:
+    fn: core.pricing.exposure.exposure_cost
+    args:
+      name: cash
+      financing_spread_bps: 50.0
+      one_way_trading_bps: 3.0
+      one_off_bps: 10.0
+      notional: 50000000.0
+      days: 90
+      basis: 360
+    expected:
+      total: 142500.0
+      total_bps_pa: 114.0
+    tolerance: 1.0e-06
+    note: funding 50, stamp 10
+  breakeven:
+    fn: core.pricing.exposure.breakeven_days
+    args:
+      fixed_a_bps: 6.0
+      pa_a_bps: 12.0
+      fixed_b_bps: 4.0
+      pa_b_bps: 55.0
+      basis: 360
+    expected: 16.74418604651163
+    tolerance: 1.0e-06
+    note: (6-4)/(55-12) x 360

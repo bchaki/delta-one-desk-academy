@@ -1,0 +1,157 @@
+questions:
+- id: fb01
+  type: mcq
+  difficulty: 1
+  prompt: 'The benchmark cancels in swap carry because:'
+  options:
+  - The client pays it and the desk pays it on the hedge
+  - It is zero
+  - It is a fee
+  - Both sides ignore it
+  answer: 0
+  explanation: Spread over benchmark minus FTP over benchmark.
+- id: fb02
+  type: numeric
+  difficulty: 2
+  prompt: 'Carry: 40m, spread 70 bps, FTP 40, balance sheet 10, 360 days (USD).'
+  answer: 80000.0
+  tolerance: 1
+  explanation: 40m x 20 bps = 80,000.
+  unit: currency units
+- id: fb03
+  type: numeric
+  difficulty: 2
+  prompt: 'Futures hedge net: spread 70, implied 25, margin 4%, FTP 40 (bps).'
+  answer: 43.4
+  tolerance: 1.0e-06
+  explanation: 70 - 25 - 1.6 = 43.4.
+  unit: bps
+- id: fb04
+  type: mcq
+  difficulty: 2
+  prompt: 'Which hedge is better: stock net 20, futures net 43.4?'
+  options:
+  - Futures
+  - Stock
+  - Equal
+  - Neither
+  answer: 0
+  explanation: Larger net spread.
+- id: fb05
+  type: numeric
+  difficulty: 2
+  prompt: FTP shock of 30 bps held 90 days on 20m (negative = cost).
+  answer: -15000.0
+  tolerance: 1
+  explanation: -20m x 0.003 x 0.25 = -15,000.
+  unit: currency units
+- id: fb06
+  type: mcq
+  difficulty: 2
+  prompt: 'Break-even FTP equals:'
+  options:
+  - Client spread minus balance sheet charge
+  - Client spread
+  - The benchmark
+  - Zero
+  answer: 0
+  explanation: Carry is zero there.
+- id: fb07
+  type: mcq
+  difficulty: 2
+  prompt: 'Futures hedges avoid:'
+  options:
+  - Direct balance sheet use
+  - Margin
+  - Financing in the price
+  - Basis
+  answer: 0
+  explanation: But need margin.
+- id: fb08
+  type: mcq
+  difficulty: 2
+  prompt: 'The implied financing spread is computed from:'
+  options:
+  - The deviation from fair value over time to expiry plus the assumed spread
+  - The multiplier
+  - Dividends only
+  - Spot
+  answer: 0
+  explanation: Deviation divided by T.
+- id: fb09
+  type: mcq
+  difficulty: 2
+  prompt: 'Quarter-end typically raises:'
+  options:
+  - Balance sheet cost
+  - The benchmark
+  - Dividends
+  - The multiplier
+  answer: 0
+  explanation: Reporting date constraints.
+- id: fb10
+  type: mcq
+  difficulty: 2
+  prompt: 'A volatility spike usually:'
+  options:
+  - Raises futures initial margin and its funding cost
+  - Lowers margin
+  - Has no effect
+  - Cuts FTP
+  answer: 0
+  explanation: Margin rises with risk.
+- id: fb11
+  type: mcq
+  difficulty: 2
+  prompt: 'Netting offsetting client trades:'
+  options:
+  - Reduces hedge stock and balance sheet
+  - Raises FTP
+  - Doubles risk
+  - Is illegal
+  answer: 0
+  explanation: Less to hold.
+- id: fb12
+  type: mcq
+  difficulty: 2
+  prompt: 'Carry is quoted in:'
+  options:
+  - Basis points a year over a benchmark with a stated day count
+  - Percent of spot
+  - Points
+  - Dollars only
+  answer: 0
+  explanation: Always state basis.
+- id: fb13
+  type: mcq
+  difficulty: 3
+  prompt: 'A client unwinds early. The desk bears:'
+  options:
+  - Hedge unwind costs and lost spread
+  - Nothing
+  - Client's loss
+  - Dividends
+  answer: 0
+  explanation: The carry stops.
+- id: fb14
+  type: mcq
+  difficulty: 2
+  prompt: 'Treasury is best described as:'
+  options:
+  - A counterparty that sets the funding price
+  - A client
+  - An exchange
+  - A regulator
+  answer: 0
+  explanation: FTP is a transfer price.
+- id: fb15
+  type: mcq
+  difficulty: 3
+  prompt: 'A trade earns 15 bps on much capital. The check to run is:'
+  options:
+  - Return on capital against the cost of equity
+  - Hit rate
+  - Spot
+  - Day count
+  answer: 0
+  explanation: Carry alone does not decide.

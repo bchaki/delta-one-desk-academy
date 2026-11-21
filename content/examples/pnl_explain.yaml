@@ -1,0 +1,62 @@
+examples:
+  unexplained:
+    fn: core.pnl.diagnose.unexplained
+    args:
+      total: 100.0
+      components:
+      - 60.126
+      - 39.874
+    expected: 0.0
+    tolerance: 0.005
+    note: 60.13 + 39.87 = 100.00
+  spread:
+    fn: core.pnl.diagnose.spread_error_impact
+    args:
+      notional: 25000000.0
+      booked_bps: 30.0
+      correct_bps: 40.0
+      days: 30
+      basis: 360
+    expected: -2083.3333333333335
+    tolerance: 0.005
+    note: 25m x -10 bps x 30/360
+  missed:
+    fn: core.pnl.diagnose.missed_dividend_impact
+    args:
+      shares: 50000.0
+      gross_per_share: 1.2
+    expected: -60000.0
+    tolerance: 0.005
+    note: -50,000 x 1.20
+  fixing:
+    fn: core.pnl.diagnose.fixing_error_impact
+    args:
+      notional: 10000000.0
+      booked_rate: 0.041
+      correct_rate: 0.04
+      days: 7
+      basis: 360
+    expected: 194.4444444444446
+    tolerance: 0.005
+    note: 10m x 0.10% x 7/360
+  stale:
+    fn: core.pnl.diagnose.stale_mark_impact
+    args:
+      shares: 50000.0
+      stale_price: 11.13
+      right_price: 11.35
+    expected: -11000.0
+    tolerance: 0.005
+    note: 50,000 x -0.22
+  classify:
+    fn: core.pnl.diagnose.classify
+    args:
+      amount: -60000.0
+      candidates:
+        missed_dividend: -60000.0
+        wrong_spread: -2083.33
+        stale_price: -11000.0
+      tolerance: 1.0
+    expected: missed_dividend
+    tolerance: 0
+    note: nearest candidate

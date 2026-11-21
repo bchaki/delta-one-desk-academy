@@ -1,0 +1,151 @@
+questions:
+- id: in01
+  type: mcq
+  difficulty: 1
+  prompt: 'Internalisation means covering a short from:'
+  options:
+  - Stock the desk already has access to
+  - The street only
+  - The exchange
+  - The regulator
+  answer: 0
+  explanation: It avoids the street borrow.
+- id: in02
+  type: numeric
+  difficulty: 2
+  prompt: 'Supply: client longs 100,000, rehyp 40%, desk inventory 10,000.'
+  answer: 50000.0
+  tolerance: 0.5
+  explanation: 100,000 x 0.4 + 10,000 = 50,000.
+  unit: shares
+- id: in03
+  type: numeric
+  difficulty: 2
+  prompt: Demand 80,000; supply 50,000. Internal cover?
+  answer: 50000.0
+  tolerance: 0.5
+  explanation: Min(80,000, 50,000).
+  unit: shares
+- id: in04
+  type: numeric
+  difficulty: 2
+  prompt: Street borrow with the same inputs?
+  answer: 30000.0
+  tolerance: 0.5
+  explanation: 80,000 - 50,000.
+  unit: shares
+- id: in05
+  type: numeric
+  difficulty: 2
+  prompt: 'Saving: cover 50,000 at 40, street 250 bps, internal 50 bps, 30 days, 360.'
+  answer: 3333.333333
+  tolerance: 0.01
+  explanation: 2,000,000 x 2% x 30/360 = 3,333.33.
+  unit: currency units
+- id: in06
+  type: mcq
+  difficulty: 2
+  prompt: Where do savings concentrate?
+  options:
+  - Special and hard-to-borrow names
+  - GC names
+  - Index futures
+  - Dividends
+  answer: 0
+  explanation: Savings scale with the street fee.
+- id: in07
+  type: mcq
+  difficulty: 1
+  prompt: 'The rehypothecation fraction represents:'
+  options:
+  - The share of client longs that can be reused
+  - The haircut
+  - The margin
+  - The fee
+  answer: 0
+  explanation: Limits come from agreements and regulation.
+- id: in08
+  type: mcq
+  difficulty: 2
+  prompt: 'Coverage ratio is:'
+  options:
+  - Internally covered notional / short demand notional
+  - Fee / price
+  - Loans / ADV
+  - Collateral / loan
+  answer: 0
+  explanation: It measures how well supply matches shorts.
+- id: in09
+  type: mcq
+  difficulty: 2
+  prompt: 'A major risk of internalisation is:'
+  options:
+  - A client selling its long and pulling supply
+  - Fees falling
+  - Higher dividends
+  - More swaps
+  answer: 0
+  explanation: The desk may need to borrow in the street suddenly.
+- id: in10
+  type: mcq
+  difficulty: 2
+  prompt: 'Pro rata allocation means:'
+  options:
+  - Each short gets the same fraction covered
+  - Largest first
+  - Newest first
+  - Random
+  answer: 0
+  explanation: Simple and fair to clients.
+- id: in11
+  type: mcq
+  difficulty: 2
+  prompt: Why rank names by saving in currency?
+  options:
+  - Savings can be large in small-coverage names
+  - Coverage ratio is wrong
+  - Fees are fixed
+  - To avoid reports
+  answer: 0
+  explanation: A small saving on a large ratio is not interesting.
+- id: in12
+  type: numeric
+  difficulty: 3
+  prompt: Short notional 2,000,000; cover notional 1,200,000, street 300, internal 50 bps. Annualised saving (bps of short notional)?
+  answer: 150.0
+  tolerance: 0.01
+  explanation: 1.2/2 x 250 = 150 bps.
+  unit: bps
+- id: in13
+  type: mcq
+  difficulty: 1
+  prompt: Which is a regulatory aspect of reuse?
+  options:
+  - Limits and client consent
+  - Tax rate
+  - Day count
+  - Index weights
+  answer: 0
+  explanation: Rehypothecation is restricted.
+- id: in14
+  type: mcq
+  difficulty: 2
+  prompt: How do longs on the swap book feed internalisation?
+  options:
+  - The desk's long hedges can cover other clients' shorts
+  - They cannot
+  - They set fees
+  - They end loans
+  answer: 0
+  explanation: Hedge stock is lendable inventory.
+- id: in15
+  type: mcq
+  difficulty: 2
+  prompt: 'Sharing the whole saving with clients:'
+  options:
+  - Makes the trade vulnerable to one recall
+  - Is risk-free
+  - Is required
+  - Raises fees
+  answer: 0
+  explanation: A buffer should remain.

@@ -1,0 +1,133 @@
+questions:
+- id: se01
+  type: spot_error
+  difficulty: 2
+  prompt: 'A junior''s note: ''Spot 5,000, rate 4%, T = 0.5. Future fair value = 5,000 x e^(0.04 x 0.5) = 5,101. The market future is 5,090, so it is rich: sell the future.'' Which step is wrong?'
+  options:
+  - The fair value calculation
+  - Calling it rich
+  - Both are right; the conclusion is the error
+  - The rate
+  answer: 1
+  explanation: 5,090 is below 5,101, so the future is cheap, not rich. Buy the future and short the basket (before costs).
+- id: se02
+  type: spot_error
+  difficulty: 2
+  prompt: '''ACT/360 rate of 5.00% equals 4.93% on ACT/365 because 365 is a bigger base.'' What is wrong?'
+  options:
+  - The direction of the conversion
+  - Nothing
+  - The percentage 5.00
+  - The word ACT
+  answer: 0
+  explanation: 'A rate on ACT/360 converts to ACT/365 by multiplying by 365/360: 5.07%, not 4.93%.'
+- id: se03
+  type: spot_error
+  difficulty: 2
+  prompt: '''The swap client is long 100,000 shares, the dividend is 0.50 and pass-through is 85%, so the client pays the desk 42,500.'' What is wrong?'
+  options:
+  - Direction of the payment
+  - The pass-through
+  - The share count
+  - Nothing
+  answer: 0
+  explanation: 'A long client receives the dividend: the desk pays the client 42,500.'
+- id: se04
+  type: spot_error
+  difficulty: 2
+  prompt: '''Collateral call: exposure 3.0m, held 2.2m, MTA 250,000, rounding 100,000. Call = 800,000, rounded down to 800,000.'' What is wrong?'
+  options:
+  - Calls round up, not down
+  - The MTA
+  - The exposure
+  - Nothing
+  answer: 0
+  explanation: The convention is calls round up and returns round down. Here 800,000 is already a multiple, but the rule stated is wrong.
+- id: se05
+  type: spot_error
+  difficulty: 2
+  prompt: '''Short 20m with a 150 bps borrow fee for 30 days: cost = 20m x 1.5% x 30/360 = 2,500.'' What is wrong?'
+  options:
+  - 'Arithmetic: it is 25,000'
+  - The day count
+  - The fee
+  - Nothing
+  answer: 0
+  explanation: 20,000,000 x 0.015 = 300,000 a year; x 30/360 = 25,000.
+- id: se06
+  type: spot_error
+  difficulty: 2
+  prompt: '''The ETF trades at 100.50 against iNAV 100.00, a 5 bps premium, so sell the ETF.'' What is wrong?'
+  options:
+  - The premium is 50 bps, not 5
+  - Selling the ETF
+  - The iNAV
+  - Nothing
+  answer: 0
+  explanation: 100.50/100 - 1 = 0.5% = 50 bps.
+- id: se07
+  type: spot_error
+  difficulty: 2
+  prompt: '''Parametric 1-day 99% VaR = 1.645 x 1.5% x 10m.'' What is wrong?'
+  options:
+  - The z-value for 99% is 2.326
+  - The volatility
+  - The exposure
+  - Nothing
+  answer: 0
+  explanation: 1.645 is the 95% one-sided quantile; 99% uses 2.326.
+- id: se08
+  type: spot_error
+  difficulty: 2
+  prompt: '''The ADR is 24.50, parity is 24.00 and the band is plus or minus 0.40, so the ADR is inside the band: no trade.'' What is wrong?'
+  options:
+  - 24.50 is above the upper bound of 24.40
+  - The parity
+  - The band
+  - Nothing
+  answer: 0
+  explanation: 'Upper bound 24.40; 24.50 is outside: sell the ADR, buy local and issue.'
+- id: se09
+  type: spot_error
+  difficulty: 2
+  prompt: '''A rich future means we buy the basket and also buy the future to lock in the spread.'' What is wrong?'
+  options:
+  - The desk sells the future
+  - Buying the basket
+  - Locking in
+  - Nothing
+  answer: 0
+  explanation: Cash-and-carry sells the rich future against the bought basket.
+- id: se10
+  type: spot_error
+  difficulty: 2
+  prompt: '''Unexplained of -98,990 on the ex-date: the desk received a dividend it had not booked.'' What is wrong?'
+  options:
+  - A missed dividend is cash not received, not received-and-unbooked
+  - The sign
+  - The date
+  - Nothing
+  answer: 0
+  explanation: 'The hedge shows no dividend cash: the dividend was missed, producing a negative unexplained.'
+- id: se11
+  type: spot_error
+  difficulty: 2
+  prompt: '''Because the swap resets quarterly its credit exposure grows steadily over the life.'' What is wrong?'
+  options:
+  - Resets keep exposure bounded, in a saw-tooth
+  - Quarterly
+  - Credit
+  - Nothing
+  answer: 0
+  explanation: Each reset settles the mark-to-market, so exposure falls to zero at each reset.
+- id: se12
+  type: spot_error
+  difficulty: 3
+  prompt: '''The leverage ratio always binds capital for a swap.'' What is wrong?'
+  options:
+  - It binds only when it gives the larger requirement
+  - Leverage
+  - Capital
+  - Nothing
+  answer: 0
+  explanation: Capital is the larger of the leverage-ratio and RWA requirements; which binds depends on the trade and counterparty.

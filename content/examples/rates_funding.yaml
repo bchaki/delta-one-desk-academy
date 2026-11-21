@@ -1,0 +1,54 @@
+examples:
+  simple_interest:
+    fn: core.rates.simple_interest
+    args:
+      principal: 10000000.0
+      rate: 0.043
+      days: 91
+      basis: 360
+    expected: 108694.444444
+    tolerance: 0.0001
+    note: 10m x 4.30% x 91/360
+  basis_convert:
+    fn: core.rates.convert_basis
+    args:
+      rate: 0.04
+      from_basis: 360
+      to_basis: 365
+    expected: 0.04055555555555555
+    tolerance: 1.0e-10
+    note: 4.00% x 365/360
+  funding_rate:
+    fn: core.rates.funding_rate
+    args:
+      benchmark_rate: 0.043
+      ccy: USD
+    expected: 0.0465
+    tolerance: 1.0e-10
+    note: SOFR 4.30% + 35 bps FTP
+  compounded:
+    fn: core.rates.compound_overnight
+    args:
+      fixings: &id001
+        2026-03-02: 0.04
+        2026-03-03: 0.04
+        2026-03-04: 0.04
+        2026-03-05: 0.04
+        2026-03-06: 0.041
+      start: 2026-03-02
+      end: 2026-03-09
+      cal: US
+      basis: 360
+    expected: 0.04044019206
+    tolerance: 1.0e-10
+    note: '[(1+.04/360)^4 (1+.041x3/360) - 1] x 360/7'
+  simple_average:
+    fn: core.rates.simple_average_overnight
+    args:
+      fixings: *id001
+      start: 2026-03-02
+      end: 2026-03-09
+      cal: US
+    expected: 0.040428571429
+    tolerance: 1.0e-10
+    note: (4 x 4.00% + 3 x 4.10%) / 7

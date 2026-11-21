@@ -1,0 +1,74 @@
+examples:
+  fwd_cont:
+    fn: core.pricing.forwards.forward_continuous
+    args:
+      spot: 100.0
+      r: 0.04
+      q: 0.02
+      t: 0.5
+    expected: 101.00501670841679
+    tolerance: 1.0e-09
+    note: 100 e^(0.01)
+  fwd_disc:
+    fn: core.pricing.futures.model_forward
+    args:
+      spot: 100.0
+      r: 0.04
+      divs:
+      - - 0.25
+        - 1.0
+      t: 0.5
+    expected: 101.0100838355914
+    tolerance: 1.0e-09
+    note: 100 e^(0.02) - 1 e^(0.01)
+  implied:
+    fn: core.pricing.futures.implied_repo_simple
+    args:
+      spot: 100.0
+      fut: 101.2
+      fv_divs: 1.0
+      days: 180
+      basis: 360
+    expected: 0.044
+    tolerance: 1.0e-09
+    note: ((101.2+1)/100 - 1) x 2
+  spread:
+    fn: core.pricing.swaps.spread_build_up
+    args:
+      direction:
+        $: core.types.Direction
+        args:
+        - LONG
+      ftp_bps: 35.0
+      borrow_bps: 0.0
+      balance_sheet_bps: 4.0
+      capital_bps: 3.0
+      xva_bps: 2.0
+      hedge_cost_bps: 1.0
+      margin_bps: 5.0
+    expected:
+      total_bps: 50.0
+    tolerance: 1.0e-09
+    note: 35+4+3+2+1+5
+  trf_basis:
+    fn: core.pricing.trf.trf_spread_to_price_basis
+    args:
+      spot: 5000.0
+      spread_bps: 16.0
+      benchmark: 0.04
+      tau: 0.25
+      fv_divs: 12.0
+    expected: 40.0
+    tolerance: 1.0e-09
+    note: 5000 x 4.16% x 0.25 - 12
+  trf_spread:
+    fn: core.pricing.trf.price_basis_to_trf_spread_bps
+    args:
+      spot: 5000.0
+      fut: 5040.0
+      benchmark: 0.04
+      tau: 0.25
+      fv_divs: 12.0
+    expected: 16.0
+    tolerance: 1.0e-09
+    note: inverse

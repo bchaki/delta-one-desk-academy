@@ -1,0 +1,51 @@
+examples:
+  rev:
+    fn: core.strategies.sbl_strats.lending_revenue
+    args:
+      lendable_value: 100000000.0
+      utilisation: 0.4
+      fee_bps: 50.0
+      days: 180
+      lender_share: 0.85
+    expected:
+      gross: 100000.0
+      lender: 85000.0
+      agent: 15000.0
+    tolerance: 1.0e-06
+    note: 100m x 40% x 50 bps x 180/360
+  up:
+    fn: core.strategies.sbl_strats.collateral_upgrade_revenue
+    args:
+      notional: 20000000.0
+      fee_bps: 12.0
+      days: 90
+    expected: 6000.0
+    tolerance: 1.0e-06
+    note: 20m x 12 bps x 90/360
+  fee:
+    fn: core.financing.sbl.fee_from_utilisation
+    args:
+      utilisation: 0.5
+      gc_fee_bps: 30.0
+      steepness: 2.0
+    expected: 60.0
+    tolerance: 1.0e-09
+    note: 30 x (1 + 2 x 0.25/0.5)
+  recall:
+    fn: core.financing.sbl.recall_options
+    args:
+      shares: 100000.0
+      price: 50.0
+      old_fee: 0.01
+      new_fee: 0.05
+      days: 30
+      basis: 360
+      buyin_premium: 0.02
+      buyin_impact: 0.01
+      internal_cost: 0.005
+    expected:
+      reborrow: 16666.666666666668
+      buy_in: 150000.0
+      internalise: 2083.3333333333335
+    tolerance: 1.0e-06
+    note: three responses

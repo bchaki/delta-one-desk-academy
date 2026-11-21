@@ -1,0 +1,157 @@
+questions:
+- id: aa01
+  type: mcq
+  difficulty: 1
+  prompt: 'ADR fair value equals:'
+  options:
+  - Local price x ratio x FX
+  - Local price / ratio
+  - FX only
+  - The index
+  answer: 0
+  explanation: Parity.
+- id: aa02
+  type: numeric
+  difficulty: 2
+  prompt: Local 40, ratio 0.5, FX 1.2. Fair value in USD?
+  answer: 24.0
+  tolerance: 1.0e-09
+  explanation: '24.'
+  unit: USD
+- id: aa03
+  type: numeric
+  difficulty: 2
+  prompt: 'Band half-width in bps: fee 0.03, fair 24, costs 8 bps.'
+  answer: 20.5
+  tolerance: 1.0e-06
+  explanation: 12.5 + 8 = 20.5.
+  unit: bps
+- id: aa04
+  type: mcq
+  difficulty: 2
+  prompt: 'ADR above the upper bound: action?'
+  options:
+  - Sell ADR, buy local, issue
+  - Buy ADR, cancel
+  - Nothing
+  - Buy both
+  answer: 0
+  explanation: ADR rich.
+- id: aa05
+  type: mcq
+  difficulty: 2
+  prompt: 'ADR below the lower bound: action?'
+  options:
+  - Buy ADR, cancel, sell local
+  - Sell ADR
+  - Issue
+  - Nothing
+  answer: 0
+  explanation: ADR cheap.
+- id: aa06
+  type: numeric
+  difficulty: 2
+  prompt: 'Edge: ADR 24.50 vs upper bound 24.10 (USD).'
+  answer: 0.4
+  tolerance: 1.0e-09
+  explanation: 0.40.
+  unit: USD
+- id: aa07
+  type: mcq
+  difficulty: 2
+  prompt: 'A 50 bps FX move between legs on 1m costs:'
+  options:
+  - 5,000
+  - '500'
+  - 50,000
+  - '0'
+  answer: 0
+  explanation: 1,000,000 x 0.005.
+- id: aa08
+  type: mcq
+  difficulty: 2
+  prompt: 'A persistent gap while the local market is closed is:'
+  options:
+  - Not necessarily an arbitrage
+  - Always profit
+  - An error
+  - A fee
+  answer: 0
+  explanation: It estimates the local open.
+- id: aa09
+  type: mcq
+  difficulty: 2
+  prompt: 'The depositary charges:'
+  options:
+  - A conversion fee per ADR
+  - Nothing
+  - A dividend
+  - A rate
+  answer: 0
+  explanation: Issue and cancel fee.
+- id: aa10
+  type: mcq
+  difficulty: 2
+  prompt: 'Net dividends to ADR holders can differ because of:'
+  options:
+  - Fees and withholding tax
+  - Index weights
+  - Ratios only
+  - Ticker
+  answer: 0
+  explanation: Depositary conversion and tax.
+- id: aa11
+  type: mcq
+  difficulty: 2
+  prompt: 'If the ratio changes, the ADR price should:'
+  options:
+  - Adjust at once; a gap is a corporate-action risk
+  - Stay
+  - Double
+  - Reach zero
+  answer: 0
+  explanation: Check the published ratio.
+- id: aa12
+  type: mcq
+  difficulty: 2
+  prompt: 'Settlement mismatch between legs gives:'
+  options:
+  - Financing and fail risk
+  - Profit
+  - Tax
+  - None
+  answer: 0
+  explanation: Different calendars.
+- id: aa13
+  type: mcq
+  difficulty: 3
+  prompt: 'First question when you see a deviation:'
+  options:
+  - Is parity computed with live FX and correct ratio?
+  - How big is it?
+  - Who else sees it?
+  - What is the ticker?
+  answer: 0
+  explanation: Data first.
+- id: aa14
+  type: mcq
+  difficulty: 2
+  prompt: 'Short-sale restrictions on the local share can:'
+  options:
+  - Block the cheap-ADR trade
+  - Help
+  - Be ignored
+  - Raise the ratio
+  answer: 0
+  explanation: The short leg may not be possible.
+- id: aa15
+  type: mcq
+  difficulty: 2
+  prompt: 'A swap on the ADR and one on the local share carry:'
+  options:
+  - Different dividend and tax treatment
+  - Identical terms
+  - No dividends
+  - No FX
+  answer: 0
+  explanation: Hedge basis.

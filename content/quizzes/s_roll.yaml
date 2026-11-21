@@ -1,0 +1,151 @@
+questions:
+- id: ro01
+  type: mcq
+  difficulty: 1
+  prompt: 'A long position that rolls pays:'
+  options:
+  - Far minus near
+  - Near minus far
+  - Nothing
+  - The spread of the swap
+  answer: 0
+  explanation: Sell near, buy far.
+- id: ro02
+  type: numeric
+  difficulty: 2
+  prompt: Near 4,000, far 4,024. Roll cost in points?
+  answer: 24.0
+  tolerance: 1.0e-09
+  explanation: '24.'
+  unit: points
+- id: ro03
+  type: numeric
+  difficulty: 2
+  prompt: Roll cost for 20 contracts, multiplier 50, 24 points (negative PnL).
+  answer: -24000.0
+  tolerance: 1.0e-06
+  explanation: -24 x 50 x 20 = -24,000.
+  unit: currency units
+- id: ro04
+  type: numeric
+  difficulty: 2
+  prompt: 'Annualised roll cost: near 4,000, far 4,024, dt 0.25 (bps a year).'
+  answer: 240.0
+  tolerance: 1.0e-06
+  explanation: 24/4000/0.25 x 10,000 = 240.
+  unit: bps
+- id: ro05
+  type: numeric
+  difficulty: 2
+  prompt: 'Richness: spread 24, fair spread 20, near 4,000, dt 0.25 (bps a year).'
+  answer: 40.0
+  tolerance: 1.0e-06
+  explanation: 4/4000/0.25 x 10,000 = 40.
+  unit: bps
+- id: ro06
+  type: mcq
+  difficulty: 2
+  prompt: 'The spread is rich when it is:'
+  options:
+  - Wider than the fair carry spread
+  - Narrower than fair
+  - Negative
+  - Zero
+  answer: 0
+  explanation: Richness = spread minus fair.
+- id: ro07
+  type: mcq
+  difficulty: 2
+  prompt: 'Fair spread between expiries equals:'
+  options:
+  - Financing minus dividends between the dates
+  - Dividends only
+  - Spot
+  - Volatility
+  answer: 0
+  explanation: Carry between the dates.
+- id: ro08
+  type: mcq
+  difficulty: 2
+  prompt: Why does rolling four times a year not quadruple the annualised cost?
+  options:
+  - The annualised figure is already a rate
+  - Rolls are free
+  - Each roll is cheaper
+  - Costs cancel
+  answer: 0
+  explanation: Per-roll cost is annualised divided by rolls.
+- id: ro09
+  type: mcq
+  difficulty: 2
+  prompt: 'Most of a long''s roll cost is:'
+  options:
+  - Fair carry, not a mispricing
+  - Pure loss
+  - A fee
+  - Tax
+  answer: 0
+  explanation: The saved financing offsets it.
+- id: ro10
+  type: mcq
+  difficulty: 2
+  prompt: 'A calendar spread typically has margin:'
+  options:
+  - Lower than two outright positions
+  - Higher
+  - Equal
+  - None
+  answer: 0
+  explanation: Credit for offset.
+- id: ro11
+  type: mcq
+  difficulty: 2
+  prompt: 'Rolling on the last day risks:'
+  options:
+  - Poor price with the crowd and no optionality
+  - A lower cost
+  - No risk
+  - Exchange fees
+  answer: 0
+  explanation: Roll week crowding.
+- id: ro12
+  type: mcq
+  difficulty: 2
+  prompt: 'The sandbox does not model open interest because:'
+  options:
+  - The synthetic world has none; the page says so
+  - It is irrelevant
+  - It is secret
+  - It is negative
+  answer: 0
+  explanation: A stated limitation.
+- id: ro13
+  type: mcq
+  difficulty: 3
+  prompt: 'If the funding input is wrong by 25 bps, richness:'
+  options:
+  - Can change sign
+  - Is unchanged
+  - Doubles
+  - Is zero
+  answer: 0
+  explanation: It depends on the carry model.
+- id: ro14
+  type: numeric
+  difficulty: 3
+  prompt: 'Cost per roll: annualised 240 bps, 4 rolls a year.'
+  answer: 60.0
+  tolerance: 1.0e-09
+  explanation: 240/4 = 60.
+  unit: bps
+- id: ro15
+  type: mcq
+  difficulty: 2
+  prompt: 'The desk offers a client a roll through a swap near fair carry. The desk keeps:'
+  options:
+  - The richness
+  - The whole spread
+  - Nothing
+  - The dividend
+  answer: 0
+  explanation: Charge fair, earn richness.
